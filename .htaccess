@@ -1,0 +1,4 @@
+Options All -Indexes
+
+ErrorDocument 403 "You don't have permission to view files in this directory!"
+ErrorDocument 404 "The file you requested was not found on this server!"
