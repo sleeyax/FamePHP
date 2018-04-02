@@ -2,7 +2,8 @@
 A bot for Facebook Messenger using the official API, written in PHP 7.
 
 # Documentation
-There's a lot that needs to be documented. Please be patient, I'm still working on it...
+You can view the full code reference at <a href="https://sleeyax.github.io/FamePHP">github pages</a>!<br>
+For a quick setup guide and some examples, head over to <a href="https://github.com/sleeyax/FamePHP/wiki">this repo's wiki</a>
 
 # Quickstart
 Can't wait to try it out? Edit `api/Config.php` to your requirements and use this code snippet in your callback file (`index.php`)
@@ -28,7 +29,7 @@ if ($user->GetMessageText() == "what's my name?")
 }
 ?>
 ```
-Assuming that you allready know how to set up a testing environment, let's test it out:
+Assuming that you've already set up a testing environment, let's test it out:
 ![example bot screenshot](https://i.imgur.com/v6CzxOu.png)
 
 # Note
