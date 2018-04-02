@@ -1,17 +1,35 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\buttons;
 require_once 'Button.php';
 use Famephp\core\buttons\Button;
+use Famephp\core\templates\GenericTemplate;
 
+/**
+ * ShareButton
+ * @package Buttons
+ */
 class ShareButton extends Button {
-    
     /**
      * Contents of an alternative template to send when share button is clicked
-     * -> Must be generic template object
-     * -> Contains max. 1 URL button
+     * @var GenericTemplate object
      */
     private $shareContents;
 
+    /**
+     * ShareButton constructor.
+     * @param null $shareContents
+     */
     public function __construct($shareContents = null) 
     {
         $this->type = 'element_share';
@@ -23,6 +41,9 @@ class ShareButton extends Button {
         $this->BuildSerializable();
     }
 
+    /**
+     * Build the JSON serializable (content is stored in parent's $this->serializable)
+     */
     private function BuildSerializable() 
     {
         $this->serializable['type'] = $this->type;

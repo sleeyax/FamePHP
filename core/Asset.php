@@ -1,17 +1,35 @@
 <?php
-namespace Famephp\core;
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
 
+namespace Famephp\core;
 require_once ROOTDIR . 'api/ConfigReader.php';
 require_once ROOTDIR . 'api/Database.php';
 use Famephp\api\ConfigReader;
 use Famephp\api\Database;
+
 /**
- * This class is used to store assets from attachment upload API && send API
+ * Get and retrieve message assets from database
+ * @package Core
  */
 class Asset {
-    
+    /**
+     * @var Database connection instance
+     */
     private $db;
 
+    /**
+     * Asset constructor.
+     * @param $dbCredentials database credentials
+     */
     public function __construct($dbCredentials) 
     {
         $this->db = new Database(
@@ -26,8 +44,8 @@ class Asset {
      * Save asset to db
      *
      * @param string $assetName
-     * @param int|string $assetId
-     * @return int
+     * @param int | string $assetId
+     * @return bool
      */
     public function Save($assetName, $assetId) 
     {
@@ -57,10 +75,10 @@ class Asset {
     }
 
     /**
-     * Retrieve asset from database
+     * Retrieve saved asset from database
      *
      * @param string $assetName
-     * @return string|int $attachmentId
+     * @return string $attachmentId
      */
     public function Get($assetName) 
     {
@@ -76,6 +94,5 @@ class Asset {
 
         return $row['Attachmentid'];
     }
-
 }
 ?>

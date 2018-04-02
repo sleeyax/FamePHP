@@ -1,6 +1,21 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\api;
 
+/**
+ * Class GraphRequest
+ * @package API
+ */
 class GraphRequest {
     
     /**
@@ -73,6 +88,10 @@ class GraphRequest {
         curl_close($this->ch);
     }
 
+    /**
+     * Specify whether or not curl should return a response
+     * @param $bool
+     */
     public function SetReturnResponseTo($bool) 
     {
         if (!is_bool($bool)) {
@@ -81,11 +100,19 @@ class GraphRequest {
         $this->returnResponse = $bool;
     }
 
+    /**
+     * Set request contentType
+     * @param $contentType
+     */
     public function SetContentType($contentType) 
     {
         $this->headers['Content-Type'] = $contentType;
     }
 
+    /**
+     * Specify which API data should be sent to
+     * @param $section
+     */
     public function SetGraphSection($section) 
     {
         $this->graphSection = $section;
@@ -95,7 +122,7 @@ class GraphRequest {
      * Convert array of headers to correct format
      *
      * @param array $headers PHP array
-     * @return void
+     * @return array $newHeaders
      */
     private function BuildHeaders($headers) 
     {
@@ -107,11 +134,11 @@ class GraphRequest {
     }
 
     /**
-     * Send message data to facebook's graph API
+     * Send POST data to facebook's graph API
      * Supports both Attachment Upload API & Send API
      * 
-     * @param array|string $payload post data array or json encoded string
-     * @return string|null response data or null
+     * @param array | string $payload post data array or json encoded string
+     * @return string | null response data or null
      */
     public function Post($payload)
     {

@@ -1,25 +1,38 @@
 <?php
 /**
- * Reads & returns configuration file settings
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
+
 namespace Famephp\api;
 
+/**
+ * Class ConfigReader
+ * @package API
+ */
+
 class ConfigReader {
-    
+
+    /**
+     * Array with configuration settings
+     * @var
+     */
     private $config;
 
     /**
-     * Constructor
-     * @throws error
+     * ConfigReader constructor
      */
     private function __construct() { /* Not allowed, use GetInstance() instead!*/}
 
     /**
      * Load config file
-     *
-     * @param string $configFile path
-     * @throws \InvalidArgsException if file doesn't exist
-     * @return void
+     * @param string $configFile path to your config file
      */
     public function Load($configFile) 
     {
@@ -31,11 +44,10 @@ class ConfigReader {
     }
 
     /**
-     * Read value from config file
+     * Read and return value from config file
      *
      * @param string $key
-     * @throws \InvalidArgsException when key doesn't exist
-     * @return string value from $key
+     * @return mixed
      */
     public function Read($key) {
         if (!array_key_exists($key, $this->config)) {
@@ -47,8 +59,7 @@ class ConfigReader {
 
     /**
      * ConfigReader singleton
-     * @return ConfigReader instance
-     * @throws error
+     * @return ConfigReader $instance
      */
     public static function GetInstance() {
         static $instance = null;

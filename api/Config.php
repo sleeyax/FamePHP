@@ -1,7 +1,15 @@
 <?php
 /**
- * Application configuration
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
+
 return [
     'page_access_token' => '<YOUR_PAGE_TOKEN>',
     'verification_token' => '<YOUR_VERIFICATION_TOKEN>',

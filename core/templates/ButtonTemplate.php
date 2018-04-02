@@ -1,9 +1,24 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\templates;
 require_once 'Template.php';
 use Famephp\core\templates\Template;
 use Famephp\core\buttons\ButtonList;
 
+/**
+ * Class ButtonTemplate
+ * @package Templates
+ */
 class ButtonTemplate extends Template {
     /**
      * Text to send with buttons
@@ -39,6 +54,10 @@ class ButtonTemplate extends Template {
         $this->buttons = $buttonsList->GetJsonSerializable();
     }
 
+    /**
+     * Get JSON serializable
+     * @return array
+     */
     public function GetJsonSerializable() 
     {
         return [

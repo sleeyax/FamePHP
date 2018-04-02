@@ -1,11 +1,28 @@
 <?php
-namespace Famephp\core\visuals;
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
 
+namespace Famephp\core\visuals;
 require_once ROOTDIR . 'core/contracts/JsonSerializable.php';
 use Famephp\core\contracts\JsonSerializable;
 
+/**
+ * Class QuickReply
+ * @package Visuals
+ */
 class QuickReply implements JsonSerializable {
-    
+
+    /**
+     * @var array json data
+     */
     private $jsonSerializable;
 
     /**
@@ -26,6 +43,11 @@ class QuickReply implements JsonSerializable {
         $this->jsonSerializable = $preamble->GetJsonSerializable();
         $this->jsonSerializable['quick_replies'] = $quickRepliesButtonList->GetJsonSerializable();
     }
+
+    /**
+     * Get JSON serializable
+     * @return array
+     */
     public function GetJsonSerializable() 
     {
         return $this->jsonSerializable;

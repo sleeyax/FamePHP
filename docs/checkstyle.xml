@@ -1,0 +1,251 @@
+<?xml version="1.0"?>
+<!--
+  ~ FamePHP
+  ~
+  ~ Facebook Messenger bot
+  ~
+  ~ @copyright Copyright (c) 2018 - 2018
+  ~ @author Sleeyax (https://github.com/sleeyax)
+  ~ @link https://github.com/sleeyax/FamePHP
+  ~ @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+  -->
+
+<checkstyle version="1.3.0">
+  <file name="core\Message.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="19" severity="error" message="Argument $recipient is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="19" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="154" severity="error" message="Argument $action is missing from the Docblock of SenderAction" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="154" severity="error" message="No summary for method SenderAction()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="167" severity="error" message="Argument $assetName is missing from the Docblock of SaveAsset" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="167" severity="error" message="Argument $assetId is missing from the Docblock of SaveAsset" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="167" severity="error" message="No summary for method SaveAsset()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="175" severity="error" message="Argument $assetName is missing from the Docblock of GetAsset" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="175" severity="error" message="No summary for method GetAsset()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="15" severity="error" message="No summary for property $config" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="16" severity="error" message="No summary for property $asset" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="17" severity="error" message="No summary for property $recipient" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\ShareButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\ShareButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="15" severity="error" message="Argument $shareContents is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="15" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="26" severity="error" message="No summary for method BuildSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\contracts\JsonSerializable.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="3" severity="error" message="No summary for interface \Famephp\core\contracts\JsonSerializable" source="phpDocumentor.file.PPC:ERR-50009"/>
+    <error line="5" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="api\ConfigReader.php">
+    <error line="7" severity="error" message="No summary for class \Famephp\api\ConfigReader" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="9" severity="error" message="No summary for property $config" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\templates\ButtonTemplate.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="7" severity="error" message="No summary for class \Famephp\core\templates\ButtonTemplate" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="42" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="api\Config.php"/>
+  <file name="core\User.php">
+    <error line="14" severity="error" message="No summary for class \Famephp\core\User" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="19" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="16" severity="error" message="No summary for property $userInfo" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="17" severity="error" message="No summary for property $config" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\templates\OpenGraphTemplate.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\templates\OpenGraphTemplate" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="47" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\attachments\Text.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="5" severity="error" message="No summary for class \Famephp\core\attachments\Text" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="9" severity="error" message="Argument $text is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="9" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="14" severity="error" message="No summary for method GetAttachmentName()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="16" severity="error" message="No summary for method IsLocalAttachment()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="18" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="7" severity="error" message="No summary for property $text" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\URLButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\URLButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+  </file>
+  <file name="core\templates\ListTemplate.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\templates\ListTemplate" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="22" severity="error" message="Argument $elements is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="22" severity="error" message="Argument $button is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="22" severity="error" message="Argument $config is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="22" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="39" severity="error" message="No summary for method PreparePayload()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\attachments\File.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="5" severity="error" message="No summary for class \Famephp\core\attachments\File" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="7" severity="error" message="Argument $attachmentLocation is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $attachmentName is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $reusable is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\attachments\Image.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="5" severity="error" message="No summary for class \Famephp\core\attachments\Image" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="7" severity="error" message="Argument $attachmentLocation is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $attachmentName is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $reusable is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\templates\GenericTemplate.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\templates\GenericTemplate" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="39" severity="error" message="Argument $elements is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="39" severity="error" message="Argument $config is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="39" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="29" severity="error" message="No summary for property $maxElementsCount" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="30" severity="error" message="No summary for property $minElementsCount" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="api\WebHook.php">
+    <error line="11" severity="error" message="No summary for class \Famephp\api\WebHook" source="phpDocumentor.file.PPC:ERR-50005"/>
+  </file>
+  <file name="app\bot.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="4" severity="error" message="No summary for class \Famephp\app\Bot" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="5" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\visuals\QuickReply.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="7" severity="error" message="No summary for class \Famephp\core\visuals\QuickReply" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="29" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="9" severity="error" message="No summary for property $jsonSerializable" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\CallButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\CallButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="11" severity="error" message="Argument $title is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="11" severity="error" message="Argument $phoneNr is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="11" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="26" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="8" severity="error" message="No summary for property $title" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="9" severity="error" message="No summary for property $phoneNumber" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="api\GraphRequest.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="4" severity="error" message="No summary for class \Famephp\api\GraphRequest" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="76" severity="error" message="Argument $bool is missing from the Docblock of SetReturnResponseTo" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="76" severity="error" message="No summary for method SetReturnResponseTo()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="84" severity="error" message="Argument $contentType is missing from the Docblock of SetContentType" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="84" severity="error" message="No summary for method SetContentType()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="89" severity="error" message="Argument $section is missing from the Docblock of SetGraphSection" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="89" severity="error" message="No summary for method SetGraphSection()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\attachments\Video.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="5" severity="error" message="No summary for class \Famephp\core\attachments\Video" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="7" severity="error" message="Argument $attachmentLocation is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $attachmentName is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $reusable is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\Asset.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="15" severity="error" message="Argument $dbCredentials is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="15" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="13" severity="error" message="No summary for property $db" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="api\Database.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="12" severity="error" message="Argument $host is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="12" severity="error" message="Argument $dbname is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="12" severity="error" message="Argument $username is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="12" severity="error" message="Argument $password is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="12" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="133" severity="error" message="No summary for method AffectedRows()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="9" severity="error" message="No summary for property $connection" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="10" severity="error" message="No summary for property $stmt" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\quickReplies\PhoneQuickReplyButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\QuickReplies\PhoneQuickReplyButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="8" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\attachments\Audio.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="5" severity="error" message="No summary for class \Famephp\core\attachments\Audio" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="7" severity="error" message="Argument $attachmentLocation is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $attachmentName is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="Argument $reusable is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="7" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\Bootstrap.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+  </file>
+  <file name="core\buttons\ButtonList.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="16" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="31" severity="error" message="No summary for method GetButtonCount()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="33" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="12" severity="error" message="No summary for property $buttonListSerializable" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="14" severity="error" message="No summary for property $buttonCount" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\templates\Template.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="7" severity="error" message="No summary for class \Famephp\core\templates\Template" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="11" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="9" severity="error" message="No summary for property $type" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="10" severity="error" message="No summary for property $payload" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\Button.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="7" severity="error" message="No summary for class \Famephp\core\buttons\Button" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="10" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="8" severity="error" message="No summary for property $serializable" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="9" severity="error" message="No summary for property $type" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\quickReplies\TextQuickReplyButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\QuickReplies\TextQuickReplyButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+  </file>
+  <file name="index.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+  </file>
+  <file name="core\buttons\quickReplies\EmailQuickReplyButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\QuickReplies\EmailQuickReplyButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="8" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\buttons\PostbackButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\PostbackButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="11" severity="error" message="Argument $title is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="11" severity="error" message="Argument $payload is missing from the Docblock of __construct" source="phpDocumentor.file.PPC:ERR-50015"/>
+    <error line="11" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="22" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="8" severity="error" message="No summary for property $title" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="9" severity="error" message="No summary for property $payload" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\templates\MediaTemplate.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\templates\MediaTemplate" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="72" severity="error" message="No summary for method PreparePayload()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+  <file name="core\attachments\Attachment.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="4" severity="error" message="No summary for class \Famephp\core\attachments\Attachment" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="78" severity="error" message="No summary for method IsReusable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="82" severity="error" message="No summary for method IsLocalAttachment()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="87" severity="error" message="No summary for method GetLocalAttachmentLocation()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="92" severity="error" message="No summary for method GetLocalAttachmentMimeType()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="96" severity="error" message="No summary for method GetLocalAttachmentName()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="110" severity="error" message="No summary for method GetJsonSerializable()" source="phpDocumentor.file.PPC:ERR-50008"/>
+    <error line="25" severity="error" message="No summary for property $localAttachmentLocation" source="phpDocumentor.file.PPC:ERR-50007"/>
+    <error line="26" severity="error" message="No summary for property $localAttachmentMimeType" source="phpDocumentor.file.PPC:ERR-50007"/>
+  </file>
+  <file name="core\buttons\quickReplies\LocationQuickReplyButton.php">
+    <error line="0" severity="error" message="No summary was found for this file" source="phpDocumentor.file.PPC:ERR-50000"/>
+    <error line="6" severity="error" message="No summary for class \Famephp\core\buttons\QuickReplies\LocationQuickReplyButton" source="phpDocumentor.file.PPC:ERR-50005"/>
+    <error line="8" severity="error" message="No summary for method __construct()" source="phpDocumentor.file.PPC:ERR-50008"/>
+  </file>
+</checkstyle>

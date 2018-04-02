@@ -1,8 +1,23 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\templates;
 require_once 'Template.php';
 use Famephp\core\templates\Template;
 
+/**
+ * Class GenericTemplate
+ * @package Templates
+ */
 class GenericTemplate extends Template {
     /**
      * Whether or not the generic template can be shared (in Messenger)
@@ -14,7 +29,7 @@ class GenericTemplate extends Template {
     /**
      * Aspect ratio of image
      *
-     * @var string horizontal|square
+     * @var string horizontal | square
      */
     private $aspectRatio = 'horizontal';
 
@@ -26,7 +41,15 @@ class GenericTemplate extends Template {
      * @var array
      */
     protected $elements = array();
+
+    /**
+     * @var int max amount of elements allowed
+     */
     protected $maxElementsCount = 10;
+
+    /**
+     * @var int min amount of elements allowed
+     */
     protected $minElementsCount = 0;
 
     /**
@@ -35,12 +58,17 @@ class GenericTemplate extends Template {
      * @var string
      */
     protected $type = 'generic';
-    
+
+    /**
+     * GenericTemplate constructor.
+     * @param      $elements
+     * @param null $config
+     */
     public function __construct($elements, $config = null)
     {
         if (!is_array($elements[0])) 
         {
-            $this->ConstructElements($element);
+            $this->ConstructElements($elements);
         }
         else
         {

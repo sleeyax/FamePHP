@@ -1,14 +1,41 @@
 <?php
-namespace Famephp\api;
 /**
- * Database connection class
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 
+namespace Famephp\api;
+/**
+ * Database connection
+ * @package API
+ */
 class Database {
 
+    /**
+     * Database connection
+     * @var \PDO $connection
+     */
     private $connection;
+
+    /**
+     * SQL query prepared statement handle
+     * @var PDOStatement $stmt
+     */
     private $stmt;
 
+    /**
+     * Database constructor.
+     * @param $host
+     * @param $dbname
+     * @param $username
+     * @param $password
+     */
     public function __construct($host, $dbname, $username, $password) 
     {
         try {
@@ -19,14 +46,13 @@ class Database {
     }
 
     /**
-     * Executes a query
+     * Execute a SQL query
      *
-     * @param string $query
+     * @param string $query SQL query
      * @param array $placeholders associative array
-     * -> array(':param' => $param)
-     * @return void
+     * @return bool true | false on success or failure
      */
-    private function ExecuteQuery($query, $placeholders = null) 
+    private function ExecuteQuery($query, $placeholders = null)
     {
         $this->stmt = $this->connection->prepare($query);
         if ($placeholders != null) {
@@ -39,9 +65,9 @@ class Database {
     }
 
     /**
-     * Fetches the first row after execution of (SELECT) query
+     * Fetches the first row after execution of a query
      *
-     * @return array associative array 
+     * @return array resultset as associative array
      */
     public function FetchRow() 
     {
@@ -49,10 +75,10 @@ class Database {
     }
 
     /**
-     * Return the PDO datatype of a given variable
+     * Returns the PDO datatype of a given variable
      *
-     * @param var $variable
-     * @return constant $datatype
+     * @param mixed $variable (default = \PDO::PARAM_STR)
+     * @return mixed $datatype
      */
     private function GetPdoDataType($variable) 
     {
@@ -80,8 +106,7 @@ class Database {
      * @param string $table
      * @param array $fields
      * @param array $values
-     * -> array(':param' => $param) with '$param' the value & ':param' the placeholder
-     * @return boolean true on success, false on failure
+     * @return bool true | false on success or failure
      */
     public function Insert($table, $fields, $values) {
         $query = "INSERT INTO $table (" . implode(', ', $fields) . ") VALUES (" . implode(', ', array_keys($values)) . ")";
@@ -91,14 +116,11 @@ class Database {
     /**
      * Select data from table
      *
-     * @param string $items
-     * -> '*', 'Username, Password'
-     * @param string $table
-     * @param string $conditions
-     * -> 'Username=:username, Password=:password'
-     * @param array $placeholders
-     * -> array(':username' => 'holly', ':password' => 'nitro007')
-     * @return boolean
+     * @param string $items items to select from table
+     * @param string $table table name
+     * @param string $conditions SQL 'WHERE' conditions (optional)
+     * @param array $placeholders associative array of elements that match $conditions (optional)
+     * @return bool true | false on success or failure
      */
     public function Select($items, $table, $conditions = null, $placeholders = null) 
     {
@@ -110,16 +132,13 @@ class Database {
     }
 
     /**
-     * Update table from db
+     * Update table
      *
-     * @param string $table
-     * @param string $newValues
-     * -> Username=:username
-     * @param string $conditions
-     * -> Id=:id
-     * @param array $placeholders
-     * -> array(':username' => $user, ':id' => '12')
-     * @return boolean
+     * @param string $table table name
+     * @param string $newValues set of values to be updated
+     * @param string $conditions SQL 'WHERE' conditions (optional)
+     * @param array $placeholders associative array of elements that match $conditions (optional)
+     * @return bool true | false on success or failure
      */
     public function Update($table, $newValues, $conditions = null, $placeholders = null)
     {
@@ -130,9 +149,12 @@ class Database {
         return $this->ExecuteQuery($query, $placeholders);
     }
 
+    /**
+     * Returns the affected rows (callable after query execution)
+     * @return mixed $rowCount
+     */
     public function AffectedRows() {
         return $this->stmt->rowCount();
     }
-
 }
 ?>

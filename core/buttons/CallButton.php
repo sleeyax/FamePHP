@@ -1,13 +1,40 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\buttons;
 require_once 'Button.php';
 use Famephp\core\buttons\Button;
 
+/**
+ * CallButton
+ * @package Buttons
+ */
 class CallButton extends Button {
 
+    /**
+     * @var string button title
+     */
     private $title;
+
+    /**
+     * @var string prefixed with '+', see fb docs
+     */
     private $phoneNumber;
 
+    /**
+     * CallButton constructor.
+     * @param $title
+     * @param $phoneNr
+     */
     public function __construct($title, $phoneNr) 
     {
         if (strlen($title) > 20) {
@@ -23,6 +50,10 @@ class CallButton extends Button {
         $this->phoneNumber = $phoneNr;
     }
 
+    /**
+     * Get JSON serializable
+     * @return array
+     */
     public function GetJsonSerializable()  
     {
         return [

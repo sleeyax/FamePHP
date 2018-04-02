@@ -1,13 +1,40 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\buttons;
 require_once 'Button.php';
 use Famephp\core\buttons\Button;
 
+/**
+ * PostbackButton
+ * @package Buttons
+ */
 class PostbackButton extends Button {
-    
+
+    /**
+     * @var string button title
+     */
     private $title;
+
+    /**
+     * @var string data to send
+     */
     private $payload;
 
+    /**
+     * PostbackButton constructor.
+     * @param $title
+     * @param $payload
+     */
     public function __construct($title, $payload) 
     {
         if (strlen($title) > 20) {
@@ -19,6 +46,10 @@ class PostbackButton extends Button {
         $this->payload = $payload;
     }
 
+    /**
+     * Get JSON serializable
+     * @return array
+     */
     public function GetJsonSerializable() 
     {
         return [

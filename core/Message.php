@@ -1,4 +1,15 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core;
 require_once ROOTDIR . 'api/ConfigReader.php';
 require_once ROOTDIR . 'api/WebHook.php';
@@ -6,16 +17,31 @@ require_once ROOTDIR . 'api/GraphRequest.php';
 use Famephp\api\ConfigReader;
 use Famephp\api\WebHook;
 use Famephp\api\GraphRequest;
+
 /**
- * Class for sending messages to the user (bot -> user)
+ * Send messages to user
+ * @package Core
  */
-
 class Message {
-
+    /**
+     * @var ConfigReader instance
+     */
     private $config;
+
+    /**
+     * @var Message asset
+     */
     private $asset;
+
+    /**
+     * @var Message recipient
+     */
     private $recipient;
 
+    /**
+     * Message constructor.
+     * @param $recipient
+     */
     public function __construct($recipient)
     {
         $this->config = ConfigReader::GetInstance();
@@ -24,9 +50,9 @@ class Message {
     }
 
     /**
-     * Create $this->asset property for later use
+     * Create asset property for later use
      *
-     * @param array $databaseSettings from config or manually specified
+     * @param array $databaseSettings from config or manually specified (optional)
      * @return void
      */
     public function NewAssetHandler($databaseSettings = null) {
@@ -36,7 +62,7 @@ class Message {
     }
 
     /**
-     * Upload an asset using $this->Send() Attachment API
+     * Upload an asset using attachment API
      *
      * @param object $attachment
      * @return void
@@ -47,16 +73,9 @@ class Message {
 
     /**
      * Send a message to the user
-     * Supports both Attachment Upload API & Send API
-     * 
-     * Attachment upload API
-     * -> $graphSection = 'message_attachments'
-     * 
-     * Send API
-     * -> $graphSection = 'message'
-     * 
-     * @param object $obj object
-     * @param string $graphSection messages|message_attachments
+     *
+     * @param object $obj object to send
+     * @param string $graphSection API messages | message_attachments
      * @return void
      */
     public function Send($obj, $graphSection = 'messages')
@@ -129,9 +148,9 @@ class Message {
     }
 
     /**
-     * Show 'typing...' animation or not
+     * Toggle typing animation
      *
-     * @param string $toggle on|off
+     * @param string $toggle on | off
      * @return void
      */
     public function IsTyping($toggle = 'on') {
@@ -151,6 +170,10 @@ class Message {
         $this->SenderAction('mark_seen');
     }
 
+    /**
+     * Set and send sender_action
+     * @param $action
+     */
     private function SenderAction($action) {
          $payload = [
             'recipient' => [
@@ -164,6 +187,12 @@ class Message {
         $this->graph->CloseSession();
     }
 
+    /**
+     * Save message asset to database
+     * @param $assetName
+     * @param $assetId
+     * @return mixed
+     */
     private function SaveAsset($assetName, $assetId) 
     {
         if ($this->asset == null) {
@@ -172,6 +201,11 @@ class Message {
         return $this->asset->Save($assetName, $assetId);
     }
 
+    /**
+     * Get message asset from database
+     * @param $assetName
+     * @return mixed
+     */
     public function GetAsset($assetName) 
     {
         if ($this->asset == null) {

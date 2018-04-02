@@ -1,8 +1,23 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\templates;
 require_once 'Template.php';
 use Famephp\core\templates\Template;
 
+/**
+ * Class MediaTemplate
+ * @package Templates
+ */
 class MediaTemplate extends Template {
     /**
      * Elements to send
@@ -14,7 +29,7 @@ class MediaTemplate extends Template {
     /**
      * Media type
      *
-     * @var string image|video 
+     * @var string image | video
      */
     private $mediaType;
 
@@ -41,8 +56,8 @@ class MediaTemplate extends Template {
 
     /**
      * MediaTemplate constructor.
-     * @param string|int $media - can be attachment_id or URL
-     * @param object|null $buttons
+     * @param string | int $media - can be attachment_id or URL
+     * @param object | null $buttons
      * @param bool $isVideo - whether or not the url/id is a video
      */
     public function __construct($media, $buttons = null, $isVideo = true)
@@ -69,6 +84,10 @@ class MediaTemplate extends Template {
         
         $this->PreparePayload();
     }
+
+    /**
+     * Prepare payload for sending
+     */
     private function PreparePayload() 
     {
         $this->payload['template_type'] = $this->type;

@@ -1,13 +1,28 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\templates;
 require_once 'GenericTemplate.php';
 use Famephp\core\templates\GenericTemplate;
 
+/**
+ * Class ListTemplate
+ * @package Templates
+ */
 class ListTemplate extends GenericTemplate {
     /**
      * Sets the format of the first list items
      *
-     * @var string compact|large
+     * @var string compact | large
      */
     private $topElementStyle = 'compact';
 
@@ -19,6 +34,12 @@ class ListTemplate extends GenericTemplate {
      */
     private $button;
 
+    /**
+     * ListTemplate constructor.
+     * @param      $elements
+     * @param null $button
+     * @param null $config
+     */
     public function __construct($elements, $button = null, $config = null) {
         $this->type = 'list';
         $this->minElementsCount = 2;
@@ -36,6 +57,9 @@ class ListTemplate extends GenericTemplate {
         parent::__construct($elements, $config);
     }
 
+    /**
+     * Prepare payload for sending
+     */
     protected function PreparePayload() {
         $this->payload['template_type'] = $this->type;
         $this->payload['top_element_style'] = $this->topElementStyle;

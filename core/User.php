@@ -1,6 +1,13 @@
 <?php
 /**
- * Class for user side stuff (user -> bot)
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 
 namespace Famephp\core;
@@ -11,11 +18,27 @@ use Famephp\api\WebHook;
 use Famephp\api\ConfigReader;
 use Famephp\api\GraphRequest;
 
+/**
+ * Get bot-user info, goes hand in hand with Message class
+ * @package Core
+ */
 class User {
 
+    /**
+     * User info
+     * @var array
+     */
     private $userInfo = array();
+
+    /**
+     * Instance
+     * @var ConfigReader
+     */
     private $config;
 
+    /**
+     * User constructor.
+     */
     public function __construct()
     {
         $this->config = ConfigReader::GetInstance();
@@ -23,9 +46,9 @@ class User {
     }
 
     /**
-     * Get the user message text
+     * Get user message text
      *
-     * @return null|string
+     * @return null | string
      * @throws \InvalidArgsException
      */
     public function GetMessageText()
@@ -35,11 +58,11 @@ class User {
     }
 
     /**
-     * Get the user message payload
+     * Get user message payload
      * Payloads are always case sensitive
      *
-     * @param string $type of payload to search for
-     * @return null|string payload
+     * @param string $type type of payload to search for
+     * @return null | string payload
      */
     public function GetMessagePayload($type = 'quick_reply') 
     {
@@ -47,9 +70,9 @@ class User {
     }
 
     /**
-     * Get the unique ID of the user
+     * Get senderID of sent message
      *
-     * @return string|null
+     * @return string | null
      */
     private function GetId() 
     {
@@ -57,7 +80,7 @@ class User {
     }
 
     /**
-     * Get user infomation in an array
+     * Get all user infomation in an array
      * Array keys: first_name, last_name, profile_pic, id
      *
      * @param bool $refreshInfo whether or not to re-fetch the info from facebook

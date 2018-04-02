@@ -1,18 +1,39 @@
 <?php
-namespace Famephp\core\buttons;
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
 
+namespace Famephp\core\buttons;
 require_once ROOTDIR . 'core/contracts/JsonSerializable.php';
 use Famephp\core\contracts\JsonSerializable;
 /**
  * Helper class for chaining a list of buttons
+ * @package Buttons
  */
-
 class ButtonList implements JsonSerializable {
 
+    /**
+     *  Array of serializable buttons
+     * @var array $buttonListSerializable
+     */
     private $buttonListSerializable = array();
 
+    /**
+     * Amount of buttons is list
+     * @var int $buttonCount
+     */
     private $buttonCount = 0;
 
+    /**
+     * ButtonList constructor.
+     */
     public function __construct() 
     {
         for ($i=0; $i<func_num_args(); $i++) 
@@ -28,8 +49,16 @@ class ButtonList implements JsonSerializable {
         }
     }
 
+    /**
+     * Returns amount of buttons in list
+     * @return int
+     */
     public function GetButtonCount() { return $this->buttonCount; }
 
+    /**
+     * Get JSON serializable
+     * @return array
+     */
     public function GetJsonSerializable() 
     {
         return $this->buttonListSerializable;

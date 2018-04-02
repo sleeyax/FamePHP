@@ -1,34 +1,48 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\attachments;
 
+/**
+ * Attachment extendable base class
+ */
 abstract class Attachment {
     /**
-     * attachment type
-     *
-     * @var string
+     * @var string attachment type
      */
     protected $type;
 
     /**
-     * Payload data
-     *
-     * @var array
+     * @var array Payload data
      */
     private $payload = array();
     
     /**
-     * Specifies whether or not the attachment is a local file on the computer
-     *
-     * @var boolean
+     * @var boolean Specifies whether or not the attachment is a local file on the computer
      */
     private $isLocalAttachment = false;
+
+    /**
+     * @var string location of attachment
+     */
     private $localAttachmentLocation;
+
+    /**
+     * @var string mimetype of attachment
+     */
     private $localAttachmentMimeType;
     
     /**
-     * The name of the attachment
-     *
-     * @var string|null
+     * @var string | null The name of the attachment
      */
     private $attachmentName;
 
@@ -42,9 +56,9 @@ abstract class Attachment {
     /**
      * Constructor
      *
-     * @param string $attachment url|local file|attachment_id
+     * @param string $attachment url | local file | attachment_id
      * @param string $attachmentName name of the attachment (local file only)
-     * @param boolean $reusable specify whether or not the file will be reusable using its attachment_id
+     * @param boolean $reusable specify whether or not the file will be reusable using attachment_id
      */
     protected function __construct($attachment, $attachmentName, $reusable)
     {
@@ -75,24 +89,45 @@ abstract class Attachment {
         }
     }
 
+    /**
+     * Whether or not the attachment is reuasable
+     * @return bool
+     */
     public function IsReusable() {
         return $this->isReusable;
     }
 
+    /**
+     * Whether or not the attachment is locally stored on the computer
+     * @return bool
+     */
     public function IsLocalAttachment() 
     {
         return $this->isLocalAttachment;
     }
 
+    /**
+     * Return attachment location
+     * @return string location
+     */
     public function GetLocalAttachmentLocation() 
     {
         return $this->localAttachmentLocation;
     }
 
+    /**
+     * Return attachment mimetype
+     * @return string
+     */
     public function GetLocalAttachmentMimeType() 
     {
         return $this->localAttachmentMimeType;
     }
+
+    /**
+     * Return the name of the attachment
+     * @return null | string
+     */
     public function GetLocalAttachmentName() 
     {
         return $this->attachmentName;
@@ -101,12 +136,16 @@ abstract class Attachment {
     /**
      * Alias for GetLocalAttachmentName()
      *
-     * @return string $this->attachmentName
+     * @return string $attachmentName
      */
     public function GetAttachmentName() {
         return $this->attachmentName;
     }
 
+    /**
+     * Return JSON serializable
+     * @return array json serializable
+     */
     public function GetJsonSerializable() 
     {
         return [

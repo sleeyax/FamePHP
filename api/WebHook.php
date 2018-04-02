@@ -1,13 +1,23 @@
 <?php
 /**
- * Creates a new webhook with facebook's server
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 
 namespace Famephp\api;
-
 require_once 'ConfigReader.php';
 use Famephp\api\ConfigReader;
 
+/**
+ * Class WebHook
+ * @package API
+ */
 class WebHook {
 
     /**

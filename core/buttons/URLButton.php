@@ -1,8 +1,23 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\buttons;
 require_once 'Button.php';
 use Famephp\core\buttons\Button;
 
+/**
+ * URLButton
+ * @package Buttons
+ */
 class URLButton extends Button {
     /**
      * Button title
@@ -21,7 +36,7 @@ class URLButton extends Button {
     /**
      * Height ratio of webview
      *
-     * @var string full|compact|tall
+     * @var string full | compact | tall
      */
     private $webviewHeightRatio = 'full';
 

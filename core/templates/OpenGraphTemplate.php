@@ -1,8 +1,23 @@
 <?php
+/**
+ * FamePHP
+ *
+ * Facebook Messenger bot
+ *
+ * @copyright Copyright (c) 2018 - 2018
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 namespace Famephp\core\templates;
 require_once 'Template.php';
 use Famephp\core\templates\Template;
 
+/**
+ * Class OpenGraphTemplate
+ * @package Templates
+ */
 class OpenGraphTemplate extends Template {
 
     /**
@@ -44,6 +59,10 @@ class OpenGraphTemplate extends Template {
         $this->buttons = $buttons->GetJsonSerializable();
     }
 
+    /**
+     * Get JSON serializable
+     * @return array
+     */
     public function GetJsonSerializable() 
     {
        return [
