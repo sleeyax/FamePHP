@@ -12,21 +12,22 @@
 
 // Load required components
 require_once 'core/Bootstrap.php';
-use Famephp\core\User;
-use Famephp\core\Message;
+use Famephp\core;
 
-// Specify modules we want to use
+// Specify modules you want to use
 require_once ROOTDIR . 'core/attachments/Text.php';
 use Famephp\core\attachments\Text;
 
-// Read message & Send response
-$user = new User();
-$message = new Message($user->GetInfo(true)['id']);
+// Initialize user
+$user = new Core\User();
 
-if ($user->GetMessageText() == "test")
-{
+// Create message object
+$message = new Core\Message($user->GetInfo()['id']);
+
+// Read message & send reply
+if ($user->GetMessageText() == "hello") {
+    $firstname = $user->GetInfo()['first_name'];
     $message->Send(
-        new Text('Congratulations! This bot has been configured correctly :D')
+        new Text("Hi, $firstname")
     );
 }
-?>

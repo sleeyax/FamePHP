@@ -15,6 +15,7 @@ require_once 'Attachment.php';
 
 /**
  * File attachment
+ * @package Attachments
  */
 class File extends Attachment {
     /**

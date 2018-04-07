@@ -12,6 +12,8 @@
 
 namespace Famephp\core\templates;
 require_once 'Template.php';
+
+use Famephp\core\buttons\ButtonList;
 use Famephp\core\templates\Template;
 
 /**
@@ -39,15 +41,16 @@ class OpenGraphTemplate extends Template {
      * Constructor
      *
      * @param string $url
-     * @param array $buttons
+     * @param ButtonList $buttons
      */
     public function __construct($url, $buttons) 
     {
         if (!preg_match('/http[s]{0,1}:\/\//', $url) || strlen($url) > 80) {
             throw new \InvalidArgumentException('$url must be a valid URL of max. 80 chars when using OpenGraphTemplate! (http[s]://<yoursite>)');
         }
+
         if (!is_object($buttons)) {
-             throw new \InvalidArgumentException('$buttons must be a button object when using OpenGraphTemplate!');
+             throw new \InvalidArgumentException('$buttons must be a ButtonList object when using OpenGraphTemplate!');
         }else{
             if ($buttons->GetButtonCount() > 3) {
                 throw new \InvalidArgumentException('max 3 $buttons allowed when using OpenGraphTemplate!');

@@ -15,6 +15,7 @@ require_once 'Attachment.php';
 
 /**
  * Audio attachment
+ * @package Attachments
  */
 class Audio extends Attachment {
     /**

@@ -20,13 +20,6 @@ use Famephp\core\templates\Template;
  */
 class MediaTemplate extends Template {
     /**
-     * Elements to send
-     *
-     * @var array
-     */
-    private $elements;
-
-    /**
      * Media type
      *
      * @var string image | video

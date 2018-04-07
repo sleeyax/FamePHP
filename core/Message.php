@@ -23,6 +23,13 @@ use Famephp\api\GraphRequest;
  * @package Core
  */
 class Message {
+
+    /**
+     * @var string messaging type
+     * new since 7 May, 2018, see: https://developers.facebook.com/docs/messenger-platform/send-messages
+     */
+    private $type;
+
     /**
      * @var ConfigReader instance
      */
@@ -41,12 +48,14 @@ class Message {
     /**
      * Message constructor.
      * @param $recipient
+     * @param string $type response type RESPONSE | UPDATE | MESSAGE_TAG
      */
-    public function __construct($recipient)
+    public function __construct($recipient, $type = "RESPONSE")
     {
         $this->config = ConfigReader::GetInstance();
         $this->graph = new GraphRequest($this->config->Read('page_access_token'));
         $this->recipient = $recipient;
+        $this->type = $type;
     }
 
     /**
@@ -87,12 +96,13 @@ class Message {
 
         // Build payload
         $payload = [
+            'messaging_type' => $this->type,
             'recipient' => [
                 'id' => $this->recipient
             ],
             'message' => $obj->GetJsonSerializable()
         ];
-        
+
         // Encode request (attachments)
         $toSend = json_encode($payload);
         if (method_exists($obj, 'IsLocalAttachment'))
@@ -113,20 +123,23 @@ class Message {
             }
         }
 
-        // DEBUGGING
+
+
+        // Send request
+        $this->graph->OpenSession();
+        $this->graph->SetGraphSection($graphSection);
+        $response = $this->graph->Post($toSend);
+        $this->graph->CloseSession();
+
+        /// DEBUGGING
         if ($this->config->Read('DEBUG') == true) {
             if (is_array($toSend)) {
                 print_r($toSend);
             }else{
                 echo $toSend;
             }
+            echo $response;
         }
-        
-        // Send request
-        $this->graph->OpenSession();
-        $this->graph->SetGraphSection($graphSection);
-        $response = $this->graph->Post($toSend);
-        $this->graph->CloseSession();
         
         // Save asset (attachments)
         $attachmentName = null;

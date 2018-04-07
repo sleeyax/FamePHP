@@ -80,7 +80,6 @@ class ListTemplate extends GenericTemplate {
     {
         if (!is_array($config)) {
             throw new \InvalidArgumentException('$config must be a key=>value pair array!');
-            
         }
 
         $validKeys = ['top_element_style'];

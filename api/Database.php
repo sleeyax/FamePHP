@@ -57,7 +57,11 @@ class Database {
         $this->stmt = $this->connection->prepare($query);
         if ($placeholders != null) {
             foreach ($placeholders as $key => $value) {
-                $this->stmt->bindValue($key, $value, $this->GetPdoDataType($value));
+                if (is_array($value)) {
+                    $this->stmt->bindValue($key, $value[0], $value[1]);
+                }else{
+                    $this->stmt->bindValue($key, $value, $this->GetPdoDataType($value));
+                }
             }
         }
 

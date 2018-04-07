@@ -20,10 +20,10 @@
 <li><a href="../namespaces/Famephp.html"><i class="icon-th"></i> Famephp</a></li>
 <li><a>Packages</a></li>
 <li><a href="../packages/API.html"><i class="icon-folder-open"></i> API</a></li>
+<li><a href="../packages/Attachments.html"><i class="icon-folder-open"></i> Attachments</a></li>
 <li><a href="../packages/Buttons.html"><i class="icon-folder-open"></i> Buttons</a></li>
 <li><a href="../packages/Contracts.html"><i class="icon-folder-open"></i> Contracts</a></li>
 <li><a href="../packages/Core.html"><i class="icon-folder-open"></i> Core</a></li>
-<li><a href="../packages/FamePHP.html"><i class="icon-folder-open"></i> FamePHP</a></li>
 <li><a href="../packages/QuickReplies.html"><i class="icon-folder-open"></i> QuickReplies</a></li>
 <li><a href="../packages/Templates.html"><i class="icon-folder-open"></i> Templates</a></li>
 <li><a href="../packages/Visuals.html"><i class="icon-folder-open"></i> Visuals</a></li>
@@ -91,6 +91,8 @@
 <li class="property private "><a href="#property_asset" title="$asset() :: "><span class="description">asset</span><pre>$asset</pre></a></li>
 <li class="property private "><a href="#property_config" title="$config() :: "><span class="description">instance</span><pre>$config</pre></a></li>
 <li class="property private "><a href="#property_recipient" title="$recipient() :: "><span class="description">recipient</span><pre>$recipient</pre></a></li>
+<li class="property private "><a href="#property_type" title="$type() :: "><span class="description">messaging type
+new since 7 May, 2018, see: &lt;a href="https://developers.facebook.com/docs/messenger-platform/send-messages"&gt;https://developers.facebook.com/docs/messenger-platform/send-messages&lt;/a&gt;</span><pre>$type</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -190,12 +192,15 @@
 </div>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Message constructor.</h2>
-<pre>__construct($recipient) </pre>
+<pre>__construct($recipient, string $type<code> = "RESPONSE"</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument"><h4>$recipient</h4></div>
+<div class="subelement argument">
+<h4>$type</h4>
+<code>string</code><p>response type RESPONSE | UPDATE | MESSAGE_TAG</p></div>
 </div></div>
 </div>
 <a id="method_SaveAsset"></a><div class="element clickable method private method_SaveAsset " data-toggle="collapse" data-target=".method_SaveAsset .collapse" title="private">
@@ -253,6 +258,17 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_type"> </a><div class="element clickable property private property_type" data-toggle="collapse" data-target=".property_type .collapse" title="private">
+<h2>messaging type
+new since 7 May, 2018, see: &lt;a href="https://developers.facebook.com/docs/messenger-platform/send-messages"&gt;https://developers.facebook.com/docs/messenger-platform/send-messages&lt;/a&gt;</h2>
+<pre>$type : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -261,7 +277,7 @@
             Modified template by <a href="https://github.com/sleeyax">Sleeyax</a><br>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            updated on 2018-04-02T15:21:10+02:00.<br></footer></div>
+            updated on 2018-04-07T20:17:59+02:00.<br></footer></div>
 </div>
 </body>
 </html>

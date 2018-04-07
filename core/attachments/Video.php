@@ -15,6 +15,7 @@ require_once 'Attachment.php';
 
 /**
  * Video attachment
+ * @package Attachments
  */
 class Video extends Attachment {
     /**

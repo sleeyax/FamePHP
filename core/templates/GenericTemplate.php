@@ -66,7 +66,7 @@ class GenericTemplate extends Template {
      */
     public function __construct($elements, $config = null)
     {
-        if (!is_array($elements[0])) 
+        if (count($elements) == count($elements, COUNT_RECURSIVE))
         {
             $this->ConstructElements($elements);
         }

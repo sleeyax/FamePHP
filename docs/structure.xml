@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="FamePHP" version="2.8.5">
   <partials/>
-  <file path="core\Message.php" generated-path="core.Message.html" hash="ad6bdc56c310de6d0ba7572f42a2b961" package="FamePHP">
+  <file path="core\Message.php" generated-path="core.Message.html" hash="5636652d27108a7b506f56644589eae8" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -23,66 +23,86 @@
         <long-description></long-description>
         <tag name="package" line="25" description="Core"/>
       </docblock>
-      <property static="false" visibility="private" namespace="Famephp\core" line="29" package="Core">
+      <property static="false" visibility="private" namespace="Famephp\core" line="31" package="Core">
+        <name>$type</name>
+        <full_name>\Famephp\core\Message::type</full_name>
+        <default></default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="31" description="&lt;p&gt;messaging type&#10;new since 7 May, 2018, see: &lt;a href=&quot;https://developers.facebook.com/docs/messenger-platform/send-messages&quot;&gt;https://developers.facebook.com/docs/messenger-platform/send-messages&lt;/a&gt;&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="private" namespace="Famephp\core" line="36" package="Core">
         <name>$config</name>
         <full_name>\Famephp\core\Message::config</full_name>
         <default></default>
-        <docblock line="29">
+        <docblock line="36">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="29" description="&lt;p&gt;instance&lt;/p&gt;" type="\Famephp\api\ConfigReader" variable="">
+          <tag name="var" line="36" description="&lt;p&gt;instance&lt;/p&gt;" type="\Famephp\api\ConfigReader" variable="">
             <type>\Famephp\api\ConfigReader</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core" line="34" package="Core">
+      <property static="false" visibility="private" namespace="Famephp\core" line="41" package="Core">
         <name>$asset</name>
         <full_name>\Famephp\core\Message::asset</full_name>
         <default></default>
-        <docblock line="34">
+        <docblock line="41">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="34" description="&lt;p&gt;asset&lt;/p&gt;" type="\Famephp\core\Message" variable="">
+          <tag name="var" line="41" description="&lt;p&gt;asset&lt;/p&gt;" type="\Famephp\core\Message" variable="">
             <type>\Famephp\core\Message</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core" line="39" package="Core">
+      <property static="false" visibility="private" namespace="Famephp\core" line="46" package="Core">
         <name>$recipient</name>
         <full_name>\Famephp\core\Message::recipient</full_name>
         <default></default>
-        <docblock line="39">
+        <docblock line="46">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="39" description="&lt;p&gt;recipient&lt;/p&gt;" type="\Famephp\core\Message" variable="">
+          <tag name="var" line="46" description="&lt;p&gt;recipient&lt;/p&gt;" type="\Famephp\core\Message" variable="">
             <type>\Famephp\core\Message</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="45" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="53" package="Core">
         <name>__construct</name>
         <full_name>\Famephp\core\Message::__construct()</full_name>
-        <docblock line="45">
+        <docblock line="53">
           <description>Message constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="45" description="" type="" variable="$recipient"/>
+          <tag name="param" line="53" description="" type="" variable="$recipient"/>
+          <tag name="param" line="53" description="&lt;p&gt;response type RESPONSE | UPDATE | MESSAGE_TAG&lt;/p&gt;" type="string" variable="$type">
+            <type>string</type>
+          </tag>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$recipient</name>
           <default></default>
           <type/>
         </argument>
+        <argument line="0" by_reference="false">
+          <name>$type</name>
+          <default>"RESPONSE"</default>
+          <type>string</type>
+        </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="58" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="67" package="Core">
         <name>NewAssetHandler</name>
         <full_name>\Famephp\core\Message::NewAssetHandler()</full_name>
-        <docblock line="58">
+        <docblock line="67">
           <description>Create asset property for later use</description>
           <long-description></long-description>
-          <tag name="param" line="58" description="&lt;p&gt;from config or manually specified (optional)&lt;/p&gt;" type="array" variable="$databaseSettings">
+          <tag name="param" line="67" description="&lt;p&gt;from config or manually specified (optional)&lt;/p&gt;" type="array" variable="$databaseSettings">
             <type>array</type>
           </tag>
-          <tag name="return" line="58" description="" type="void">
+          <tag name="return" line="67" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -92,16 +112,16 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="70" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="79" package="Core">
         <name>UploadAsset</name>
         <full_name>\Famephp\core\Message::UploadAsset()</full_name>
-        <docblock line="70">
+        <docblock line="79">
           <description>Upload an asset using attachment API</description>
           <long-description></long-description>
-          <tag name="param" line="70" description="" type="object" variable="$attachment">
+          <tag name="param" line="79" description="" type="object" variable="$attachment">
             <type>object</type>
           </tag>
-          <tag name="return" line="70" description="" type="void">
+          <tag name="return" line="79" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -111,19 +131,19 @@
           <type>object</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="81" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="90" package="Core">
         <name>Send</name>
         <full_name>\Famephp\core\Message::Send()</full_name>
-        <docblock line="81">
+        <docblock line="90">
           <description>Send a message to the user</description>
           <long-description></long-description>
-          <tag name="param" line="81" description="&lt;p&gt;object to send&lt;/p&gt;" type="object" variable="$obj">
+          <tag name="param" line="90" description="&lt;p&gt;object to send&lt;/p&gt;" type="object" variable="$obj">
             <type>object</type>
           </tag>
-          <tag name="param" line="81" description="&lt;p&gt;API messages | message_attachments&lt;/p&gt;" type="string" variable="$graphSection">
+          <tag name="param" line="90" description="&lt;p&gt;API messages | message_attachments&lt;/p&gt;" type="string" variable="$graphSection">
             <type>string</type>
           </tag>
-          <tag name="return" line="81" description="" type="void">
+          <tag name="return" line="90" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -138,16 +158,16 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="156" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="169" package="Core">
         <name>IsTyping</name>
         <full_name>\Famephp\core\Message::IsTyping()</full_name>
-        <docblock line="156">
+        <docblock line="169">
           <description>Toggle typing animation</description>
           <long-description></long-description>
-          <tag name="param" line="156" description="&lt;p&gt;on | off&lt;/p&gt;" type="string" variable="$toggle">
+          <tag name="param" line="169" description="&lt;p&gt;on | off&lt;/p&gt;" type="string" variable="$toggle">
             <type>string</type>
           </tag>
-          <tag name="return" line="156" description="" type="void">
+          <tag name="return" line="169" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
@@ -157,24 +177,24 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="169" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="182" package="Core">
         <name>MarkSeen</name>
         <full_name>\Famephp\core\Message::MarkSeen()</full_name>
-        <docblock line="169">
+        <docblock line="182">
           <description>Mark a user message as 'seen'</description>
           <long-description></long-description>
-          <tag name="return" line="169" description="" type="void">
+          <tag name="return" line="182" description="" type="void">
             <type>void</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\core" line="177" package="Core">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\core" line="190" package="Core">
         <name>SenderAction</name>
         <full_name>\Famephp\core\Message::SenderAction()</full_name>
-        <docblock line="177">
+        <docblock line="190">
           <description>Set and send sender_action</description>
           <long-description></long-description>
-          <tag name="param" line="177" description="" type="" variable="$action"/>
+          <tag name="param" line="190" description="" type="" variable="$action"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$action</name>
@@ -182,15 +202,15 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\core" line="196" package="Core">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\core" line="209" package="Core">
         <name>SaveAsset</name>
         <full_name>\Famephp\core\Message::SaveAsset()</full_name>
-        <docblock line="196">
+        <docblock line="209">
           <description>Save message asset to database</description>
           <long-description></long-description>
-          <tag name="param" line="196" description="" type="" variable="$assetName"/>
-          <tag name="param" line="196" description="" type="" variable="$assetId"/>
-          <tag name="return" line="196" description="" type="mixed">
+          <tag name="param" line="209" description="" type="" variable="$assetName"/>
+          <tag name="param" line="209" description="" type="" variable="$assetId"/>
+          <tag name="return" line="209" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -205,14 +225,14 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="209" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core" line="222" package="Core">
         <name>GetAsset</name>
         <full_name>\Famephp\core\Message::GetAsset()</full_name>
-        <docblock line="209">
+        <docblock line="222">
           <description>Get message asset from database</description>
           <long-description></long-description>
-          <tag name="param" line="209" description="" type="" variable="$assetName"/>
-          <tag name="return" line="209" description="" type="mixed">
+          <tag name="param" line="222" description="" type="" variable="$assetName"/>
+          <tag name="return" line="222" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -223,7 +243,7 @@
         </argument>
       </method>
     </class>
-    <source>eJzFWN9T2zgQfmeG/0F0mNruALm7pxs44CilITctZQideyhMRrE3iYtt+SSZkmv7v99Ksh3JPwLlHuphiCPtrna/XX1a5Y/jfJFvbgxevdrcIK/IW5rC5fmlei+/hzBl7I68ByEgmwMnUybr6T9Dli95PF9Iclq/+WFAfvvl19/Jrv4wgrSQC8bJOAFY0gfiL6TMxf5gMI/lopjuhSwdCDMXGIUkzu5Iv9TA8lQJh5AJeIL8YJqw6SClQgIfvBudnl2Mz5SNwebG5kaGMiLHkDUOCMxNyDgcbG5w+KeIOUxYhnNXHz5cvxldkT3i0TwenLJsFs+vgEbA91DHe0T+b5ieI6JPER1ymi+uUACErOQLsfIOZW7s5Tumy9U6ZmzjByr6qgbGkEUEgRB0DoJIRlCTG5wRmzscxWRzKFELEyqELg818RVH8TGm1INK95QT20sSZ0JSDLcSGZiXnMf3VALZDrWw9qnTWLUYLgyyz4iefNwGhzDOY8h67dQCnbYqM+iykLwIJeN7q4VyymlqmWiuUUyxcMmsyEIZs4xMJrUZf6UUGOESWfVsy0Usdo8MTOTQAXd/fwhyVALsBwctrblKOypl8IXYJeA7VnePlDnfyzG4CQ1DDHMi2R1kXtBhs/YV7TqAKZnvXbidclDo6iQh1iwHLpdkhgyR4DhXJVfJNuGknNMl2Y6opFMqYAxSxtlckBlnKSkxQTspzQqaJEsicnRoFkNEfJYrnGkSrGxykAXPyD2Lo0eycwFfTpS75zSLEuB+2wMEtUiSwElVh1B77PiYdKJfCXo25g5h+BZjaO80TXSkyCBt0q4F2/4H6xL2MU8YjQjNypwVAlUIlZKGi1Rl/uRy1JcxNv0MocQtWUs/B3/jQen7ylTQsTMUg9kyO8Qr+WyyGhTe2oA1C9KKBxUNygVUVLg2TPys3lELT82oKYl7XKG3rffiGEx8COCKdb+RDoefg5qBAt3ZaSx3WGOCQLQoZjAgo7yQJFxAeLcajmfE34rFxISn7QZOAtQjF5x90YV2M8ruaRJHJ3xeqAjOHkLQW9D3tF8BmdE4gWjfgJYWQpIpqCIzC2w5lVynqXTwdREnEcnpUtWFVQPlCEb4yXXMq6nJI4dHzVktEUd6qslrruTtTsNuCaRRRdd3j5CE/xIsGwOPEYB/6TRBMl5p3VphOTGdZSGLQO9x5GTiW9kP7DJnujwPyWdcZAJaya8CtzFTCUsBW69oAg+xkKKsBW8k3rGQJie1fST2lVojo8qKiaul5mP+XeGvbVjto0ftToknlkTl62UOvpcWiYxxY8gB8n+6q2hJ573LThV3R+50JtwMd6HzyZK5DXZ67NgZ7bZSSfTbmKnSVsEoI3o7nH68evcWR/1uDR1iVT4NnNVXvXP6llun/D5OQWP9HOUL7Bnt2rWfjmG7tNXzvX8Dvzl7/XE4HF0M3XrtPAq1rBeQw0OCDRK0SEcpIjHp5sAv66RNTerBzi6TE14LNf2FRECHGoQLVhXg2hCrVydUXbblru5uyXaPPuSAhCGEznJP46Z3z9Dicd9hdUeN412GqVvRYcPEJdPtXit8V+o0Yao3aPvjBkbvqzauj6yoU0pll/QUjsJadMvQa2e0bb2u42YJHzySJl17DXNbZU/XS43mnjGquTgCwxMV+DumXD95K8MTPGRuVc9X4tDBtbXRqqV8lGIROel7q5wr4iERA5HdeFK1xZLGmW7fbD/cA7ZEphFg2VJhnlu9l4Jop4bAAbhGtrO5umbzeYJN1TLXXWQWp5rc+jqrql+SRg27l2+EzWbP6YdG4lov6lfGsA9ieKuxMTUkZKa3zDx5+ZI4Q7OZ16pFk4N6hYCUClWTAw94FZF4EcGmCIkAbzI6FrysaHN9rY7V1AI/Mbv+hYFuUvr0Ym0r+57yO2xlVe9a97NUEE8A3ufamD8dTGV4jEb8via89tdLUXSiF3yk65ZYDpHumvU/4Hj9tGujvlW7w41ru9P/1l6UOm7ifkK/6ARmDDjREHOM/r+DQrN8Z3/4g5zfnSjF+6n9Q4y67FRXynaylISii+6ZUdQqvzR+gFb9tbJrsVK1gkVIpHWvsfqL8kbccWm3cGle+nsOkdJn27KhzG6/1gGLB1cDV/3Dxo8guw7Bxg5Wx2QDv5+M2tB1ZgUV/h0f/QdGly+h</source>
+    <source>eJzFWFtv2zYUfg+Q/8AERSUXdrTtZUMyJ3NT1/XQXBAn2EMTCLR0bKuRRI2k0nht//sOqYupm5MGGCYUjUwefjznOxce6veTZJXs7jhv3uzukDfkPY3g8sOles9/ezBn7J6cgRAQL4GTOZPl9B8eS9Y8WK4kOS3fbK9Hfvnp59/IQP/JBGkqV4yTWQiwpo/EXkmZiEPHWQZylc4PPBY5IpvrZQvCIL4n3VKOoakS9iAW8Ax5Zx6yuRNRIYE7H6en4/PZWGE4uzu7OzHKiARN1jwgMbce43C0u8Ph7zTg4LIY564uLq7fTa/IAbFoEjinLF4EyyugPvADXGM9If8XzD8go88RnXCarK5QAIQs5FOx0Q5lbs3tW6bz3VpmTPAjZX0RAzOIfYJECLoEQSQjuJJnPCM39ziKzuaQs+aFVAgdHmriqwIi+GRg6sFlD5QTIXkQL3Nc9SbXCZQiMXwhIlAU/ErO6LqvI6dPBMBh6VQfHiBkCXBxsMjDUnvYZ55woiI+B0lI5YJx9DzaMSjsKHZyspeEBw9UAnmltDjqVNoklwSxkBRV7ILytHA3WMER8gWyC0RPPo3BwQuSAOJOnFKgFauAQZXRL6knGT/YbJRQTiMDoj6Tu1Jzh5qIhKnc07+uxrPLC0wp8o3cXL4bXauXs/FsNpqM3evRpK5tOsfMJYs09mTAYuK6pUL2Zvt+vtOQ7Bfw+70M4GsOiM8ruQrE4DhzAsqarjs8nICc5u6ze0eNVUuVC7hIhaGZF3YFdXCs4GwrQepc6nlIoivZPcRWrwWz1B9xK+6oyeW2FZGoZr63+eyUg/KsDhD0s0oEuSYY6QQDHsMTs7SQrTuMck7X5JVPJZ1TATOQEh0oyIKziOSMIU5E45SG4ZqIBNVdBOATmyXKMzTsbTA5yJTH5IEF/hP+PIcvI6XuBxr7IXC7qQFSnoZhr+LIFqHm2MkJafVNIWiZHqnUWNsoslo7XVlbHJgxnQWFFmzq39vmsJskZNQnNM59lgqVNVRK6q0iFRejy2mXx9j8M3gSy0Ep/RL+Mw1y3TdQvZa8UUXflOkTKy+d7mZQWFsN1gcHLY4OdXLIFRSnx1Yz8W/xjqtU4e6qOTpTZ5DZhwRuDqpvpEXhl7CWUYHq9GvbDUtOkIhGAXIcMk1SSbwVePeb4WBB7L1AuJl5GrdXcYB65IqzLzrQbqfxAw0Df8SXqbJg/OiBTkHb0nr1yIIGIfiHGWlRKiSZgwqybIO9SiSXbsoVfJsGoU8SulZxYcRAPoIWfqoqZpXntavqk0WGx2bd6tekyzKnBWtYWiLwTYz6EZM/d3XcnPZsKRo6OMaC/qdg8Qx4gHT9Q+chFvbNqrujmuXj2GM+6EqAdZ3YRoz0zGRgOoiH5DOCu6AX2QU9JrPKrRFgT+u78BgIKfKIsabiI/NoOCrx8XDYLKv5XaFk9jSW2RglVeGvTTrN40vlsMRTT+Lia/SNbUVpKANMH+mofmigipeOjjacwu4Wn2kPVD3bxs4nQ+au1+/AMT3ZjlJIdGMsVAIoYxSITprTm6uP73HUbl+hTSzCpsaz+qnzq2u7bYvPggg01y9ZfI7NuBmz5tMyfHdUHfteS/NawGt/5uHe3u8Mji8SwAwSQpvf0RXpsJoYZdCuFMXKsrIXHNYgLpnupXSQdW90GjJ1tG70MQ1yyLvx25vJZHo+qWZhaxugZa0eGQ4JtpPQKLhqIRZl3RiVijWk1IMddSxd3qa9ph5CAS3LwFuxIq26HbeRLKirFu/itepZ+lC0gV1ljFaCLO+ynlO9MEqrAWo1WWmilxFeD+6nrNH+q8Ht5T1hZ9HM7kjTskr7kFWQgsJ+5vJP1gbYxWPnTvWMOQ8tVbgELVrSJ4svMidtaxP0qiQRn4GIby2p2mpJg1i3f6Ye1QM6Z6ZmYN6SoZ8bvZuiqF9SUCG4ZLa1Obtmy2Wob2m6C42DSJe9rs6svONly7D7+UbYYvGSfmoqrvWmdgGGfRTDO5PJaZbI2fReNk9evyaVocXCasRi5oNyhx7JFxRNEjziVUbiRQabKqyEeBPStuBlR8N1tUpGUwx8lJW9/Yw6N9dpf2srfEb5PbbCqvct+2EqiCUAb4tNzp9PpgKeIYjd1cSX+loRirp6wye6donh4OuuW/8HHC+3ZmyUXwSqw7VPDpX+udQiX1N13JZ+87/qICuGZQAVa0i9Z3zJSamPudbO8QcOvW5HqbofmR+R1GWpuJI2naUkVLlon5n6jfCLgkdoxF/Du0ZVKnYwChJp3IuMMzq/Ubdc+g1e6h8NOg6RXGcTOSuZ7XptIxYPrhqv+sPIjzC7jcFaBqtjssbf/8zapKrMhir8d3L8L88GnFo=</source>
   </file>
   <file path="core\buttons\ShareButton.php" generated-path="core.buttons.ShareButton.html" hash="9ed4951f4fe6916ab75d33830f30433d" package="FamePHP">
     <docblock line="0">
@@ -561,18 +581,6 @@
     </class>
     <source>eJydVG1P2zAQ/l6p/+EmIaWpgMCYpmmlBVaxDcQYUvdtRZWTHklEYmf2hbYb/PfZeW3TdJtmVYrte+65517c07MkSLodp9/vdqAPH1mMd5/vzL44e+gK8QhfUCnkPkpwBVXmc08kKxn6AcG42vU8G14fHb+Dg+yTA1lKgZAwiRBXbAm9gChR7x3HDylI3UNPxI7KbXbuEIX8EXajnDWlBuwhV/gPeMeNhOvETBFK5+ZqfHk7uTQcTrfT7XCNUYlOOauDLszUExKnhHESMUI16HYk/khDiTPBNcr6VlgONdbS1lTtcp2W0DaUmxIJrqYfsu9NqGhg5JRNGUdMKciNJU2et9b6yHyE8lYVqXgtHoBLQj5XFRh+abReeRiz+tq2JCAButdzWOgqQqGtRFTI8ycmQZEMuV/eOfkmkeGTod8jTZYl0oxyISVbgXgoyAEjjJHTjiDMoHfFKOS1hmnk72kcydQjIQ/rCAmTLM61Ni/rdlRxzKEpJXX1+MFDyj0KdTKzWRWol9Hu7yKyc4KiDWaFD9DTrhHy3NWGEbx9c2SvY8yiQIoFcFzA9Io/sSicX0g/NTW8XHqYGB09K2MAj/GpReAixHrUtCfjhhK8gEkFkeD+K8se1PQvZSVLPeuKD0afkPJsxiLl1LPhFI7h+Rn+ghrByf8lwWLDUM+KgpBvBIM4VVl6LtICkWs5TM/uCSwCfUiVns+i/tVb/EPCexSE6mBEqwRhCFYexxpsA0xph9WIN6yl1OF2Wa6V4BOUoU73J3Mj7JVSXtomWDvA9eTrrX6PtUs9phIplbz9gTSmsjU0bA1gwfh9o1MWI2JeYDpjwXDUsGYIU7DMZpVVtva3UQlbRYLNd5DkRIX7rGJca8k2ZeGzpA2oeXTt0KId6+jNP7h63W/c3EN9vK9bpn9no98V0RBC</source>
   </file>
-  <file path="api\Config.php" generated-path="api.Config.html" hash="a41291ceda622b6526cfbf63a337d385" package="FamePHP">
-    <docblock line="0">
-      <description>FamePHP</description>
-      <long-description>Facebook Messenger bot</long-description>
-      <tag name="copyright" line="0" description="Copyright (c) 2018 - 2018"/>
-      <tag name="author" line="0" description="Sleeyax (https://github.com/sleeyax)"/>
-      <tag name="link" line="0" description="https://github.com/sleeyax/FamePHP" link="https://github.com/sleeyax/FamePHP"/>
-      <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
-      <tag name="package" line="0" description="FamePHP"/>
-    </docblock>
-    <source>eJyNUl1v1DAQfI+U/7A8pT0dNfCE2nKlPdJygt6d+oGEUBU5ziax4tiR7TS9f8/mg6MFIZEXez0zO551Ts+asgkDNpuFAczgkte4/bzt91MtMDWmgmt0DnWBFlLj9/BHYZqdlUXpYbnfHYhDePfm7Xt4PSwjkbe+NBZuFeKOP8FB6X3jjhkrpC/b9EiYmrkROxwFSuoK/s1iz27akwVqh//BZ6kyKau582jZ19UyXt/GfQ8WBmFg0bdWww86oC9qeIEJF4KiJ95UqCP4sIDo9Pvm/ibZnl/Fyd3mS7xeRPNJ8IhW5lJwL43+W/Etvlldrpbnd6vN+k9lYzGXTyM7mgNjgEfFMbSUKXoVgcxhZ1rouPbgzXBM2WquMwdKVj2pRNWQ0vgSbSeJ4NCDHOip4rqajAR3mNBLOunlIw6GOVcOB8+LHWSY81b5OXCloKbkNAMHnaQq7U01ZfSY9W2V6dD2/QjJjSW0RFFJXQBV+/tNvhn3PCXu4DgNeABK4/yYWxnB1VDOn+FZqunlRkZOO/pdX+A0C/ubYY15KW+4c52x2TTaEXn4NfZP8cX91QB522IYPJyEwdniJxvM57E=</source>
-  </file>
   <file path="core\User.php" generated-path="core.User.html" hash="ed6b07c8a647db11d08966d9cd7c3d1a" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
@@ -701,7 +709,7 @@ Array keys: first_name, last_name, profile_pic, id</description>
     </class>
     <source>eJylVm1P40YQ/o7EfxidUO0gEl/vQ1VBQ+4KNJeqBQR36gdA1sYZx9s4u+7uhhAd/e+dXb/EjpPCCQsR7+7szDzPM57dXwZZku3vBYeH+3twCL+xOV5/vrbvxTjCsZQz+BO1RjFFBWNpquWPkcxWik8TA2fVmx914MP7H3+GrvvJDdnCJFLBbYq4Yk/gJ8Zk+jgIptwki3EvkvNA52udfEPKxQx2WwW1TK1xhELjK+yDcSrHwZxpgyr4Y3R2cXl7YX0E+3v7e4JsdEaQHQ9EzH0kFZ7s7yn8Z8EVhlLQ2s3V1Zfz0Q30wGMZD/7C8WdiqEfm3gumZ1LEfHqDbILqNfZDxbLkhgxQm9J+odfZkc19EX7LSj3aluW68xOLvqyBIRorcpc2KOAilkcwlaghYWJC4/x3SQy7omBThChlWudKEHszO3VGxBW8ulX4ar19s3GAnjyWfQ7zFRunmvn4yBQwpdiqnAryl0zxR2YQDmxuI9oC/dzO75xscz0S2jAitum5TsyuAJGz2erU5Uvr2qhFZKTqbfpYjKkeIV6IyHApIAwrY7+Tm3wrttBzYBKuu6d5PIJTT+74mLQoMTiIG7umVkPaJHAJdT39htfuqXXnexkJE7IoItVCI2covE7p899tQG0huCKYFzobfDLl6ppShWahBIhFmsIzEFAuputVkyi51HA/Eo8s5ZNPaqovniLMLDUvEEfxiwr7QoG3cTfXlrLiE3Bs/X57dXkttTlnhvmdOw+FUSvv4e79w52Xw6DsGmOkkWeReQ8wGDgYNaILcFv5jJjGkLqi5oY/oteBfh9iltJ3NrA0GJnKJSrfZtmBY5ftd9GdsVUq2aQyuM7HmkoegaVLttJgc4Aqh7Y4GVNsXohCKFYZqWj/ybh0D0aSA6aiBGKp/l/WzZReFK5I2c8j98GjZhfNQoVZuiLCWooWQd+uqAtIM0XCLW13KkBc0pc3OrcM0bsp1dhZ9wUzz877jnZSZ2Y08dvA34g7T9oWMv8OqIyUrZr8nLkEqb8z0ey98MmOYIYrfQwxV9qE9qA8Aurr5WumZMxTDDMeHQGf7KpDukqkcKAwVqgT17+XCZqEUqC7gZDG1qLCboyGqpHmXWYQKzmnDyu/ibT4b+baKFseFycFnVsacJ6ZmuHbGpNN3m8gKb79dpeiLDYs+0CnAcLzc55T2a3LQ63TqW93ja5A0S8bUVFHJ00zF6k07TsOWq7W1baxuSqTKmjtjOmeXmUobqnsCH8rLqHTmbQXsP7Grikavx3/XXVPs1a9Ulp3X3v80PspeEc3oBJID7Y4GMQc04nu18pxXY21Yvyhftz1ndtXnozNoC3ETcUI999ainCCkZygX/Fx5ITesbmg6CyVGrcx2xAkCOD84tevw+HoclibPXSSb4PkrPMzyeWwWQfUmoQJVav26gnkt+Jm1WxCXzcZ+huc/gec8I8U</source>
   </file>
-  <file path="core\templates\OpenGraphTemplate.php" generated-path="core.templates.OpenGraphTemplate.html" hash="fee84a59c5774bb56c3d199930e2a3b0" package="FamePHP">
+  <file path="core\templates\OpenGraphTemplate.php" generated-path="core.templates.OpenGraphTemplate.html" hash="bd9fedce6601b758a22da146e9b23a2f" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -711,38 +719,39 @@ Array keys: first_name, last_name, profile_pic, id</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
+    <namespace-alias name="ButtonList">\Famephp\core\buttons\ButtonList</namespace-alias>
     <namespace-alias name="Template">\Famephp\core\templates\Template</namespace-alias>
-    <class final="false" abstract="false" namespace="Famephp\core\templates" line="21" package="Templates">
+    <class final="false" abstract="false" namespace="Famephp\core\templates" line="23" package="Templates">
       <extends>\Famephp\core\templates\Template</extends>
       <name>OpenGraphTemplate</name>
       <full_name>\Famephp\core\templates\OpenGraphTemplate</full_name>
-      <docblock line="21">
+      <docblock line="23">
         <description>Class OpenGraphTemplate</description>
         <long-description></long-description>
-        <tag name="package" line="21" description="Templates"/>
+        <tag name="package" line="23" description="Templates"/>
         <tag name="inherited_from" description="\Famephp\core\templates\Template" refers="\Famephp\core\templates\Template" link="/classes/Famephp.core.templates.Template.html"/>
       </docblock>
-      <property static="false" visibility="private" namespace="Famephp\core\templates" line="28" package="Templates">
+      <property static="false" visibility="private" namespace="Famephp\core\templates" line="30" package="Templates">
         <name>$url</name>
         <full_name>\Famephp\core\templates\OpenGraphTemplate::url</full_name>
         <default></default>
-        <docblock line="28">
+        <docblock line="30">
           <description>URL to the OpenGraph resource</description>
           <long-description></long-description>
-          <tag name="var" line="28" description="" type="string" variable="">
+          <tag name="var" line="30" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\templates" line="36" package="Templates">
+      <property static="false" visibility="private" namespace="Famephp\core\templates" line="38" package="Templates">
         <name>$buttons</name>
         <full_name>\Famephp\core\templates\OpenGraphTemplate::buttons</full_name>
         <default></default>
-        <docblock line="36">
+        <docblock line="38">
           <description>Button list
 Max. 3</description>
           <long-description></long-description>
-          <tag name="var" line="36" description="" type="array" variable="">
+          <tag name="var" line="38" description="" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
@@ -771,17 +780,17 @@ Max. 3</description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\templates" line="44" package="Templates">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\templates" line="46" package="Templates">
         <name>__construct</name>
         <full_name>\Famephp\core\templates\OpenGraphTemplate::__construct()</full_name>
-        <docblock line="44">
+        <docblock line="46">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="44" description="" type="string" variable="$url">
+          <tag name="param" line="46" description="" type="string" variable="$url">
             <type>string</type>
           </tag>
-          <tag name="param" line="44" description="" type="array" variable="$buttons">
-            <type>array</type>
+          <tag name="param" line="46" description="" type="\Famephp\core\buttons\ButtonList" variable="$buttons">
+            <type>\Famephp\core\buttons\ButtonList</type>
           </tag>
         </docblock>
         <argument line="0" by_reference="false">
@@ -792,16 +801,16 @@ Max. 3</description>
         <argument line="0" by_reference="false">
           <name>$buttons</name>
           <default></default>
-          <type>array</type>
+          <type>\Famephp\core\buttons\ButtonList</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\templates" line="66" package="Templates">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\templates" line="69" package="Templates">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\templates\OpenGraphTemplate::GetJsonSerializable()</full_name>
-        <docblock line="66">
+        <docblock line="69">
           <description>Get JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="66" description="" type="array">
+          <tag name="return" line="69" description="" type="array">
             <type>array</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\templates\Template::GetJsonSerializable()" refers="\Famephp\core\templates\Template::GetJsonSerializable()" link="/classes/Famephp.core.templates.Template.html#method_GetJsonSerializable"/>
@@ -821,9 +830,9 @@ Max. 3</description>
         <inherited_from>\Famephp\core\templates\Template</inherited_from>
       </method>
     </class>
-    <source>eJyVVF1v2jAUfUfiP9xKlRIQbej6UpVCu6Fua9Uvje2pIOSE2yRrYme2U2At/312voAkVJ2FROJ77jnnXl/n7DzyombDarebDWjDVxLiw/cH/Zy9O2gz9gy3KARSFznYTBbhC4dFS+67noRh8WQ6LfjUPTqBg+QvBZJYeozDKEBckgWYnpSROLUs15debB86LLREGmulCYFPn2E3ytpwqsEOUoEfwFt2wGwrJEIit26uhpd3o0vNYTUbzQZVGBGpkpM+qMaMHcZxLDGMAiJR9JoNjn9in+OUUYUyfmaRQ4U1VDQWu1LHObSnhfJ2DwMiBNxHSL9xEnk5Ji1KGXkmLkK+KzKfTn0S4EIinYkCD69aCtRK5fRqw68fNyAZSA/XFMBRsJg7mKMK9MUL4SAk96mb71npQ8T9Fy2yH/OgVyf0JZaSUQh8IYu9W7I4hON6FcI5We4SsRMyUSs0VAHJY0cyXmWOCCdhVkHitRxKZAuBsn5sq9GCp5g60lfFTKdOLmZqsk6R2II04zVjUMt/AnMv4uhOQyIdzzQsPZ6PYvLa7RytTsfW2LKMTmKqBW9v2mSA1EzfB3DSbW2y6SU9zuZAcQ7jK/pCAn/2mbtxiFReLhyMtEXT0PkQxkKCjUAggSWnzp4g1P0/6YLjES5g7iGFWOjOVKZpL72iyq26TmdLNR3ClzhoGa3e2tOqVKwvpsz+jbo5eVsqNXywiCx/o5B0B1KB971vm8RAYMmEdptLHAy+oUyHdchiKk3d/OOq749aVz2G42IugAQBm+PsPwyXOrvKZ16vfen5yrFcRgh9MJhimrqayuhVQHoO+vn9LMVyd33YasO1YHSE3Fel/SV2gGbua1V38VQCXI/u70BspKzvF0cZc1p/r0v3qla6cqMywsetVhlESuJ4+hAM6A9K0QShu5XEjPxzbHSqqIgsA0ZmO0hSoix9WjBunEeVMsnBALU38Q6vXrsjCYs6xE09/el5PyE71c2k7U9cdU1qI9Xd7Z0JrF8n62lRv/PBPyd5RBU=</source>
+    <source>eJyVVFtP4kAUfifhPxwTkxaCFtcXI4LuEtfVeMuy+ySETMux7drO1JmpwKr/fWd6o9Bi3AkJ7ZzvfOc7t56cRl7UbFjtdrMBbfhOQrz/ca+fs3cHbcae4AaFQOoiB5vJwnzmsGjJfdeTMCyeTKcFX7oHR7CX/KVAEkuPcRgFiEuyANOTMhLHluX60ovtfYeFlkhtrdQh8OkTbEdZJaUa7CAV+Am8ZQfMtkIiJHLr+nJ4fjs61xxWs9FsUIURkUo5qYMqzNhhHMcSwyggEkWv2eD4HPscp4wqlPErs+wrrNHTFLHYcLZjKRkV42/J/7UvZK8GVYQY55QJW96WYUCEgLsI6QUnkZdj0uSV4CfiIuS3IsvHqXcCXEikM1Hg4VWHAnXScPq04ffPa5AMpIcrCuAoWMwdzFEF+uyFcBCS+9TN76z0IeL+iw6yG/OgVxcoLQwEqjLF3Q1Z7MNhfRTCOVluC5JVuzbQUBkkjx3JeJU5IpyEWQaJ1k3Tqn9FlE0Rsa3mEB5j6khfZTSdOnlEUzN2CscWpB6vGYM6/iOYOxFHdxoS6XimYelZfhCT127n4P14bI0ty+gkylrw9qaVBkjN9H0AR91WmU0f6XE2B4pzGF/SFxL4s6/cjUOk8nzhYKQlmob2hzBWSdkIBBJY0nr2CKFuwlEXHI9wAXMPKcRCl6cyUjvpPiu1avdOlmpEhC9x0DJavZWm97wnRbq+mDL7D+ry5IWpZPHJNDL/UiqlfqVBPs5gXSoGAjeEaMV5mL3BBco0wJDFVJq6BYdV7Z+VryoNh8V0AAkCNsfZfwjO6ltb6l3p+UqxXEYIfTCYYpq6msroVUB6Gvr5qm7YcnV9WCvDlWB0hNxXqf0ldoBmruu9bgeVA1yN7m5BlFxWq8ZRxpzWr/jGdtWGruxVRviwViqDSEkcTzfBgP5gw5ogdLUSm5F/mY1OFRWRZcDIbAtJSpS5TwvGUj+qlIkPBqi1iQ949dluSVhUE8vx9AfoY4esq2Wn9Q9d9UxqLdXb9ZsJrF4nq2lRv9PBP1y+Vhw=</source>
   </file>
-  <file path="core\attachments\Text.php" generated-path="core.attachments.Text.html" hash="edfead16927251b7600ee2a6d37505a1" package="FamePHP">
+  <file path="core\attachments\Text.php" generated-path="core.attachments.Text.html" hash="f8a3822a9dc0d3c94b578fc7e3ac7ecd" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -833,119 +842,119 @@ Max. 3</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
-    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="19" package="FamePHP">
+    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="20" package="Attachments">
       <extends>\Famephp\core\attachments\Attachment</extends>
       <name>Text</name>
       <full_name>\Famephp\core\attachments\Text</full_name>
-      <docblock line="19">
+      <docblock line="20">
         <description>Text attachment</description>
         <long-description></long-description>
-        <tag name="package" line="19" description="FamePHP"/>
+        <tag name="package" line="20" description="Attachments"/>
         <tag name="inherited_from" description="\Famephp\core\attachments\Attachment" refers="\Famephp\core\attachments\Attachment" link="/classes/Famephp.core.attachments.Attachment.html"/>
       </docblock>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="23" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="24" package="Attachments">
         <name>$text</name>
         <full_name>\Famephp\core\attachments\Text::text</full_name>
+        <default></default>
+        <docblock line="24">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="24" description="&lt;p&gt;text to send&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="23" package="Attachments">
+        <name>$type</name>
+        <full_name>\Famephp\core\attachments\Attachment::type</full_name>
         <default></default>
         <docblock line="23">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="23" description="&lt;p&gt;text to send&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="23" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="22" package="FamePHP">
-        <name>$type</name>
-        <full_name>\Famephp\core\attachments\Attachment::type</full_name>
-        <default></default>
-        <docblock line="22">
-          <description></description>
-          <long-description></long-description>
-          <tag name="var" line="22" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
-            <type>string</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="27" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="28" package="Attachments">
         <name>$payload</name>
         <full_name>\Famephp\core\attachments\Attachment::payload</full_name>
         <default>array()</default>
-        <docblock line="27">
+        <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="27" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="32" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="33" package="Attachments">
         <name>$isLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::isLocalAttachment</full_name>
         <default>false</default>
-        <docblock line="32">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="37" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="38" package="Attachments">
         <name>$localAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentLocation</full_name>
         <default></default>
-        <docblock line="37">
+        <docblock line="38">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="37" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="38" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="42" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="43" package="Attachments">
         <name>$localAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentMimeType</full_name>
         <default></default>
-        <docblock line="42">
+        <docblock line="43">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="42" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="43" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="47" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="48" package="Attachments">
         <name>$attachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::attachmentName</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="48">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="48" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="54" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="55" package="Attachments">
         <name>$isReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::isReusable</full_name>
         <default></default>
-        <docblock line="54">
+        <docblock line="55">
           <description>Attachment re-use policy</description>
           <long-description></long-description>
-          <tag name="var" line="54" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="55" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="29" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="30" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Text::__construct()</full_name>
-        <docblock line="29">
+        <docblock line="30">
           <description>Text constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="29" description="" type="" variable="$text"/>
+          <tag name="param" line="30" description="" type="" variable="$text"/>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::__construct()" refers="\Famephp\core\attachments\Attachment::__construct()" link="/classes/Famephp.core.attachments.Attachment.html#method___construct"/>
         </docblock>
         <argument line="0" by_reference="false">
@@ -954,55 +963,55 @@ Max. 3</description>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="38" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="39" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Text::GetAttachmentName()</full_name>
-        <docblock line="38">
+        <docblock line="39">
           <description>Returns null -&gt; text attachments have no name</description>
           <long-description></long-description>
-          <tag name="return" line="38" description="" type="null">
+          <tag name="return" line="39" description="" type="null">
             <type>null</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::GetAttachmentName()" refers="\Famephp\core\attachments\Attachment::GetAttachmentName()" link="/classes/Famephp.core.attachments.Attachment.html#method_GetAttachmentName"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="44" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="45" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Text::IsLocalAttachment()</full_name>
-        <docblock line="44">
+        <docblock line="45">
           <description>Returns null -&gt; text attachments are not local</description>
           <long-description></long-description>
-          <tag name="return" line="44" description="" type="boolean">
+          <tag name="return" line="45" description="" type="boolean">
             <type>boolean</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::IsLocalAttachment()" refers="\Famephp\core\attachments\Attachment::IsLocalAttachment()" link="/classes/Famephp.core.attachments.Attachment.html#method_IsLocalAttachment"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="50" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="51" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Text::GetJsonSerializable()</full_name>
-        <docblock line="50">
+        <docblock line="51">
           <description>Get text JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="50" description="" type="array">
+          <tag name="return" line="51" description="" type="array">
             <type>array</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::GetJsonSerializable()" refers="\Famephp\core\attachments\Attachment::GetJsonSerializable()" link="/classes/Famephp.core.attachments.Attachment.html#method_GetJsonSerializable"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="63" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="64" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Attachment::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="64">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
+          <tag name="param" line="64" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
+          <tag name="param" line="64" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
+          <tag name="param" line="64" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1023,92 +1032,101 @@ Max. 3</description>
         </argument>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="96" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="97" package="Attachments">
         <name>IsReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::IsReusable()</full_name>
-        <docblock line="96">
+        <docblock line="97">
           <description>Whether or not the attachment is reuasable</description>
           <long-description></long-description>
-          <tag name="return" line="96" description="" type="boolean">
+          <tag name="return" line="97" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="104" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="105" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::IsLocalAttachment()</full_name>
-        <docblock line="104">
+        <docblock line="105">
           <description>Whether or not the attachment is locally stored on the computer</description>
           <long-description></long-description>
-          <tag name="return" line="104" description="" type="boolean">
+          <tag name="return" line="105" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="113" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="114" package="Attachments">
         <name>GetLocalAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentLocation()</full_name>
-        <docblock line="113">
+        <docblock line="114">
           <description>Return attachment location</description>
           <long-description></long-description>
-          <tag name="return" line="113" description="location" type="string">
+          <tag name="return" line="114" description="location" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="122" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="123" package="Attachments">
         <name>GetLocalAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentMimeType()</full_name>
-        <docblock line="122">
+        <docblock line="123">
           <description>Return attachment mimetype</description>
           <long-description></long-description>
-          <tag name="return" line="122" description="" type="string">
+          <tag name="return" line="123" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="131" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="132" package="Attachments">
         <name>GetLocalAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentName()</full_name>
-        <docblock line="131">
+        <docblock line="132">
           <description>Return the name of the attachment</description>
           <long-description></long-description>
-          <tag name="return" line="131" description="| string" type="null">
+          <tag name="return" line="132" description="| string" type="null">
             <type>null</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="141" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="142" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetAttachmentName()</full_name>
-        <docblock line="141">
+        <docblock line="142">
           <description>Alias for GetLocalAttachmentName()</description>
           <long-description></long-description>
-          <tag name="return" line="141" description="$attachmentName" type="string">
+          <tag name="return" line="142" description="$attachmentName" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="Attachments">
+        <name>GetAttachmentType</name>
+        <full_name>\Famephp\core\attachments\Attachment::GetAttachmentType()</full_name>
+        <docblock line="149">
+          <description>Get the attachment type</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="157" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Attachment::GetJsonSerializable()</full_name>
-        <docblock line="149">
+        <docblock line="157">
           <description>Return JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="149" description="json serializable" type="array">
+          <tag name="return" line="157" description="json serializable" type="array">
             <type>array</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
     </class>
-    <source>eJydU11P2zAUfY+U/3AfkJpWar3taaKjbEJsA7EOrXsbU+WYS2Ph2Jl9U9Eh/vvsuCQZHyrCShRH95xzj89NPhxWRZUmbDRKExjBZ17i+dfzsN++C8yNuYZv6BzqFVrIDbXlj8JUGytXBcFRu8vEEN69efsexs0jAnlNhbGwUIgbfgNZQVS5fcZWkoo6nwhTMhdrw0hQUl/D8yjWcxrAArXDF+BZrkzOSu4ILTs7OTqeL46DBkuTNNEe4yp/5CYHH8yFMBYvOBEXRYma3DRNLP6ppcWl0R43+NTWJh4/mAaZ+zB/4g1BR962EYo7F2v+Rn3poBOBW4/yK0qE5U+35hYcWalXQIFGBvwsLu8BLG4qK9ecEPYCpvHxUKjpKYz2WrUgYyddi4pbXkbqQ9k69+nCVa0FSaNhuWwVsgY/hAjcOg9rjwrpxrPG7EFrKFTunvL1A6m22oGulYLxLB6yFzoUfI2gDYT5dJ5tQ2tYOzx/QeoinnuRbAi30ONPX2mM2+CLQBnB1SNn/sfZ5ezEnQVq567v7Iorh89Y80eKdk4X3+f+c7CSK/mX5+pxQNxavtmd0KkzetHTyZ4Y7FbxFwxC7wEczP6b9e9uyv46nP0D54hDEQ==</source>
+    <source>eJydk19v0zAUxd8r5Tvch0lNK7UGnhBlHWgasGl0E+WNocrx7hKrjh3sm2pl4rvPjrsk7I+KsBLFkc85/vne5P1RVVTJgI3HyQDG8ImXePnlMsx37wIzY9bwFZ1DnaOFzFC7/EGYamtlXhAct7NUjODNq9dvYdI8opDXVBgLS4W45beQFkSVe8dYLqmos6kwJXNxbRQNSuo1vKxiPdIgFqgd/oOeZcpkrOSO0LLz0+OTxfIkZLBkkAy017jKH7mpgy/MlTAWrzgRF0WJmtwsGVj8VUuLK6O9bvixXZt6/XAWYh6K+R1vCTpzRPXxa54jdEa3218o7lw0+Rv1teuJ4M6r/IjZYfisDbfgyEqdAwUbGfBNun4QsDiprNxwQjgImgbwcVCzpzDaZ9WCjJ12W1Tc8jJaH8fWmS873NRakDQaVqs2IW30I4jCHXkYB1RIN5k3sIctUFj58xzXN6Taage6Vgom83jIXjeg4BsEbSA0rmO2ja1x7WH+jNSVeOFD0hHcQc8/+08wbgMXgTKCqydk/o/aR3bqzoO1o+uT3XDl8AU0f6SIc7a8WPjPwUqu5G+eqacF4tby7f4KnTmjl72c9JnG7hJ/wDDsPYTD+V+9/tl12V9H83tlwks6</source>
   </file>
   <file path="core\buttons\URLButton.php" generated-path="core.buttons.URLButton.html" hash="f95cd888c5db1599ee68fd6b62678a45" package="FamePHP">
     <docblock line="0">
@@ -1306,7 +1324,7 @@ Defaults to $url</description>
     </class>
     <source>eJydVttu20YQfTfgfxgHAigZstn2qbArJY3rIGnTJIgR5KEuhCU5Ehde7jK7S13a+t87u7yIlCjZLR9smnM/c2bGP73M0/z0JDw/Pz2Bc3jDMvz09pN7r/6OMVLqAX5HY1AuUEOkbCN+Fat8o/kitXDTvA3jEfzw3fc/woX/VSqywqZKw51A3LA1DFNrc3MVhgtu0yK6jFUWmlI2Kg0Elw9wWCtsZeqUY5QGn6EfRkJFYcaMRR2+f3dz++Hu1vkIT09OTyTpmJxK9jgQMPex0ngfFdYqaa5PTzR+K7jGmZKkE7z23y9JLyBZYfrN7ku1axeghvnL5/fl1zJ9CvnAFgjlN1PlEwtmzFYVcG1RJqbSgr9JjZ7SpXvOa4nlVmD9sRG+WjINxmouF6DmkLH1JfUH4pRpUyuF5Uuu+ZJZhIH35DPfDUVpgVUg2ZIvnCq9r1KUEFUpsDzH5GgOWWEsFHXTgM9hkNUku3WlGk5YADdg0Dr/Vhd4KNFCi94036KnpGaWK1f1CqMlx9XRxOaFEPAPEHmoL5beLBPiUODKYRnnsw8zgcC5CHoT+pqiTWmKaBak8mU5CJrCyyb7yvtzpGEUyOShdPoQnMCcCXO0jaQgICIW0h+N7Becs0JY4xQcwMdAO5SPc+z8UpwmfieBHkASblgkEAwxE2tCPdW7J3CpfH4tXdw5z9WwHEPnhuAj1sVW6f2oOdMsqzkz6MzcrrAFXi1iWrMNDGIl53wBQ5UTcyQTo0pAMKgl6pXmlH0tpHJUjtpyNA4PwjSql0jp+2Jamg+DCqtZ6nk58/wPHDMrVgejxugNIZ/RvgIu52pMw4ZXzR5NcInCxTSX8+oS+KWaqNiEDdcucsHsXOks1DhHjbQcw2r5ha3S654UEa1rmjIZu7JgNotrmIcljGOP2LhBZwKS5mkEpX2199xDO2NIlgJlZTmCKe20UVvHPTbVagUSV3D/Ti6Z4MnPelFkKO3tOkaP7jC41Vrpq3olEkZESsEzbmkmY8QEk3LDxRoJTWpr1Nq2Z8Hoehvzcfu6fRvYlJuLqd3k6BpBHZpRlcH1voZzSCrN9t2Rk5WTlitvR9aat63OntbrgovkDjUnKP5yczEcddQcrjX4ZzX6O5hWrr7kCQ1Yx1dl2QPIY9+Q+WRoyaQIv959/EAE3PranzqNttASloonB2a9IVZPlfsUqspoB/0jcD0K/vQtaHq2j3XXxvWyZdLbna5F74y2XOyflqc8NhM5256Rtsee67Df9zYJn2j+DmrOpAPbDn8feyP1nqyJv/bPi1tzfna0Bf3Bj9yF/5JC3Up/smblYvCpBClPMHjmJHxsNn6z2iEpj3Br9R+6RN2L8oCbyZRWXYGQM65L6f8aoyMT3jNOfrv+hhv3b8cBio+hn6j0vdPKMRzAtcNZujvI4nS7sJiBAVUPk6nPpqeFrv9nXM7KW+mUx63ER3v67sE1t8MX1fVw6ELgDAOKX8iEbmd9DuosnO+zF+0l2On7MTo5x57HPv0D5KEfL6f/Auxj+gA=</source>
   </file>
-  <file path="core\templates\ListTemplate.php" generated-path="core.templates.ListTemplate.html" hash="44a15a21b1611e3f70235d1d31ac113b" package="FamePHP">
+  <file path="core\templates\ListTemplate.php" generated-path="core.templates.ListTemplate.html" hash="fd22fb9be5830afcdd18297f92edb3cd" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -1587,9 +1605,9 @@ Min. 0 objects</description>
         <inherited_from>\Famephp\core\templates\Template</inherited_from>
       </method>
     </class>
-    <source>eJyNVVFv20YMfjfg/8AUAWQHSbQWfRiSxe0WZF23dgvg7akZjJNEW7dId9od5djt+t/Hk3SyLMtbBAM++T6SH8mP9HdvirQYj8Kzs/EIzuBHkeP9T/fu3LzHGGn9CB/RWlQrNBBpaq/fxrrYGrlKCW7b0ySewqtvXn4LF9VXDRQlpdrAPEPcig1MUqLCXoXhSlJaRpexzkNb301rg0yqRziOCjtMHThGZfEZ+DDKdBTmwhKa8MP727tf53fORzgejUeKMbbglKs6cGEeYm3wgTAvMkFor8cjg3+X0uBCK0YF71ChkfHvDeCSTQIGlfaYh4eexbUL64t/mwlr4YO05K/r7JjRo1gh+F9tQzg+wANuCFVioRcGvrAJP3Uk95zBHMkCpQhLbXJBoJf1mzSWIGOnIJm29fjW7u1aGLBkpFoBF5jJEfwDmTAr9JiwPhRGrl3wU9LFXYY5KprTNkO4gaCxDKoC9Kn9UBJpBaQhkZYT2ALzc+RYe6RzT9WRbG0+is0lvBxmq6O/kFlGldtjJOvbQT57JY614uzLmLS53IUphBF59QKnWOdq+7eqzDIfZ/iOfS/lqs+wjFjfsCxVTJLLsli0FCZtrHPvmIvrfJ17Z8371EugYkiptBcz2hZVL1wdXSN617lUTdfsrS4VMfTVAEps+qjXHdTuJJcw8RxPPKnddYeeR59Iu6hb5w2n0z7OPZQa/QQKn+DhvVqLTCbfm1XpKN1tYixc0SaBD52XrOwIQTRyaMRxEkyv9z1/9UroJdyWufF4MXuH9LPVas4Tx8E/iyjDSdfbniduNxO7ujrWxbpr3vzrkBzvDTov7GqbaZG4AQZezglP5IG4NXFymOzU0xjf17aTIV00fj8Ffm0tnFKCP13OO+UcSmFnp4tFk9LCuonfs91fBv/hxlela+1/u+7W1IlF8v8TV7Lbo0O19CPUOA7wqROiXQSd/h3txW9rNE+GNyX4YkGCS1Fm5IpfoCGJAzu0HnphDO82P6iPuL2ZsXxL11lp6tudiUEqjYK1lsn/d/mPImEqvsleVM24fdmvnBuzKlaLO6jb8yasyWM3YYMZHU7akUk5rQL9glvLvRkU1Z4IeApQxCn4LEBYOGUGcDOrXJV4kFadvfLZM/i8E3V42eBG0uRFUwWXIQTOMOD4pUpAKr9XPIsq5xfP3S5ems5npcmK+aAY+fNm9i8z+Mtv</source>
+    <source>eJyNVVFv20YMfjfg/8AUAWQHSbQWfRiSxe0WZF23dgvg7akZjJNE27dId9od5djt+t/Hk3SyJMtbBAM++T6SH8mP9Hdv8nU+HoVnZ+MRnMGPIsP7n+7duX6PMdL6ET6itahWaCDS1Fy/jXW+M3K1JrhtTpN4Cq++efktXJRfFVAUtNYG5iniTmxhsibK7VUYriSti+gy1lloq7tpZZBK9QjHUWGLqQPHqCw+Ax9GqY7CTFhCE354f3v36/zO+QjHo/FIMcbmnHJZBy7MQ6wNPhBmeSoI7fV4ZPDvQhpcaMWo4B0qNDL+vQZcsknAoMIe8/DQs7h2YX3xb1NhLXyQlvx1lR0zehQrBP+rrQnHB3jALaFKLPTCwBc24aeK5J4zmCNZoDXCUptMEOhl9SaNJUjZKUimbT2+sXu7EQYsGalWwAVmcgT/QCrMCj0mrA65kRsX/JR0fpdihormtEsRbiCoLYOyAH1qPxREWgFpSKTlBHbA/Bw51h7pzFN1JBubj2J7CS+H2eroL2SWUen2GMnqdpBPp8SxVpx9EZM2l/swuTAiK1/gFKtcbf9WFWnq4wzfse+lXPUZFhHrG5aFiklyWRaLhsKkiXXuHXNxna9z76x+n3oJlAxpLe3FjHZ52QtXR9eI3nUmVd01e6sLRQx9NYAS2z7qdQu1P8klTDzHE09qf92i59En0i6q1nnD6bSPcw+tjX4ChU/w8F5tRCqT782qcJTutjHmrmiTwIfOClZ2hCBqOdTiOAmm113PX70Segk3Za49XszeIf1stZrzxHHwzyJKcdL21vHE7WZiV1fHulh1zZt/HZLjvUHnhV3tUi0SN8DAyznhiTwQtyZODpO9emrj+8p2MqSL2u+nwK+thVNK8KfLea+cQyns7XS+qFNaWDfxHdvuMvgPN74qbWv/23W7pk4skv+fuJLtHh2qpR+hwnGAT60QzSJo9e9oL37boHkyvCnBFwsSXIoiJVf8HA1JHNih1dALY3i3+UF9xN3NjOVbuM5KU93uTQxSYRRstEz+v8t/5AlT8U32oqrH7Uu3cm7MylgN7qBuz5uwOo/9hA1m1J20zmyclq5/wZ3lbgzKqNN21j2KeA2eNwgLpxwTbmalqwIPEqnyVT5fBp+3og6vF9xKmryo83Y5QeAMA45fqASk8pvEsyizfPHcfeLF6HyWKiyZD8qPP29m/wKUI8nY</source>
   </file>
-  <file path="core\attachments\File.php" generated-path="core.attachments.File.html" hash="913db12b5580215e60624ec0ebd60ad4" package="FamePHP">
+  <file path="core\attachments\File.php" generated-path="core.attachments.File.html" hash="f4752c2667bae0d18d694a34c92c58d5" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -1599,111 +1617,111 @@ Min. 0 objects</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
-    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="19" package="FamePHP">
+    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="20" package="Attachments">
       <extends>\Famephp\core\attachments\Attachment</extends>
       <name>File</name>
       <full_name>\Famephp\core\attachments\File</full_name>
-      <docblock line="19">
+      <docblock line="20">
         <description>File attachment</description>
         <long-description></long-description>
-        <tag name="package" line="19" description="FamePHP"/>
+        <tag name="package" line="20" description="Attachments"/>
         <tag name="inherited_from" description="\Famephp\core\attachments\Attachment" refers="\Famephp\core\attachments\Attachment" link="/classes/Famephp.core.attachments.Attachment.html"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="22" package="FamePHP">
+      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="23" package="Attachments">
         <name>$type</name>
         <full_name>\Famephp\core\attachments\Attachment::type</full_name>
         <default></default>
-        <docblock line="22">
+        <docblock line="23">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="22" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="23" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="27" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="28" package="Attachments">
         <name>$payload</name>
         <full_name>\Famephp\core\attachments\Attachment::payload</full_name>
         <default>array()</default>
-        <docblock line="27">
+        <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="27" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="32" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="33" package="Attachments">
         <name>$isLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::isLocalAttachment</full_name>
         <default>false</default>
-        <docblock line="32">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="37" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="38" package="Attachments">
         <name>$localAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentLocation</full_name>
         <default></default>
-        <docblock line="37">
+        <docblock line="38">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="37" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="38" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="42" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="43" package="Attachments">
         <name>$localAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentMimeType</full_name>
         <default></default>
-        <docblock line="42">
+        <docblock line="43">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="42" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="43" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="47" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="48" package="Attachments">
         <name>$attachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::attachmentName</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="48">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="48" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="54" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="55" package="Attachments">
         <name>$isReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::isReusable</full_name>
         <default></default>
-        <docblock line="54">
+        <docblock line="55">
           <description>Attachment re-use policy</description>
           <long-description></long-description>
-          <tag name="var" line="54" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="55" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="26" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="27" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\File::__construct()</full_name>
-        <docblock line="26">
+        <docblock line="27">
           <description>File constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="26" description="" type="" variable="$attachmentLocation"/>
-          <tag name="param" line="26" description="" type="null" variable="$attachmentName">
+          <tag name="param" line="27" description="" type="" variable="$attachmentLocation"/>
+          <tag name="param" line="27" description="" type="null" variable="$attachmentName">
             <type>null</type>
           </tag>
-          <tag name="param" line="26" description="" type="boolean" variable="$reusable">
+          <tag name="param" line="27" description="" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::__construct()" refers="\Famephp\core\attachments\Attachment::__construct()" link="/classes/Famephp.core.attachments.Attachment.html#method___construct"/>
@@ -1724,19 +1742,19 @@ Min. 0 objects</description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="63" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="64" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Attachment::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="64">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
+          <tag name="param" line="64" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
+          <tag name="param" line="64" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
+          <tag name="param" line="64" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -1757,94 +1775,103 @@ Min. 0 objects</description>
         </argument>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="96" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="97" package="Attachments">
         <name>IsReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::IsReusable()</full_name>
-        <docblock line="96">
+        <docblock line="97">
           <description>Whether or not the attachment is reuasable</description>
           <long-description></long-description>
-          <tag name="return" line="96" description="" type="boolean">
+          <tag name="return" line="97" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="104" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="105" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::IsLocalAttachment()</full_name>
-        <docblock line="104">
+        <docblock line="105">
           <description>Whether or not the attachment is locally stored on the computer</description>
           <long-description></long-description>
-          <tag name="return" line="104" description="" type="boolean">
+          <tag name="return" line="105" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="113" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="114" package="Attachments">
         <name>GetLocalAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentLocation()</full_name>
-        <docblock line="113">
+        <docblock line="114">
           <description>Return attachment location</description>
           <long-description></long-description>
-          <tag name="return" line="113" description="location" type="string">
+          <tag name="return" line="114" description="location" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="122" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="123" package="Attachments">
         <name>GetLocalAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentMimeType()</full_name>
-        <docblock line="122">
+        <docblock line="123">
           <description>Return attachment mimetype</description>
           <long-description></long-description>
-          <tag name="return" line="122" description="" type="string">
+          <tag name="return" line="123" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="131" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="132" package="Attachments">
         <name>GetLocalAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentName()</full_name>
-        <docblock line="131">
+        <docblock line="132">
           <description>Return the name of the attachment</description>
           <long-description></long-description>
-          <tag name="return" line="131" description="| string" type="null">
+          <tag name="return" line="132" description="| string" type="null">
             <type>null</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="141" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="142" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetAttachmentName()</full_name>
-        <docblock line="141">
+        <docblock line="142">
           <description>Alias for GetLocalAttachmentName()</description>
           <long-description></long-description>
-          <tag name="return" line="141" description="$attachmentName" type="string">
+          <tag name="return" line="142" description="$attachmentName" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="Attachments">
+        <name>GetAttachmentType</name>
+        <full_name>\Famephp\core\attachments\Attachment::GetAttachmentType()</full_name>
+        <docblock line="149">
+          <description>Get the attachment type</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="157" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Attachment::GetJsonSerializable()</full_name>
-        <docblock line="149">
+        <docblock line="157">
           <description>Return JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="149" description="json serializable" type="array">
+          <tag name="return" line="157" description="json serializable" type="array">
             <type>array</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
     </class>
-    <source>eJyVkV1rwjAUhu8L/Q/nQqgVNduuhm7qEMcGTgRvBUmzoy2mSZYPUMb++9IPWpENtlBo0vfJ+55z+jBVqQoD0uuFAfTgmea4flkX+/rMMJHyCG9oDIoDakikbeQZk+qss0NqYd7suiyGu5vbexiUrwqkzqZSw4YjnukJuqm1yowIOWQ2dcmQyZyYSourCzwTR/idIheVFjBDYfAPPEm4TEhOjUVNlq/zxWqzKDxIGISB8IxRvuVyDn4wWyY1bqm1lKU5CmvGYaDxw2Uad1J4LnpqtKHno3Fh0wwz4wjt5TqGcWpMpeHJong30JrAp6f8qiyKVdswKYzVjlmph40yU1TTvDxApw1aSkZtJsU1Jxznl9zKN3nN+J/tGY3O0IQ3Kqk2yiV+0rB3ghX+sNs1ZXV/yO9fh8FjWUO/DfBf9pQbjKFKqNsvw6j210aj/4ZcuMfj1q5j08wMJvasitBo74ca1fJXGPhnOvkGBQfuog==</source>
+    <source>eJyVkm9rwjAQxt8X+h3uhVAVNdteDd10QxwbbCL4VpA0O9timnRJCsrYd9/1D22RDbZQ6KX3u+e5XHO3yOLM99hw6HswhCee4uZ5U8T1XmCo9RHe0FpUERoItWvSD0JnZ5NEsYNlE/XFAG6urm9hXL4qkOcu1ga2EvHMT9CPncvslLEocXEeToROma1yg6pAJuoIv1Os02kBC1QW/8CzUOqQpdw6NOz1Zblab1eFBvM931PE2IyOXM6BBrMT2uCOO8dFnKJyduZ7Bj/yxOBeK+KCxyY3IT6YFTLNMBOJ0BZXrZL8kUcIbaGt/YXk1lZFeHKo3m0Hgk+iaFXaxar1hVbWmVw4bSZNhlwMT8sN9NoOXrXgLtHqklO5lF1uTae/ZOgWEGMwtzyUTZZVQZaH9AvgkCtR6MN+37TV/8F/dGkG92UPo9aAvhy4tDiAyqE+fmnGDZVNp/816agPZq1cz8WJHc/dOStMgwMNNajTX75Hz2L+DcD39ss=</source>
   </file>
-  <file path="core\attachments\Image.php" generated-path="core.attachments.Image.html" hash="1f1274b0c82e2b6803ee6c7e4ed75ecf" package="FamePHP">
+  <file path="core\attachments\Image.php" generated-path="core.attachments.Image.html" hash="a41e82ec6c4b22d83c2d4185945b70e6" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -1854,111 +1881,111 @@ Min. 0 objects</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
-    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="19" package="FamePHP">
+    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="20" package="Attachments">
       <extends>\Famephp\core\attachments\Attachment</extends>
       <name>Image</name>
       <full_name>\Famephp\core\attachments\Image</full_name>
-      <docblock line="19">
+      <docblock line="20">
         <description>Image attachment</description>
         <long-description></long-description>
-        <tag name="package" line="19" description="FamePHP"/>
+        <tag name="package" line="20" description="Attachments"/>
         <tag name="inherited_from" description="\Famephp\core\attachments\Attachment" refers="\Famephp\core\attachments\Attachment" link="/classes/Famephp.core.attachments.Attachment.html"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="22" package="FamePHP">
+      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="23" package="Attachments">
         <name>$type</name>
         <full_name>\Famephp\core\attachments\Attachment::type</full_name>
         <default></default>
-        <docblock line="22">
+        <docblock line="23">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="22" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="23" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="27" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="28" package="Attachments">
         <name>$payload</name>
         <full_name>\Famephp\core\attachments\Attachment::payload</full_name>
         <default>array()</default>
-        <docblock line="27">
+        <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="27" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="32" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="33" package="Attachments">
         <name>$isLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::isLocalAttachment</full_name>
         <default>false</default>
-        <docblock line="32">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="37" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="38" package="Attachments">
         <name>$localAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentLocation</full_name>
         <default></default>
-        <docblock line="37">
+        <docblock line="38">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="37" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="38" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="42" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="43" package="Attachments">
         <name>$localAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentMimeType</full_name>
         <default></default>
-        <docblock line="42">
+        <docblock line="43">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="42" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="43" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="47" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="48" package="Attachments">
         <name>$attachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::attachmentName</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="48">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="48" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="54" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="55" package="Attachments">
         <name>$isReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::isReusable</full_name>
         <default></default>
-        <docblock line="54">
+        <docblock line="55">
           <description>Attachment re-use policy</description>
           <long-description></long-description>
-          <tag name="var" line="54" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="55" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="26" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="27" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Image::__construct()</full_name>
-        <docblock line="26">
+        <docblock line="27">
           <description>Image constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="26" description="" type="" variable="$attachmentLocation"/>
-          <tag name="param" line="26" description="" type="null" variable="$attachmentName">
+          <tag name="param" line="27" description="" type="" variable="$attachmentLocation"/>
+          <tag name="param" line="27" description="" type="null" variable="$attachmentName">
             <type>null</type>
           </tag>
-          <tag name="param" line="26" description="" type="boolean" variable="$reusable">
+          <tag name="param" line="27" description="" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::__construct()" refers="\Famephp\core\attachments\Attachment::__construct()" link="/classes/Famephp.core.attachments.Attachment.html#method___construct"/>
@@ -1979,19 +2006,19 @@ Min. 0 objects</description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="63" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="64" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Attachment::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="64">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
+          <tag name="param" line="64" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
+          <tag name="param" line="64" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
+          <tag name="param" line="64" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -2012,94 +2039,103 @@ Min. 0 objects</description>
         </argument>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="96" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="97" package="Attachments">
         <name>IsReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::IsReusable()</full_name>
-        <docblock line="96">
+        <docblock line="97">
           <description>Whether or not the attachment is reuasable</description>
           <long-description></long-description>
-          <tag name="return" line="96" description="" type="boolean">
+          <tag name="return" line="97" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="104" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="105" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::IsLocalAttachment()</full_name>
-        <docblock line="104">
+        <docblock line="105">
           <description>Whether or not the attachment is locally stored on the computer</description>
           <long-description></long-description>
-          <tag name="return" line="104" description="" type="boolean">
+          <tag name="return" line="105" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="113" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="114" package="Attachments">
         <name>GetLocalAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentLocation()</full_name>
-        <docblock line="113">
+        <docblock line="114">
           <description>Return attachment location</description>
           <long-description></long-description>
-          <tag name="return" line="113" description="location" type="string">
+          <tag name="return" line="114" description="location" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="122" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="123" package="Attachments">
         <name>GetLocalAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentMimeType()</full_name>
-        <docblock line="122">
+        <docblock line="123">
           <description>Return attachment mimetype</description>
           <long-description></long-description>
-          <tag name="return" line="122" description="" type="string">
+          <tag name="return" line="123" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="131" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="132" package="Attachments">
         <name>GetLocalAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentName()</full_name>
-        <docblock line="131">
+        <docblock line="132">
           <description>Return the name of the attachment</description>
           <long-description></long-description>
-          <tag name="return" line="131" description="| string" type="null">
+          <tag name="return" line="132" description="| string" type="null">
             <type>null</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="141" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="142" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetAttachmentName()</full_name>
-        <docblock line="141">
+        <docblock line="142">
           <description>Alias for GetLocalAttachmentName()</description>
           <long-description></long-description>
-          <tag name="return" line="141" description="$attachmentName" type="string">
+          <tag name="return" line="142" description="$attachmentName" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="Attachments">
+        <name>GetAttachmentType</name>
+        <full_name>\Famephp\core\attachments\Attachment::GetAttachmentType()</full_name>
+        <docblock line="149">
+          <description>Get the attachment type</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="157" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Attachment::GetJsonSerializable()</full_name>
-        <docblock line="149">
+        <docblock line="157">
           <description>Return JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="149" description="json serializable" type="array">
+          <tag name="return" line="157" description="json serializable" type="array">
             <type>array</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
     </class>
-    <source>eJyVkVFrwjAUhd8L/Q/3QagVNduehm7qEMeETQRfBUmza1tskyxJQRn770va2opssIVCk57vnnNz+zCVifQ90uv5HvTgmea4flm7fX1mGAlxgDfUGnmMCiJhGnnGhDypNE4MzJtdl4Vwd3N7D4PyVYG0MIlQsMkQT/QI3cQYqUeExKlJimjIRE50pYVVQZbyA/xOkYtOHcyQa/wDT6JMRCSn2qAir8v5YrVZOA/ie77HLaOlvXI5BzuYLRMKt9QYypIcudFj31P4UaQKd4JbLnhqtKHlg7GzOQ9zmdMYoa2uc1hGta5FPBrk7xpaG/i0mF2ViVtnIya4NqpgRqhhI80kVTQvD9Bpo14FoyYV/JrjRZZdcit7z2vG/m/LKCw0jbJGJeVGFpGdNewLzpw97HZNV90f4vvXWfBYttBv/e2XPc00hlAl1dd3y7Zjy0aj/4ZcuIfj1q5jklQPJuYkXWiQuqEGtf7le/aZTr4BZYPwDg==</source>
+    <source>eJyVUl1rwjAUfS/0P9wHwQ/UbHsauumGOCY4EXwVJM2ubbFNuiQFZey/76atrcgGWyj0Jufcc05u+zDNosz3WK/ne9CDF57i+nXt6movMFDqAG9oDMoQNQTK1vCTUNlJx2FkYVZXHdGFu5vbexgUr5LIcxspDZsE8cSP0ImszcyIsTC2UR4MhUqZKbFu2ZDE8gC/s9hFUkcWKA3+gc+CRAUs5caiZsvFbL7azJ0G8z3fk8QxGV25mAMNZiuUxi23losoRWnN2Pc0fuSxxp2SxGs/19iQ+O2xkzkPc5HyEKHpLrOS/sGdN52mCiASbkzVhUeL8t1csOCTaLRKdbfODkJJY3UurNLDGiIfzdNiA60mw1IJbmMlr3kyT5JL3ooGcM2hH4E4GnPDg6RGWVFkeUAfAfa5FE4edrs6VecH+/61FzwWEfqNPp3seWKwC6VTdX23KA61jUb/NblQ744buZaNYjOY2FPmTNuxG2q7wr98j57p5Bs7f/g3</source>
   </file>
-  <file path="core\templates\GenericTemplate.php" generated-path="core.templates.GenericTemplate.html" hash="53a5b5ace8e70b9633d80904f3086ac0" package="FamePHP">
+  <file path="core\templates\GenericTemplate.php" generated-path="core.templates.GenericTemplate.html" hash="01138e7aec21dd4d8e3e3b3e3b578353" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -2304,7 +2340,7 @@ Min. 0 objects</description>
         <inherited_from>\Famephp\core\templates\Template</inherited_from>
       </method>
     </class>
-    <source>eJytVm1P40YQ/o7EfxhQpCQICNdPFRwBhOj1rqWHSqt+ABSt7Umyh7Pr210TcoX/3tm113b8kkOnWpHil2fen5md92fJPNneGu3tbW/BHvzCFnjz6429z59DDKR8hGvUGsUMFQTSFJ/PQ5msFJ/NDVwWd4NwCD8dvfsZDtxfBmSpmUsFtzHiij3DYG5Moo9Hoxk38zQ4DOVipLNvw0wg5uIRulGjiqcWHKLQ+Ab8KIhlMFowbVCNfv94efXH7ZXVMdre2t4ShNEJhezyQIm5D6XCe4OLJGYG9cn2lsKvKVc4kYJQ/b/yL4eE7dPXVHeJ3nvoiTXk030ZM63hAwpUPPSILCRy45HNEPxbnXsZtokAPhsUkS7Q8C/B6coM2WsP/pmjmVMBqQxCGqB7mGVqwLsJIRMQIOg5UxjBgIuy8EOvqFB4/sQsHWSMTPiXo+wmUfzJ6utxfUu6WBAjnIJRaRZ/3bULnWBoQDHDJcgp8AWF3m5PG8XFDIhM/JsUhsXwAvprSv52ucCc8j+d7lPol5L9dl+UYivrBMa4QGFABl9IXlPCmIEIdag4pYgLbRiRQFtoay6NdKkkFYXua/Z8CO+OvMryPReH0Hi9HjizfjVilIYkqFS93FtNITrkYNganVPFKaoFdSFbyNQGWMSqgcWxXGLUbYfkrnLwpZM+pYC+Y4po9EOmuKibardUsN6sko206bZlJS078iq2U6PedaEkEqg0NFIdluYS4vvCPZRVqX8VaRxDj+SnvOFUGtA4g2kqQmKsgMmkMDMo9O17YfLZ6sqbM+96e/EpDHa4nmRkKATvjh6GQyhhFQnnsJlzfTC+9BZ9/ksFllYe/VreYqyxU6v1JbQVrKiBsTfWYNTLCzTQ7wt0jRTDujF7mbmSSxC4hPuP4onFPLpQs9QKXT2HmNi8DnYvmpQkohbtu0i1sQ0coFkiii77wETUFcluNVm1hNlr/WlKBwYL51CGDUwXFPocfGkN9bsVs4Ldbrx6nld03SgkluINW8WSRZVB4mvpubeTk6+DRX8nESXSq8mFWvjz2jqGIzrOXD4qc9jO1CI5SaaY/pVpNn3WZ479RQ7hEVfHRIcUSYjXRiqcKzSpEvAkefdQKtqyO+G+vZrNqLHk9F3fcBNjn9qxs2/eQuN+z+kBriHfTSJYzomvqbbnZP1U0jv9WgWKB+/ZNUtoqtytu5J7C6djf7tfA+g0qGCKpzrMHe0Zxt1OUhU3QLRd0Qx8zGARTlkamwlziW9gg9QYqkWG9Q8l5qESbS87YG10D2ukbrSezYFtPiKM1dtzpOkulK1vrbxW1I7atpbN3LjLtD6QOyQ8yV42FZzB+quD8Qc0n7QUt1RY4sQ3u1wNhnBcw9V7Hqrzpq3tiyPCepT7eLKhQ/MxMQpSHkduBfIdSem0e09UOXF/sMvqo6jZWrnzuWnqqpzoE3ui910oGcI+n3TL6XxNrYqUy+sGwYzF2ZI5cRtsVUVl+dygw6e+KunfbSrB5ydUS8Xt5uOPrbxbbDITVIZjyzq5NhvzWU6UOR3/T7OxffB3jkW/o+S4Rs+8bQzmcfhjm7VHtD7+YENTOEO/4cpu1BV67ENrxTvGSe5Uc5S0TZAdLnwqCLxfcaF9juAzN4PdPCU2XOhbwT7ZT2kpoWUmG4fgvXAJaFtKWo9vz043TSwvneetxzf9zsb/AWDJlWM=</source>
+    <source>eJytVltP20gUfkfiPxxQpCQISLtPK2gCVcR22V0KgrL7ACga2yfJFGfGnRkT0oX/vmdsj+34kqJqrUgZj8/9fOfy4SSaR9tbg7297S3Yg9/YAq9+v7Ln7N1HT8pHuECtUcxQgSdN/vnUl9FK8dncwDg/9fw+/PLu/a9wkPylhCw2c6ngJkRcsWfozY2J9NFgMONmHnuHvlwMdPqtnzKEXDxCO9WgZKkl9lFofAP9wAulN1gwbVAN/jofn32+ObMyBttb21uCaHRELidxoMDc+1LhvcFFFDKD+nh7S+G3mCucSEFU3S/Zl0Oi7dLXWLex3jvSY6vIhXscMq3hEwpU3HcUqUtkxiObIbhbnVnpN7EAPhsUgc6p4V8ipydVZJ89+GeOZk4JpDQIaYDOMEvFgDMTfCbAQ9BzpjCAHhdF4vtOUC7w9IlZOMgQmXCXg/QQKf5k5XW4viFZzAsRhmBUnPpfNe2jjtA3oJjhEuQU+IJcb9anjeJiBgQm/l0Kw0J4Af0tJnvbTGCJ8OtE9hC6BWe32Ral2MoagSEuUBiQ3lfi1xQwZiBA7StOIeJCG0Yg0Ja0MZZGJqEkEbnsC/Z8CO/fOZHFPReHULted5xZu2o+SkMclKpOZq0mFxPKXr/Ru0QUJ68WVIVsIWPrYO6rBhaGcolBux7iO8uIxwn3kBz6gSqC0U+p4qKqqllTjnqzijbCpl2X5bToyLLYDI1q1fmSQKBi30h1WKiLCO+L5KXISvWriMMQOsQ/5TWjYo/aGUxj4RNiBUwmuZpeLm/fMZPNVlZWnFnV24dPqRHbqBVMfRgOoXK3D+PL289fJtdn49vrm/O/z/r9QkZJXOKNmXN9MBo7c1xyShqOC47X4oihxlapjYaOnLIa3F5eqi704UNOXUFMv6rMPmau5BIELuH+XDyxkAcf1Sy2TGfPPkY26L3dj3W8Eorz2l7E2tjq9tAsEUWbfmAiaPNktxysSsDss/42pWnC/DkUbgPTOb4uva+Nrv4wY5ax3YxXVwQlWVcKCcJ4xVahZEGpy7hcOmDuZMhsQdFtFFAgnZiMqQE/r409OqBZl8Sj1KRtw82DE6WC6V+ZekdIizDpk3kM4RFXRwSHGImJV/otnCo0sRLwJHl7x8prtj3gfWis1B1OU7bA9F3XcBNi92FDNb4Fxt1OIge4hmxxCWA5J7zG2g7R6sjSO91KBvIXZ9kFi6jl3K2bklkLw5E77lcIdOyVaPK3Klky91Oa5DiJVVgjotWLGuRjShbglMWhmbAk8DVaLzaGcpHSupeC5qHkbSedvta7hzVQ10rPxsAWHwHGyu0koGlPlM1vJb2WlXLbWLKpGXep1Acyh5gn6WVdwAmsXx2MPqH5Q0txQ4klTHy3m1evD0cVumrNQ7nfNJW9K6w7a1Fm4/GGCs3axMCLeRgk+5GrSAqnXYqC0jj+ySqrtqJ6aWXGZ6qpqjKgT+y47yaupBT2/bidT2c7bJml2Gw3MKYoTjfQSbLelkWUNtMNMlzoy5zublMKLp9QLRW3a5EbW1m12GBGqAzHhl1zrTdmvZwgMxz9T72xufG3tsVJus06ulrNvK0NZn64sc2aPVpvf7ChKBJFf+LKrtsleOxDY8Zb2klmVL2VNHWQHS5cKIh4v2RCcx/BZ256u1lIrLvQtYxd0h/TUkLLTNoOwVmRBKBpKWkc3w6dSTexuEwsbxzf9DsZ/Qfu5J6q</source>
   </file>
   <file path="api\WebHook.php" generated-path="api.WebHook.html" hash="25f469e6e809300fb57fa81d4eb074d8" package="FamePHP">
     <docblock line="0">
@@ -2794,7 +2830,7 @@ Supports both Attachment Upload API &amp; Send API</description>
     </class>
     <source>eJytV21P20gQ/o7Ef5hG6OIgqK/9cDrRA8ql4UXiIEqC7gNF0cbZxC7O7t56HYja++83+2LHju1Ae7UQDtl5eWbmmZnlj1MRit0df39/dwf24ZwsaP+yrz+7vwM64fwR/qJJQtmcSphwlR9/DLhYyWgeKujmn7ygA+9/ffc7HJqXFSSpCrmEYUzpijyDFyolkiPfn0cqTCdvA77wE3vWsQpxxB6hWcovINXCAWUJfYW8P4n5xF+QRFHpX191ezfDnrbh7+7s7jCUSQSGbPKAiflMRPRBn2T56cYkSeBCEhEO6D8pTZQFgEqPZE7hrH/lrAUVSfiKR/jY39aiftBqKmMICZvGNPsuP/u4JBL45AsNVPadbz8IGS2JorAXhAbjptW/Q6pCLBimnXEFioOkKpUMCH5IBNcJm0m+wL8MvqTeN5Y/poQ1Obc2B5nBY1AypbV4sjSElEypbPBGpCSrJl9OE50YMc/J4dPqcqYoU4ejlaAtOD6BFhECaUFUxJn/JeGsZaU7DbmKghBmGduxjJBgxlFX5w2ZP8V3PeJEyYjNmyDPNQGGztQxtJFgCRIladfC6GsOkSBAIfT3SNmPuBRo5MzYGGkTtY4wXWgkDRSXVReCSLJwTmDP4ADRhCzznk4w2zBLmQ11PA4yF5410XHE/7qu2p4Ko+TwZAMwpslqfLCS/9YFcCuoJjKjTxDo7klQG/1Wg3GcX/Jo+gJkbXJozXjNYJEmx8blOGKR8jrbQHZjji2BwhKp+dNwGqtroAWI0Qy8NxEOap1zh7ZTktAPfUbc7XMSxVSzGgKD0gE7wllRQoo8IFKh5IqqN+0s3FLI+jEZMZYKrrflZihoEM1W8FSeUtZ1yNN4Wh1XmxTd07PphWwNqRqURtSIe0avpsQuf2N97IQq2VOh5E+Gd5+v2JLE0fRMztMFFrj3HFChfXrtOqcd4CxemR4SKsGo3GAFkoAJh+JKqmR4g32VaWtQbs0zVdmAh8AOST0jK6msOWvOaHct7BU1m9vGje77dnFQtx90BAX91xFGj2o9oadEkYwrE81gpgpTOo/MDfKXo7oozGovU2sOaWO0ZwpbBwJnSyqVXV/AZ9kuNG3IcUwECmZcLki+6zejsZr5JsQbTXll5oPECSJRL8v7dmNd5An4M43iqZP1Mgd10a9NYtT3DwW+InRKsDi5uub23iNd6YW8h82S0ko/Fczdazq0tPyRk27VN4MLsaC6vQNwe/dvhyNLGEx1tufbCZgiumubE0+F4BI7FC+6eKIURqTbG+5EzMnUMO8Xa7SoVl+ob/kaFWRl1AXHRjRAHAkk6NsJUBbwKY7Z8m7Py+nMfAOWxvH6/mYM6dGJ375A8D469jIYnabZ9527I4/mCG5+fG+gUy7U2F7qcu8HcF923r0bXN/2R2N8mRteftvXNXybFdXc+pfv3/7mL6hf06qn9hYzNleM4/orSOug3rNhEbp+t+X8/Kp3/WloGO+S3SB8ORr1L3tnn3oDI2yBlLuwNDs7azMPxXyWa9iwKOy9vFLPQvqLic8gDnqju8HNaHB2MzzvDQ6sjfqerHSnMU2fafDaC4HuqIveKN9WSC+E8dL1FL1UmqXhX5aNhrjQVEf15ovAdzbDnP60XqgrBr4OTLxFA/+zgK+qFf6cnvwH7b1xpA==</source>
   </file>
-  <file path="core\attachments\Video.php" generated-path="core.attachments.Video.html" hash="b1550df97f5d293e4396bee8080cc6a6" package="FamePHP">
+  <file path="core\attachments\Video.php" generated-path="core.attachments.Video.html" hash="2968ec316f3b8faa905f598e31c8388a" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -2804,111 +2840,111 @@ Supports both Attachment Upload API &amp; Send API</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
-    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="19" package="FamePHP">
+    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="20" package="Attachments">
       <extends>\Famephp\core\attachments\Attachment</extends>
       <name>Video</name>
       <full_name>\Famephp\core\attachments\Video</full_name>
-      <docblock line="19">
+      <docblock line="20">
         <description>Video attachment</description>
         <long-description></long-description>
-        <tag name="package" line="19" description="FamePHP"/>
+        <tag name="package" line="20" description="Attachments"/>
         <tag name="inherited_from" description="\Famephp\core\attachments\Attachment" refers="\Famephp\core\attachments\Attachment" link="/classes/Famephp.core.attachments.Attachment.html"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="22" package="FamePHP">
+      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="23" package="Attachments">
         <name>$type</name>
         <full_name>\Famephp\core\attachments\Attachment::type</full_name>
         <default></default>
-        <docblock line="22">
+        <docblock line="23">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="22" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="23" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="27" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="28" package="Attachments">
         <name>$payload</name>
         <full_name>\Famephp\core\attachments\Attachment::payload</full_name>
         <default>array()</default>
-        <docblock line="27">
+        <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="27" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="32" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="33" package="Attachments">
         <name>$isLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::isLocalAttachment</full_name>
         <default>false</default>
-        <docblock line="32">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="37" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="38" package="Attachments">
         <name>$localAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentLocation</full_name>
         <default></default>
-        <docblock line="37">
+        <docblock line="38">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="37" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="38" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="42" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="43" package="Attachments">
         <name>$localAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentMimeType</full_name>
         <default></default>
-        <docblock line="42">
+        <docblock line="43">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="42" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="43" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="47" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="48" package="Attachments">
         <name>$attachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::attachmentName</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="48">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="48" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="54" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="55" package="Attachments">
         <name>$isReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::isReusable</full_name>
         <default></default>
-        <docblock line="54">
+        <docblock line="55">
           <description>Attachment re-use policy</description>
           <long-description></long-description>
-          <tag name="var" line="54" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="55" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="26" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="27" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Video::__construct()</full_name>
-        <docblock line="26">
+        <docblock line="27">
           <description>Video constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="26" description="" type="" variable="$attachmentLocation"/>
-          <tag name="param" line="26" description="" type="null" variable="$attachmentName">
+          <tag name="param" line="27" description="" type="" variable="$attachmentLocation"/>
+          <tag name="param" line="27" description="" type="null" variable="$attachmentName">
             <type>null</type>
           </tag>
-          <tag name="param" line="26" description="" type="boolean" variable="$reusable">
+          <tag name="param" line="27" description="" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::__construct()" refers="\Famephp\core\attachments\Attachment::__construct()" link="/classes/Famephp.core.attachments.Attachment.html#method___construct"/>
@@ -2929,19 +2965,19 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="63" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="64" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Attachment::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="64">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
+          <tag name="param" line="64" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
+          <tag name="param" line="64" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
+          <tag name="param" line="64" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -2962,94 +2998,103 @@ Supports both Attachment Upload API &amp; Send API</description>
         </argument>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="96" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="97" package="Attachments">
         <name>IsReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::IsReusable()</full_name>
-        <docblock line="96">
+        <docblock line="97">
           <description>Whether or not the attachment is reuasable</description>
           <long-description></long-description>
-          <tag name="return" line="96" description="" type="boolean">
+          <tag name="return" line="97" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="104" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="105" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::IsLocalAttachment()</full_name>
-        <docblock line="104">
+        <docblock line="105">
           <description>Whether or not the attachment is locally stored on the computer</description>
           <long-description></long-description>
-          <tag name="return" line="104" description="" type="boolean">
+          <tag name="return" line="105" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="113" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="114" package="Attachments">
         <name>GetLocalAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentLocation()</full_name>
-        <docblock line="113">
+        <docblock line="114">
           <description>Return attachment location</description>
           <long-description></long-description>
-          <tag name="return" line="113" description="location" type="string">
+          <tag name="return" line="114" description="location" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="122" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="123" package="Attachments">
         <name>GetLocalAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentMimeType()</full_name>
-        <docblock line="122">
+        <docblock line="123">
           <description>Return attachment mimetype</description>
           <long-description></long-description>
-          <tag name="return" line="122" description="" type="string">
+          <tag name="return" line="123" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="131" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="132" package="Attachments">
         <name>GetLocalAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentName()</full_name>
-        <docblock line="131">
+        <docblock line="132">
           <description>Return the name of the attachment</description>
           <long-description></long-description>
-          <tag name="return" line="131" description="| string" type="null">
+          <tag name="return" line="132" description="| string" type="null">
             <type>null</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="141" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="142" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetAttachmentName()</full_name>
-        <docblock line="141">
+        <docblock line="142">
           <description>Alias for GetLocalAttachmentName()</description>
           <long-description></long-description>
-          <tag name="return" line="141" description="$attachmentName" type="string">
+          <tag name="return" line="142" description="$attachmentName" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="Attachments">
+        <name>GetAttachmentType</name>
+        <full_name>\Famephp\core\attachments\Attachment::GetAttachmentType()</full_name>
+        <docblock line="149">
+          <description>Get the attachment type</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="157" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Attachment::GetJsonSerializable()</full_name>
-        <docblock line="149">
+        <docblock line="157">
           <description>Return JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="149" description="json serializable" type="array">
+          <tag name="return" line="157" description="json serializable" type="array">
             <type>array</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
     </class>
-    <source>eJyVkV9rwjAUxd8L/Q73QagVNduehm7qEMcGmwjCngRJ49UW26TLn6GMffclbW1FNthCoUnPL+fce3s3zuPc90in43vQgUea4eJp4fbVmWEkxB5eUSnkO5QQCV3LEybyo0x2sYZpvWuzEG6urm+hV7xKkBodCwnLFPFID9COtc7VgJBdomMT9ZnIiCq1sLyQJnwPv1PkrFIHM+QK/8CTKBURyajSKMnL83Q2X86cB/E93+OWUbltuZiDHcyKCYkrqjVlcYZcq6HvSXw3icS14JYLHmqtb/lg6GxOw3xLNiiguV3lsJQqVYl40Mg3Chob+LSYXaWJWycjJrjS0jAtZL+WJjmVNCsO0GqiXgSjOhH8kuMmTc+5ue3zkrH/2zISjaJRWquk3OQmssOGreHM+cN6XZfV/iG/exkG90UN3SbAftnSVGEIZULVfxFGpb02GPw35Mw9HDZ2LR0nqjfSx9yFBh9uqkGlf/mefcajb4mS8H4=</source>
+    <source>eJyVklFrwjAQx98L/Q73INSKmm1PQzfdEMcGTgRhT4Kk8WyLbdIl6VDGvvuStrZFNthCoZfe7/7/yzV30yzKXIf0eq4DPXiiKa6eVzau9gwDIQ7wikohD1FCIHSdfmAiO8k4jDTM6qjLfLi5ur6FQfEqQZrrSEhYJ4gneoRupHWmRoSEsY7yYMhESlSZ88uCJOYH+J0irU4tzJAr/ANPgkQEJKVKoySLl9l8uZ5bDeI6rsMNozJz5GIOZjAbJiRuqNaURSlyrcauI/E9jyVuBTec91jnhob3xlbmPMy3eIcCmuqyV6N/oCFCU6mqBlhClaqq8KiR71SLgk+DmVWq23V2YIIrLXOmhRzWKeMjaVpsoNP0sBCM6ljwS47nSdLmlmYAl4y5CIaRmCsaJHWWlEGWB+YvwD7nzOrDdlu31f3Bv39pBvdFD/3GwHzZ00ShD6VDdf7CjEpTNhr916Sl7o8buY6OYjWY6FNmTb0PO1Wvyn+5jnmmk29pq/in</source>
   </file>
-  <file path="core\Asset.php" generated-path="core.Asset.html" hash="364d01fd77b19a9dd1242caff99ebd56" package="FamePHP">
+  <file path="core\Asset.php" generated-path="core.Asset.html" hash="c58e5e88a1d7e6a7b5705702891a3d65" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -3143,9 +3188,9 @@ Supports both Attachment Upload API &amp; Send API</description>
         </argument>
       </method>
     </class>
-    <source>eJydVW1v0zAQ/l6p/+GQJiWZtgX4hFrWMZUNKgEbHXwq1eQk18Zaagfb2ZiA/8457wldN7Aq1YmfO9/z3Eten6RxOhz4+/vDAezDOdvg5ftLuy+fQwykvIGPqDWKNSoIpKmP34QyvVd8HRuY1js39ODl8xev4DD/K4AsM7FUcJUg3rMf4MbGpHrk+2tu4iw4CuXG18WZVxgkXNzAwyi/FakFhyg0PgHvB4kM/A3TBpX/YTY9+3R1Zn34w8FwIAijU6Kc60DCfAulwvFwoPB7xhVeS0Fn84uLL29nczgCh6Xcn0qx4us5sgjVEdk4j+DfMsMCprHCZrq5js6/tf1tOa7MxzbgKm3v0AATESg0iuMtAvHQbI3AKGtGw0rJDUSlZSEZ0byxiCkxLAUIE4LDqTWBn/SOVnGBXWRyyxRU10MohcDQcCmAC20YMa2QfrFJFb9lBmEvCvJg+/6Ki8iPNioLjVRHzVUpU2xjLacKIxSGs0TXBCBsXvbvzAKqBVhlogjt+rr273a9eVBYlETt2jMx14eTKIBjEHhXc3UbSA7r+Fk4sdTGWR7sBkWBLa5HYZRt9SRgSqm6kypylg3OGxf739vUvmK3ZTmAkRAF1UFfcxKLizXs5dBPFEofwIWBX13YLGpAVIKZEjQlZPJIbmxEbnPPQe1sS2r4CtxndX4OJ1eYUPG5zixyDqit8iq3O+voeJQreAALp9jB8aTFZ+l5bc924Q9OvqZMgJAGdK3UCM6UoqnFKdjPH+B7hur+mVPJ3JE6z5GSd1Q6rTDP0YTxXN653rgNtGxwk5p715p4Fd8e505JHk5mNOAUhVmT7SLtWuT8rQ6nxrAw3thyif6qpQK6TRuyHLG2aXM8i5ZdLz0Zai0TjU+h8zWldsYWnU7Mx90w6HRG7/Ld4m8yO4LeQt0ZVRgSf2FLqMds+WCGy+J2WzxOVyuqRIwoy9r1YALPPTgBmjgII1hRr+K4lakdDTqvZretv6hs1f7gzqH/0LJlwDWilqlp2Qe6kz4prebcNS2bbjzt5azfl/lz1ZxdzZ3WYbcmG9yy20X/325b2/+c8YR0p+FYf0W35GBH+5daF1XVbcBmMNPvZPIHqYCUqQ==</source>
+    <source>eJydVdtu2zgQfTfgf5gCASQFTtTt08LeODWcZtdA2wR298kxAkoaW0RkUktSSYNu/71D3aU6l5YwYEo8M5w5c2b013kap8OBf3w8HMAxXLI9Xv9zbfflc4iBlHfwCbVGsUMFgTT18ftQpo+K72ID83rnhh68e/vHn3CS/xVAlplYKlgliI/sK7ixMake+/6OmzgLTkO593Vx5hUGCRd38DTKb0VqwSEKja/A+0EiA3/PtEHlf1zMP3xefbA+/OFgOBCE0SmlnPNAxNyEUuFkOFD4X8YV3kpBZ8urqy8XiyWcgsNS7s+l2PLdElmE6pRsnBfwF8ywgGmssJlurqPzm7a/A8eV+cQGXJXtbzTARAQKjeJ4j0B5aLZDYFQ1o2Gr5B6i0rKgjNK8s4g5ZVgSECYEh5k1gW/0jlZxgV1kcs8UVNdDKIXA0HApgAttGGVaIf1ikyp+zwzCURTkwfb9FReRH21UFhqpTpurUqbY3lrOFUYoDGeJrhOAsHnZvzMLSAuwzUQR2u1t7d/tevOgsCgTtevIxFyfTKMAzkDgQ52r20ByWMfP2omlNs5m9DwoCqy4XoRRtdWrgCmV6kGqyNk0OG9S7L8fYnvF7ks5gJEQBdVBn3Mii4sdHOXQzxRKH8CFgf+7sEXUgEiCmRI0JWTyQm1sRG5zz6h2dqA0fAvum7o+J9MVJiQ+11lEzojaKle53VlHZ+OcwRGsnWIHZ9NWPhvPa3u2C79y8jVnAoQ0oGumxkACSOouiiTqHEF4bYDGGdekX6Wy1LxxKvY7FchLp+QDKaoV/SWaMF7KB9ebtIE2Sdyn5tG1Jl5FQ4+KjlJPpguae4qirznoIu1a57RYembGsDDeWxVFP0msgB6ijCzHrG1qj9dVuUZwc31xNR5fz5azT7erL8vNpuu4x0zNeqLxNRn+m1LjYyvDThpn3cjodEHv8t365/x+LY8DBDnj0syWaG3110t286QOys5wW6nNtluSMUakBe16MIW3HpwDjSuEMWyp0XHSqucz3b2sBr8Vb1T2eX/q59Bf6Pcy4BpRM9f0+xOtTd+jVmc/N2qbVp71ythv6vy56uwu507rsKvcBrfp9trvN+XB2XHJeEK802StP8EHavDMkCi5LlTVbdNmqtPvfPoDdB+osg==</source>
   </file>
-  <file path="api\Database.php" generated-path="api.Database.html" hash="82c2719976e2ee5aebe7096a733e4ee1" package="FamePHP">
+  <file path="api\Database.php" generated-path="api.Database.html" hash="a966cd703f5bac384e90d78bb67edba2" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -3247,27 +3292,27 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="72" package="API">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="76" package="API">
         <name>FetchRow</name>
         <full_name>\Famephp\api\Database::FetchRow()</full_name>
-        <docblock line="72">
+        <docblock line="76">
           <description>Fetches the first row after execution of a query</description>
           <long-description></long-description>
-          <tag name="return" line="72" description="resultset as associative array" type="array">
+          <tag name="return" line="76" description="resultset as associative array" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\api" line="83" package="API">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\api" line="87" package="API">
         <name>GetPdoDataType</name>
         <full_name>\Famephp\api\Database::GetPdoDataType()</full_name>
-        <docblock line="83">
+        <docblock line="87">
           <description>Returns the PDO datatype of a given variable</description>
           <long-description></long-description>
-          <tag name="param" line="83" description="&lt;p&gt;(default = \PDO::PARAM_STR)&lt;/p&gt;" type="mixed" variable="$variable">
+          <tag name="param" line="87" description="&lt;p&gt;(default = \PDO::PARAM_STR)&lt;/p&gt;" type="mixed" variable="$variable">
             <type>mixed</type>
           </tag>
-          <tag name="return" line="83" description="$datatype" type="mixed">
+          <tag name="return" line="87" description="$datatype" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -3277,22 +3322,22 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>mixed</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="111" package="API">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="115" package="API">
         <name>Insert</name>
         <full_name>\Famephp\api\Database::Insert()</full_name>
-        <docblock line="111">
+        <docblock line="115">
           <description>Insert data into a table</description>
           <long-description></long-description>
-          <tag name="param" line="111" description="" type="string" variable="$table">
+          <tag name="param" line="115" description="" type="string" variable="$table">
             <type>string</type>
           </tag>
-          <tag name="param" line="111" description="" type="array" variable="$fields">
+          <tag name="param" line="115" description="" type="array" variable="$fields">
             <type>array</type>
           </tag>
-          <tag name="param" line="111" description="" type="array" variable="$values">
+          <tag name="param" line="115" description="" type="array" variable="$values">
             <type>array</type>
           </tag>
-          <tag name="return" line="111" description="true | false on success or failure" type="boolean">
+          <tag name="return" line="115" description="true | false on success or failure" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -3312,25 +3357,25 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="125" package="API">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="129" package="API">
         <name>Select</name>
         <full_name>\Famephp\api\Database::Select()</full_name>
-        <docblock line="125">
+        <docblock line="129">
           <description>Select data from table</description>
           <long-description></long-description>
-          <tag name="param" line="125" description="&lt;p&gt;items to select from table&lt;/p&gt;" type="string" variable="$items">
+          <tag name="param" line="129" description="&lt;p&gt;items to select from table&lt;/p&gt;" type="string" variable="$items">
             <type>string</type>
           </tag>
-          <tag name="param" line="125" description="&lt;p&gt;table name&lt;/p&gt;" type="string" variable="$table">
+          <tag name="param" line="129" description="&lt;p&gt;table name&lt;/p&gt;" type="string" variable="$table">
             <type>string</type>
           </tag>
-          <tag name="param" line="125" description="&lt;p&gt;SQL 'WHERE' conditions (optional)&lt;/p&gt;" type="string" variable="$conditions">
+          <tag name="param" line="129" description="&lt;p&gt;SQL 'WHERE' conditions (optional)&lt;/p&gt;" type="string" variable="$conditions">
             <type>string</type>
           </tag>
-          <tag name="param" line="125" description="&lt;p&gt;associative array of elements that match $conditions (optional)&lt;/p&gt;" type="array" variable="$placeholders">
+          <tag name="param" line="129" description="&lt;p&gt;associative array of elements that match $conditions (optional)&lt;/p&gt;" type="array" variable="$placeholders">
             <type>array</type>
           </tag>
-          <tag name="return" line="125" description="true | false on success or failure" type="boolean">
+          <tag name="return" line="129" description="true | false on success or failure" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -3355,25 +3400,25 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="143" package="API">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="147" package="API">
         <name>Update</name>
         <full_name>\Famephp\api\Database::Update()</full_name>
-        <docblock line="143">
+        <docblock line="147">
           <description>Update table</description>
           <long-description></long-description>
-          <tag name="param" line="143" description="&lt;p&gt;table name&lt;/p&gt;" type="string" variable="$table">
+          <tag name="param" line="147" description="&lt;p&gt;table name&lt;/p&gt;" type="string" variable="$table">
             <type>string</type>
           </tag>
-          <tag name="param" line="143" description="&lt;p&gt;set of values to be updated&lt;/p&gt;" type="string" variable="$newValues">
+          <tag name="param" line="147" description="&lt;p&gt;set of values to be updated&lt;/p&gt;" type="string" variable="$newValues">
             <type>string</type>
           </tag>
-          <tag name="param" line="143" description="&lt;p&gt;SQL 'WHERE' conditions (optional)&lt;/p&gt;" type="string" variable="$conditions">
+          <tag name="param" line="147" description="&lt;p&gt;SQL 'WHERE' conditions (optional)&lt;/p&gt;" type="string" variable="$conditions">
             <type>string</type>
           </tag>
-          <tag name="param" line="143" description="&lt;p&gt;associative array of elements that match $conditions (optional)&lt;/p&gt;" type="array" variable="$placeholders">
+          <tag name="param" line="147" description="&lt;p&gt;associative array of elements that match $conditions (optional)&lt;/p&gt;" type="array" variable="$placeholders">
             <type>array</type>
           </tag>
-          <tag name="return" line="143" description="true | false on success or failure" type="boolean">
+          <tag name="return" line="147" description="true | false on success or failure" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -3398,19 +3443,19 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="156" package="API">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\api" line="160" package="API">
         <name>AffectedRows</name>
         <full_name>\Famephp\api\Database::AffectedRows()</full_name>
-        <docblock line="156">
+        <docblock line="160">
           <description>Returns the affected rows (callable after query execution)</description>
           <long-description></long-description>
-          <tag name="return" line="156" description="$rowCount" type="mixed">
+          <tag name="return" line="160" description="$rowCount" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <source>eJzlV21v4kYQ/h4p/2EOIcVEJLT9VEHDHU2cSyQSOCDXLyehtb2GVYzXt7tOgq7575312mD8QrioX6paUWLYmXnm5ZnZyR8fo2V0fNQ5PT0+glO4Jis6vhnr9/SzSx3OH+GOSknDBRXgcLU5/uTyaC3YYqngcvNmuS347Zdff4ez5I8RJLFacgHTgNI1eQFrqVQku53Ogqll7Jy7fNWR5qxlFAIWPkK9VCfnqRZ2aSjpAfIdJ+BOZ0WkoqIzvL2076e2ttE5Pjo+ClFGRhhykgdMzDcSsd42O1dEEYcgjsvDkLqK8dDgo84jWVAYjG9TY25ApNwq/NDmAR9jSj915szZpyci4Nv4agTN8mnHvESCPRFF8xK9KpzplyF8j6lYowaNiKAeSIWKKxoqWJLQC+guLsJONwJNqVaqDlmfVWLmY5NKxK7i4nyLgl6QFTSXXKrSl56j61D6OpZUVB5EmOlnLryij7GDtAA/DpPMwHy+ccVKgNsZVHtrvL011wJj50dqFx+FKcx91E9TLZk8628rABcQ0uekdFZjtZbfg64Gu0ggewbwIgVu1CD3thivLlHuEixtz35xaZRgNGmr6Ah9Ycpq2EJw8aELDThHobP+girduchNq7Vj1ry+VpXOfqFujMUlW+JkZ8XcYzpZuICmYVdJPBMjQpA1xhdgay154FEhAWPlLiOKPVFzvlUSVMUixEHDA0x5TOFv8EmAXMLIZey6GBDgLPEJC2JBa6i5qXsazhftmGU8bRd8wZLFQdAq1TstriY5ypRKfdZP+yk1m08w88HaBfmQohQL53NBiS5xMT/QfKRruOhD84kEcbniBQ/P+g4Lva9a1NKa7VSvnQl9pmrscd2Ys3WEMsZq3ukcM3bYoZ+0KDuA1KTWymxU0umaIoGpBLXEojAhFQj+DMTHAQzGgK4S95FvNVxLoQ2LBJVxoCRVOkO1JKqZAYkvE/5sVTR3VYC+lk96r9u9tmeXN/PBdDq63BvvJLFj4tXz28OEK0y4CXGBroaAQ5YRZzt2iw2zYi84pJuZGFge9QmGjSw0zowHk8HdfDqbtEppSnUz2Lfao8wKg1mRoY3Nshs5EslnppOWM1TgrauvBSbnYbyigrk5yW4FwWswb+9nvbK0g6302KuGM7PqfWi7ER6CpofX+7D+HI2GPwmm58r7wO4fhoeAvZbbJDO4rxVucScTKukAYKHiyH+1j/bZdbIjVLhEfEYDT9YcJiNNllrinTdJYXiYaCzjXTvzJBuzcofn6Y14AY1bXDAnM0C+jtLAwNK3M1tFAfeoddKGk42xFh40WvB1MHywp1VySZxznO7SymCNTqNXLpGZZNX3X6q8r3pTGuA9Z6rnC746rHYM10YJ5jdWXBojZf3KmhsRqFrzMjm8fj2m6yGTfePkrxt7Yp9A7muLJ0sSCVo1LNm/h+g5jU7r3VcPcaJglaxgzTcg/lWumdxbJptt2HAu54NZJ2pWmYrhvWHk1B7al7OsUteT0V1qv1HcX3JoddtLavYc7UJSiryPjf0jZB8/80HtZelD5On77PC5cgDHcIFP9igJes9APphu0Xx2KMQJovf/JqhJ+3YYblL2EyTdw9GH8dVgZmcVm9qzHMJ/kqb5rZD4PjY3Lmm4CGOpXBIESZhmJzaebjbj2gUPlS95HJb+NS8UapCC4dYrrdZbC29mNL/S48/H/j/lACVz</source>
+    <source>eJzlWFtv2kgUfo+U/3CKkGIiEtp9WsGGlk2cTSQSKJDuw7aKBnsMoxiPOzNOgrr573vGYxvjC6HRvqzWihLDnDnfuXzn0v72MVyGhwed4+PDAziGS7Ki46uxfk8+O3TO+QPcUClpsKAC5lxlx58cHq4FWywVnGdvltOCX95/+BVO4j9GkERqyQVMfUrX5BmspVKh7HY6C6aW0fzU4auONGctc8FnwQPUS3VylmphhwaS7iHfmft83lkRqajoDK/P7duprXV0Dg8ODwKUkSG6HMcBA/OVhKy3ic4FUWROEMfhQUAdxXhg8PHOA1lQGIyvE2WOT6TcXPih1QM+RpV+6tSZs0+PRMDX8cUImuXTjnkJBXskiuYlelU4089D+B5RscYbNCSCuiAVXlzRQMGSBK5Pt3ERdpoJNKVaqTpkfVaJmfdNKhE5iovTDQpaQVbQXHKpSl+6c52H0teRpKLyIMRIP3HhFm2M5kgL8KIgjgzc32emWDFwO4Vqb5S3N+paYPT8SPTiozCEuY/6aaolkyf9TQbgDAL6FKfOaqzW8rvf1WBnMWTPAJ4lwI0a5N4G48UhylmCpfXZzw4NY4wmbRUNoc9MWQ1bCC7edaEBpyh00l9QpSsXuWm1ttSa15eq1NnP1IkwuWRDnPSsGHsMJwsW0DTsKomnYkQIskb/fCytJfddKiSgr9xhRLFHas43lwRVkQiw0XAfQx5R+Bs84iOX0HMZOQ46BNhLPML8SNAaamZ5T9z5rA2zjKXtgi2Yssj3W6V8J8nVJEeZUqpP+kk9JWrzAWYeWNsg7xKUYuI8LijRKS7GB5oPdA1nfWg+Ej8qZzyFYfI+DqCVyFUKFtw56c9Z4H7R8paGaScgf73/lr1++JZ3KGMOxUy8HaCdCv1B1djluk3M1iHNbK9C3P7qZYvFmw8Ja7ZsoCb3Vqq2ku+XFCuMSlBLZA0TUoHgT0A8nBBgFGgacQ8LoqYYEmhDc0Fl5CtJlU5hLctrmlRsy4Q/WRXdp8pBT8vHzaHbvbRn51f3g+l0dL7T30msx/irB4yLOVCYA+PiAk0NAKcAI/PNXChW9Io94xRppmJgudQj6DaWiTFmPJgMbu6ns0mrFKbkbgr7Wv2WiWIwKyKU6SybkeOVfGI6aDlFBTo7em5hVQXRigrm5CS7ZXbWYV7fziq4PMdaf+hVw5lm+ja0bQ/3QdPd9W1Yv49Gw58E043vbWC3d8N9wF7KZZIq3FUK17g0ChVXALBAceS/2kX7dN5tCRWmnMeo78qaw7jLyVJJvHHUFZqH8cYy1rVTS9LOK7d4nozsM2hc4wY8mQHydZQ4BpZeH9gq9LlLraM2HGXKWnjQaMGXwfDOnlbJxX7eY8OXVgpr7jR65RSZTlY9oJPLu7I3pT4OYpM9T/DVfrljuNdKML8x49IoKd+vzLkRgao9NJXD/cBlOh8yXoiO/ryyJ/YR5L62eLzFEb9Vw5Ldi5Lu02i0Xs51EycKVvGO2HwF4l/lmom9ZaLZhoxzORvMvlOza1U074yRU3ton8/STF1ORjeJ/kZxwcqh1a1XidpT1AtxKvI2Nna3kF38zDu1k6V3oavn2f59ZQ+O4b8w4tVKgt4zkA+mWjSf5xSiGNH9fxPUhH3TDLOQ/QRJd3D0bnwxmNlpxqb2LIfwn6RpfisknofFjUsaLsKYKof4fuym2YmNpdlmXLvg4eVzHgWl/zsoJGqQgOHWK63WawtvqjS/0uPPx/4/JkpKrA==</source>
   </file>
   <file path="core\buttons\quickReplies\PhoneQuickReplyButton.php" generated-path="core.buttons.quickReplies.PhoneQuickReplyButton.html" hash="757c7b03d34022355c71c541ee23432f" package="FamePHP">
     <docblock line="0">
@@ -3481,7 +3526,7 @@ Supports both Attachment Upload API &amp; Send API</description>
     </class>
     <source>eJyNkU1PwkAQhu9N+h/mYFJoAquejPgVESOJCoI3MU13HdsNZXfdj4RK+O9uKTRcmriXmc0+78w7s1e3KldhQOI4DCCGx3SF06dple/vDKmUS3hBY1BkqIFK2zzfMalKzbPcwrDJOqwL56dnF9DbhRpMnc2lhnmBWKZr6OTWKnNJSMZt7mifyRUx9Vu3FhRcLKGdIkdOK5ihMPgPntBCUrJKjUVNnsfD0et8VNUgYRAGwjNG+ZF3e/CLWTCpcUGdtVKYxZvjbDlDVXA0gzDQ+OO4xkQKL5hNJu8P4xn0Iao0ZK8h97vY97UiL3GmpXSNDSoTh68YFqkxMM2lwKZxWXP10N7oMs0Qjm3tR2HtWsC1RfFl4FBq4zX+1G2rE7cImTdqtWNW6gNJ6kQ56n8Avp1glnsySRq204UNnNicm96NQc3Tgv+mtMAPvybhjdjElgqjT7iGyG9HJ6rqnQi3oqijAWzDYPsHEgLatA==</source>
   </file>
-  <file path="core\attachments\Audio.php" generated-path="core.attachments.Audio.html" hash="cb8e94d55ae6d7690149de8126805d0d" package="FamePHP">
+  <file path="core\attachments\Audio.php" generated-path="core.attachments.Audio.html" hash="12ffdacf1c823cb5bdbe6d4bac3cb2cd" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -3491,111 +3536,111 @@ Supports both Attachment Upload API &amp; Send API</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
-    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="19" package="FamePHP">
+    <class final="false" abstract="false" namespace="Famephp\core\attachments" line="20" package="Attachments">
       <extends>\Famephp\core\attachments\Attachment</extends>
       <name>Audio</name>
       <full_name>\Famephp\core\attachments\Audio</full_name>
-      <docblock line="19">
+      <docblock line="20">
         <description>Audio attachment</description>
         <long-description></long-description>
-        <tag name="package" line="19" description="FamePHP"/>
+        <tag name="package" line="20" description="Attachments"/>
         <tag name="inherited_from" description="\Famephp\core\attachments\Attachment" refers="\Famephp\core\attachments\Attachment" link="/classes/Famephp.core.attachments.Attachment.html"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="22" package="FamePHP">
+      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="23" package="Attachments">
         <name>$type</name>
         <full_name>\Famephp\core\attachments\Attachment::type</full_name>
         <default></default>
-        <docblock line="22">
+        <docblock line="23">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="22" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="23" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="27" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="28" package="Attachments">
         <name>$payload</name>
         <full_name>\Famephp\core\attachments\Attachment::payload</full_name>
         <default>array()</default>
-        <docblock line="27">
+        <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="27" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="32" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="33" package="Attachments">
         <name>$isLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::isLocalAttachment</full_name>
         <default>false</default>
-        <docblock line="32">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="37" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="38" package="Attachments">
         <name>$localAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentLocation</full_name>
         <default></default>
-        <docblock line="37">
+        <docblock line="38">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="37" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="38" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="42" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="43" package="Attachments">
         <name>$localAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentMimeType</full_name>
         <default></default>
-        <docblock line="42">
+        <docblock line="43">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="42" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="43" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="47" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="48" package="Attachments">
         <name>$attachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::attachmentName</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="48">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="48" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="54" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="55" package="Attachments">
         <name>$isReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::isReusable</full_name>
         <default></default>
-        <docblock line="54">
+        <docblock line="55">
           <description>Attachment re-use policy</description>
           <long-description></long-description>
-          <tag name="var" line="54" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="55" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="26" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="27" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Audio::__construct()</full_name>
-        <docblock line="26">
+        <docblock line="27">
           <description>Audio constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="26" description="" type="" variable="$attachmentLocation"/>
-          <tag name="param" line="26" description="" type="null" variable="$attachmentName">
+          <tag name="param" line="27" description="" type="" variable="$attachmentLocation"/>
+          <tag name="param" line="27" description="" type="null" variable="$attachmentName">
             <type>null</type>
           </tag>
-          <tag name="param" line="26" description="" type="boolean" variable="$reusable">
+          <tag name="param" line="27" description="" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
           <tag name="inherited_from" description="\Famephp\core\attachments\Attachment::__construct()" refers="\Famephp\core\attachments\Attachment::__construct()" link="/classes/Famephp.core.attachments.Attachment.html#method___construct"/>
@@ -3616,19 +3661,19 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="63" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="64" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Attachment::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="64">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
+          <tag name="param" line="64" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
+          <tag name="param" line="64" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
+          <tag name="param" line="64" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -3649,92 +3694,101 @@ Supports both Attachment Upload API &amp; Send API</description>
         </argument>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="96" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="97" package="Attachments">
         <name>IsReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::IsReusable()</full_name>
-        <docblock line="96">
+        <docblock line="97">
           <description>Whether or not the attachment is reuasable</description>
           <long-description></long-description>
-          <tag name="return" line="96" description="" type="boolean">
+          <tag name="return" line="97" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="104" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="105" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::IsLocalAttachment()</full_name>
-        <docblock line="104">
+        <docblock line="105">
           <description>Whether or not the attachment is locally stored on the computer</description>
           <long-description></long-description>
-          <tag name="return" line="104" description="" type="boolean">
+          <tag name="return" line="105" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="113" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="114" package="Attachments">
         <name>GetLocalAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentLocation()</full_name>
-        <docblock line="113">
+        <docblock line="114">
           <description>Return attachment location</description>
           <long-description></long-description>
-          <tag name="return" line="113" description="location" type="string">
+          <tag name="return" line="114" description="location" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="122" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="123" package="Attachments">
         <name>GetLocalAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentMimeType()</full_name>
-        <docblock line="122">
+        <docblock line="123">
           <description>Return attachment mimetype</description>
           <long-description></long-description>
-          <tag name="return" line="122" description="" type="string">
+          <tag name="return" line="123" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="131" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="132" package="Attachments">
         <name>GetLocalAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentName()</full_name>
-        <docblock line="131">
+        <docblock line="132">
           <description>Return the name of the attachment</description>
           <long-description></long-description>
-          <tag name="return" line="131" description="| string" type="null">
+          <tag name="return" line="132" description="| string" type="null">
             <type>null</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="141" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="142" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetAttachmentName()</full_name>
-        <docblock line="141">
+        <docblock line="142">
           <description>Alias for GetLocalAttachmentName()</description>
           <long-description></long-description>
-          <tag name="return" line="141" description="$attachmentName" type="string">
+          <tag name="return" line="142" description="$attachmentName" type="string">
             <type>string</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="Attachments">
+        <name>GetAttachmentType</name>
+        <full_name>\Famephp\core\attachments\Attachment::GetAttachmentType()</full_name>
+        <docblock line="149">
+          <description>Get the attachment type</description>
+          <long-description></long-description>
+        </docblock>
+        <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="157" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Attachment::GetJsonSerializable()</full_name>
-        <docblock line="149">
+        <docblock line="157">
           <description>Return JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="149" description="json serializable" type="array">
+          <tag name="return" line="157" description="json serializable" type="array">
             <type>array</type>
           </tag>
         </docblock>
         <inherited_from>\Famephp\core\attachments\Attachment</inherited_from>
       </method>
     </class>
-    <source>eJyVkV1rwjAUhu8L/Q/nQqgVNduuhm5+II4NnAjeCpLGoy2mSZcPUMb++9IPW5ENtlBoTt8n73ty+jTO4sz3SKfje9CBF5ri6nWV76uaYSTlEd5RaxQHVBBJU8sTJrOzSg6xgVm9a7MQHu7uH6FXvEqQWhNLBWuOeKYnaMfGZHpAyCExsY36TKZEl1pYHuCJOMLvFLnqNIcZCo1/4EnEZURSqg0qsnibzZfree5BfM/3hGN05q5czMENZsOkwg01hrI4RWH00PcUfthE4VYKxwXTWus7PhjmNpdhTu0ukdCcrnIYp1pXIp4Mip2ragg+HeZWaZKvixGTQhtlmZGqX0uTjCqaFgW0mqiFZNQkUtxywnJ+zS3dPW8Z978do9BqGvFaJeUms5EbNuytYLk/bLd1W+0f8ru3YfBc9NBtAtyXPeUaQygTqvsXYVS5Y4PBf0Ou3MNhY9cycaJ7I3PO8tCA5lMNKv3L99wzHn0DcTvwag==</source>
+    <source>eJyVkm9rwjAQxt8X+h3uhVAVNdteDd10Io4NNhF8K0gaz7bYJl3+gDL23Ze0tS2ywRYKvfR+9zyXax5meZz7Hun3fQ/68EwzXL+sXVztGYZCHOEdlUIeoYRQ6Dr9xER+lkkUa1jUUZf14O7m9h6GxasEqdGxkLBJEc/0BN1Y61yNCYkSHZtwxERGVJnrlQVpwo/wO0VanTqYIVf4B56EqQhJRpVGSd5eF8vVZuk0iO/5HreMyu2RiznYwWyZkLilWlMWZ8i1mviexA+TSNwJbrlgXudGlg8mTuYyzLnZJwKa6rJXq3+kEUJTqaoGWEqVqqrwpJHvVYuCT4vZVaq7dXFggistDdNCjuqU9ZE0KzbQaXp4E4zqRPBrjps0bXMrO4Brxl4Ey0g0ioZpnSVlkJvQ/gU4GM6cPux2dVvdH/wH12bwWPQwaAzslwNNFfagdKjOX5hRacvG4/+atNR7k0auo+NEDaf6nDvTgLqpBlX+y/fsM5t+A1DX+JM=</source>
   </file>
   <file path="core\buttons\ButtonList.php" generated-path="core.buttons.ButtonList.html" hash="6161486673bf72c2d38e2a3bf5093345" package="FamePHP">
     <docblock line="0">
@@ -4258,7 +4312,7 @@ Supports both Attachment Upload API &amp; Send API</description>
     </class>
     <source>eJyNkm1v2jAQx98j8R1uUqUQ1JJtr6ay0m0V21ptHRIvx4Qc50osgp3ZFx5W7bvvTAKElKo7IeH4fvc/38P76zzN262o2223oAufxQJHX0f+XH1LjI2Zw3d0DvUMLcSG9u4P0uQbq2Ypwc3+1JEhvH395h1cbP9KUBSUGgvjDHEj1tBJiXJ3GUUzRWkR96RZRK70hWVApvQcnqei2ks9LFE7/A8+ijMTRwvhCG307fZmeD8eeo2o3Wq3NDMu55K3feDGTKSxOIkLIqNdv92y+LtQFqdGMxN82t73mAvYV7jTYZMS6/sEuzaPjKNYyHnpKmvgvHMxQyjvXPUomQnnGjzgmlAnrkLh0UsDWynvjfWWwoIjq/QMypcAKcpwB0TlIbdqKQjhbOvsv6SUCBJABngXkueUcrHJjEhOajUKkVwo2UKSsb1DvlxYsahe9OS2Um8mL2LeAXgotCTFwtPpXrpTCp3vQ0MoYx4rDTb1AB2mM9QVHcKAlzesM94otWYFGlcwudVLkanko50VC9Q0XEvMfepOMLTW2EsOB5nymyVvGmRqoYjnJhETTGCVIhdvUVBzPK+CsH/I+XfXQ29nlCp3MaBNjnAFQV61Mug/RbwSM/uhNvxVIzxxGNZRvvrMviDB3fjHPQ/dKq75j4jrc7FIhdUgrBWbF6bCSnfO6HFNp3NiGpXiz+PeB77wAK4G9UacNxlf8BG0nX2Dqoquc8drxfbr0BL+XQ/+AUhJd00=</source>
   </file>
-  <file path="core\templates\MediaTemplate.php" generated-path="core.templates.MediaTemplate.html" hash="3d1f6279b2d4070b18380806b48bd319" package="FamePHP">
+  <file path="core\templates\MediaTemplate.php" generated-path="core.templates.MediaTemplate.html" hash="19771da8dc2c79d2cf5288902c615455" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -4280,61 +4334,49 @@ Supports both Attachment Upload API &amp; Send API</description>
         <tag name="inherited_from" description="\Famephp\core\templates\Template" refers="\Famephp\core\templates\Template" link="/classes/Famephp.core.templates.Template.html"/>
       </docblock>
       <property static="false" visibility="private" namespace="Famephp\core\templates" line="27" package="Templates">
-        <name>$elements</name>
-        <full_name>\Famephp\core\templates\MediaTemplate::elements</full_name>
+        <name>$mediaType</name>
+        <full_name>\Famephp\core\templates\MediaTemplate::mediaType</full_name>
         <default></default>
         <docblock line="27">
-          <description>Elements to send</description>
+          <description>Media type</description>
           <long-description></long-description>
-          <tag name="var" line="27" description="" type="array" variable="">
-            <type>array</type>
+          <tag name="var" line="27" description="&lt;p&gt;image | video&lt;/p&gt;" type="string" variable="">
+            <type>string</type>
           </tag>
         </docblock>
       </property>
       <property static="false" visibility="private" namespace="Famephp\core\templates" line="34" package="Templates">
-        <name>$mediaType</name>
-        <full_name>\Famephp\core\templates\MediaTemplate::mediaType</full_name>
+        <name>$url</name>
+        <full_name>\Famephp\core\templates\MediaTemplate::url</full_name>
         <default></default>
         <docblock line="34">
-          <description>Media type</description>
+          <description>facebook URL of media</description>
           <long-description></long-description>
-          <tag name="var" line="34" description="&lt;p&gt;image | video&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="34" description="" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
       <property static="false" visibility="private" namespace="Famephp\core\templates" line="41" package="Templates">
-        <name>$url</name>
-        <full_name>\Famephp\core\templates\MediaTemplate::url</full_name>
-        <default></default>
-        <docblock line="41">
-          <description>facebook URL of media</description>
-          <long-description></long-description>
-          <tag name="var" line="41" description="" type="string" variable="">
-            <type>string</type>
-          </tag>
-        </docblock>
-      </property>
-      <property static="false" visibility="private" namespace="Famephp\core\templates" line="48" package="Templates">
         <name>$attachmentId</name>
         <full_name>\Famephp\core\templates\MediaTemplate::attachmentId</full_name>
         <default></default>
-        <docblock line="48">
+        <docblock line="41">
           <description>Attchment id of media (see: attachment upload API in Asset.php)</description>
           <long-description></long-description>
-          <tag name="var" line="48" description="" type="integer" variable="">
+          <tag name="var" line="41" description="" type="integer" variable="">
             <type>integer</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\templates" line="55" package="Templates">
+      <property static="false" visibility="private" namespace="Famephp\core\templates" line="48" package="Templates">
         <name>$buttons</name>
         <full_name>\Famephp\core\templates\MediaTemplate::buttons</full_name>
         <default></default>
-        <docblock line="55">
+        <docblock line="48">
           <description>Buttonlist</description>
           <long-description></long-description>
-          <tag name="var" line="55" description="" type="object" variable="">
+          <tag name="var" line="48" description="" type="object" variable="">
             <type>object</type>
           </tag>
         </docblock>
@@ -4363,19 +4405,19 @@ Supports both Attachment Upload API &amp; Send API</description>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\templates" line="63" package="Templates">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\templates" line="56" package="Templates">
         <name>__construct</name>
         <full_name>\Famephp\core\templates\MediaTemplate::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="56">
           <description>MediaTemplate constructor.</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;| int $media - can be attachment_id or URL&lt;/p&gt;" type="string" variable="$media">
+          <tag name="param" line="56" description="&lt;p&gt;| int $media - can be attachment_id or URL&lt;/p&gt;" type="string" variable="$media">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;| null $buttons&lt;/p&gt;" type="object" variable="$buttons">
+          <tag name="param" line="56" description="&lt;p&gt;| null $buttons&lt;/p&gt;" type="object" variable="$buttons">
             <type>object</type>
           </tag>
-          <tag name="param" line="63" description="&lt;ul&gt;&#10;&lt;li&gt;whether or not the url/id is a video&lt;/li&gt;&#10;&lt;/ul&gt;" type="boolean" variable="$isVideo">
+          <tag name="param" line="56" description="&lt;ul&gt;&#10;&lt;li&gt;whether or not the url/id is a video&lt;/li&gt;&#10;&lt;/ul&gt;" type="boolean" variable="$isVideo">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -4395,10 +4437,10 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\core\templates" line="91" package="Templates">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="Famephp\core\templates" line="84" package="Templates">
         <name>PreparePayload</name>
         <full_name>\Famephp\core\templates\MediaTemplate::PreparePayload()</full_name>
-        <docblock line="91">
+        <docblock line="84">
           <description>Prepare payload for sending</description>
           <long-description></long-description>
         </docblock>
@@ -4417,9 +4459,9 @@ Supports both Attachment Upload API &amp; Send API</description>
         <inherited_from>\Famephp\core\templates\Template</inherited_from>
       </method>
     </class>
-    <source>eJydVV1v2zYUfTfg/3ADFJAUtFGzpyJekmZBtmVIB2PZ9pIEBiVdW1wkUiOpJN6a/75LiZQVS87aCgZEi+d+nsPL70+rvJpO4v396QT24UdW4vznuV27/ykmUt7DJ9QaxQoVJNJ02x9TWa0VX+UGzrtVmEbw3fvDD/CuebVAVptcKrguENfsCcLcmEofxfGKm7xODlJZxrrdi1qDgot72I2Ke5lacIpC4xfg46SQSVwybVDFV5fnF79eX1gf8XQynQjC6IpKbvpAjblNpcJbg2VVMIN6Np0o/LvmChdSECr43e0cEDag3VrvMr310JkN5Nt9XjCtqbcZZ36/LYiSuGcrBP9VuxzToQHgk0GR6Q4L/xKYnjaIffbhosAShdFgJBCPmd/oAB8fmAKmFFv7T3G7qBR/sE7foHPRFLDtv8kIzLrCcc/aKC5WwEtb1Gd44BnKXYHKpjpyNRpp6RX5x29XIJfQoF8LuitMrYrRAGfGpLmtFHjWBYBQIx4BM4a5zboqJMvgbH4JXMAZnQ5jVRCNp8KF2ZXHxudlNprQD7UxUhRcm3HfMvkL053uk8b6FdY62aQEM6pOjVQHmwgVU6z0/H22hTiG6HinTECCva4sbMuUpWbbQZskORB1UXRZbaOIWNrk+k+rDwrwmKPJaeaQTyEN0BqItpiicA1sXEZ1QtMAlrVIDZcCFouurrBN/G0XHo6bdN5uQh4DIdGR6M6RffgSQm45Dr1tFMFmu4f06D2uF23RfZMtoH1MruQjCHyE20vxwAqenalVbbt58ZRiZYsIA+cCylqbpuVOFVekCtfbIJq9dP7sKe+n5XN5d/ITmtbHuayFCSM4gcNvT7BkTwdw6DsLuq4qqQxmlkIBtbbqcUPCj7S9sYxHlpvVG5NzytyOGWIqaNgMZoP9boAQKPTURnAKQSOYAI4gaCZR39Y2h2RSSd3JJLDXSRDB3vExjZ1C46A9LiBpkkK1Zj2Xz0g24xb9Qz9qOihqI9mOQ0qs0a8t7QWvv2gprlFx4uoflhRI5B41yNkrXZ0rpEOIc7a2gy303DyPDQ6HhaoFw5IOqL1Wdo/b7jxuh4HBWXP5ON83gRfMwvIe3Nl2bXQwZL+z8xdWcHfz/u6mVcvAR/+yGbamd+yHvA2P8/9k8GJO9pPYugK+QD+7QpAS+47bO64nqpelbUmrk9PXxXTm/bibS2dL0PSi3+nJf2Sl7wQ=</source>
+    <source>eJydVdtu00AQfY+Uf5hKSLYrqClPqKEtpSpQVFBEgZe2itb2JF5q75rddS9A/51Z2+s4scPNipRN5sz1nB2/OCzSYjwKt7fHI9iG1yzH6dupPTe/Y4ykvIb3qDWKBSqIpGnNL2NZ3Cu+SA0ctyc/DuDZ093n8KT6qoGsNKlUcJ4h3rM78FNjCr0Xhgtu0jLaiWUe6toW1A4ZF9ewGRV2KrXgGIXGv8CHUSajMGfaoArPTo9PPpyf2BjheDQeCcLoglqu5kCDuYylwkuDeZExg3oyHin8VnKFMykI5X1qLDuE9cha6k2ulw46sYncuI8zpjXNNuHM2euGqIhrtkBw/+qmxrjvAHhnUCS6xcIPAtNTJ7HPdu0B5r5A91drennDFGijuFgAz23Sn3DDE5QOEdaHQvEbG/1RXmWnUFUr65nmTjGfP56BnEOF/l3STWlKlQ0mODImTnMUBnjSJgBfI+4BM4Y1xrLIJEvgaHoKXMARqddYloLhUrgwm+pYxjxNBgt6VRojRca1GY4to68YbwwfVd56MPIqzzHBjCpjI9XOMkPBFMsdfz9tIw1DdP1iJiDCzlRmdmTKUrMeoC6SAogyy9qq1lFELBm5/mL1QQluUzQp7QSKKaQBOgPRFlIWroENy6iM6LbCvBSx4VLAbNb25deFP27Tw35VzuNlyn0gJDYkNjq3D5+Dzy3HvvMNAliaO0iH3uJ6VjfddVkD2sekSt6CwFu4PBU3LOPJkVqUdpondzEWtgnfa0JAXmpTjbxRxRmpopmtF0xWgz84yrtluVqeHLxBU8c4lqUwfgAHsPv/Bebsbgd23WRBl0UhlcHEUiig1FY9zZJwK2drqOKB4/L0yKScKrdrhpjyKja9Sc/eLhAC+Y7aAA7BqwTjwR541Sbq+trhkEwKqVuZeHbdewFs7e/T2sk09sbTJCRNUqrarRPyAcln2KN76Qdde00tJdtySIVV+rWtrfD6TktxjooTV99ZlCGRu1chJ7+Z6lQhXUKcsnu72HzHzcPQ4miwUNRgmNMFpdd3snndtvdxPQ307lpTTxP7wnOCmVnevSs7rqUO+uy3fpihHbD2ri6eXl3UaunF6L5s+qPpXPs+b/3r/IcKVvZkt4i1V8Bf6GdTClJiN3D9juuIarW1NWm1cvq3nI17N+/ypbMmaPqiz+HBL1Ai2KA=</source>
   </file>
-  <file path="core\attachments\Attachment.php" generated-path="core.attachments.Attachment.html" hash="9aa17cb95e8b32990b5c729cf0eb8b38" package="FamePHP">
+  <file path="core\attachments\Attachment.php" generated-path="core.attachments.Attachment.html" hash="ec4eb19dbf421f8c9ebb3472e910093a" package="FamePHP">
     <docblock line="0">
       <description>FamePHP</description>
       <long-description>Facebook Messenger bot</long-description>
@@ -4429,112 +4471,112 @@ Supports both Attachment Upload API &amp; Send API</description>
       <tag name="license" line="0" description="https://github.com/sleeyax/FamePHP/blob/master/LICENSE" link="https://github.com/sleeyax/FamePHP/blob/master/LICENSE"/>
       <tag name="package" line="0" description="FamePHP"/>
     </docblock>
-    <class final="false" abstract="true" namespace="Famephp\core\attachments" line="18" package="FamePHP">
+    <class final="false" abstract="true" namespace="Famephp\core\attachments" line="19" package="Attachments">
       <extends/>
       <name>Attachment</name>
       <full_name>\Famephp\core\attachments\Attachment</full_name>
-      <docblock line="18">
+      <docblock line="19">
         <description>Attachment extendable base class</description>
         <long-description></long-description>
-        <tag name="package" line="18" description="FamePHP"/>
+        <tag name="package" line="19" description="Attachments"/>
       </docblock>
-      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="22" package="FamePHP">
+      <property static="false" visibility="protected" namespace="Famephp\core\attachments" line="23" package="Attachments">
         <name>$type</name>
         <full_name>\Famephp\core\attachments\Attachment::type</full_name>
         <default></default>
-        <docblock line="22">
+        <docblock line="23">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="22" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="23" description="&lt;p&gt;attachment type&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="27" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="28" package="Attachments">
         <name>$payload</name>
         <full_name>\Famephp\core\attachments\Attachment::payload</full_name>
         <default>array()</default>
-        <docblock line="27">
+        <docblock line="28">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="27" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
+          <tag name="var" line="28" description="&lt;p&gt;Payload data&lt;/p&gt;" type="array" variable="">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="32" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="33" package="Attachments">
         <name>$isLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::isLocalAttachment</full_name>
         <default>false</default>
-        <docblock line="32">
+        <docblock line="33">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="32" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="33" description="&lt;p&gt;Specifies whether or not the attachment is a local file on the computer&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="37" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="38" package="Attachments">
         <name>$localAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentLocation</full_name>
         <default></default>
-        <docblock line="37">
+        <docblock line="38">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="37" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="38" description="&lt;p&gt;location of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="42" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="43" package="Attachments">
         <name>$localAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::localAttachmentMimeType</full_name>
         <default></default>
-        <docblock line="42">
+        <docblock line="43">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="42" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="43" description="&lt;p&gt;mimetype of attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="47" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="48" package="Attachments">
         <name>$attachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::attachmentName</full_name>
         <default></default>
-        <docblock line="47">
+        <docblock line="48">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="47" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
+          <tag name="var" line="48" description="&lt;p&gt;| null The name of the attachment&lt;/p&gt;" type="string" variable="">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="54" package="FamePHP">
+      <property static="false" visibility="private" namespace="Famephp\core\attachments" line="55" package="Attachments">
         <name>$isReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::isReusable</full_name>
         <default></default>
-        <docblock line="54">
+        <docblock line="55">
           <description>Attachment re-use policy</description>
           <long-description></long-description>
-          <tag name="var" line="54" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
+          <tag name="var" line="55" description="&lt;p&gt;whether or not the attachment is reuasable&lt;/p&gt;" type="boolean" variable="">
             <type>boolean</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="63" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="Famephp\core\attachments" line="64" package="Attachments">
         <name>__construct</name>
         <full_name>\Famephp\core\attachments\Attachment::__construct()</full_name>
-        <docblock line="63">
+        <docblock line="64">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="param" line="63" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
+          <tag name="param" line="64" description="&lt;p&gt;url | local file | attachment_id&lt;/p&gt;" type="string" variable="$attachment">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
+          <tag name="param" line="64" description="&lt;p&gt;name of the attachment (local file only)&lt;/p&gt;" type="string" variable="$attachmentName">
             <type>string</type>
           </tag>
-          <tag name="param" line="63" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
+          <tag name="param" line="64" description="&lt;p&gt;specify whether or not the file will be reusable using attachment_id&lt;/p&gt;" type="boolean" variable="$reusable">
             <type>boolean</type>
           </tag>
         </docblock>
@@ -4554,85 +4596,93 @@ Supports both Attachment Upload API &amp; Send API</description>
           <type>boolean</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="96" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="97" package="Attachments">
         <name>IsReusable</name>
         <full_name>\Famephp\core\attachments\Attachment::IsReusable()</full_name>
-        <docblock line="96">
+        <docblock line="97">
           <description>Whether or not the attachment is reuasable</description>
           <long-description></long-description>
-          <tag name="return" line="96" description="" type="boolean">
+          <tag name="return" line="97" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="104" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="105" package="Attachments">
         <name>IsLocalAttachment</name>
         <full_name>\Famephp\core\attachments\Attachment::IsLocalAttachment()</full_name>
-        <docblock line="104">
+        <docblock line="105">
           <description>Whether or not the attachment is locally stored on the computer</description>
           <long-description></long-description>
-          <tag name="return" line="104" description="" type="boolean">
+          <tag name="return" line="105" description="" type="boolean">
             <type>boolean</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="113" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="114" package="Attachments">
         <name>GetLocalAttachmentLocation</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentLocation()</full_name>
-        <docblock line="113">
+        <docblock line="114">
           <description>Return attachment location</description>
           <long-description></long-description>
-          <tag name="return" line="113" description="location" type="string">
+          <tag name="return" line="114" description="location" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="122" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="123" package="Attachments">
         <name>GetLocalAttachmentMimeType</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentMimeType()</full_name>
-        <docblock line="122">
+        <docblock line="123">
           <description>Return attachment mimetype</description>
           <long-description></long-description>
-          <tag name="return" line="122" description="" type="string">
+          <tag name="return" line="123" description="" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="131" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="132" package="Attachments">
         <name>GetLocalAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetLocalAttachmentName()</full_name>
-        <docblock line="131">
+        <docblock line="132">
           <description>Return the name of the attachment</description>
           <long-description></long-description>
-          <tag name="return" line="131" description="| string" type="null">
+          <tag name="return" line="132" description="| string" type="null">
             <type>null</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="141" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="142" package="Attachments">
         <name>GetAttachmentName</name>
         <full_name>\Famephp\core\attachments\Attachment::GetAttachmentName()</full_name>
-        <docblock line="141">
+        <docblock line="142">
           <description>Alias for GetLocalAttachmentName()</description>
           <long-description></long-description>
-          <tag name="return" line="141" description="$attachmentName" type="string">
+          <tag name="return" line="142" description="$attachmentName" type="string">
             <type>string</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="FamePHP">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="149" package="Attachments">
+        <name>GetAttachmentType</name>
+        <full_name>\Famephp\core\attachments\Attachment::GetAttachmentType()</full_name>
+        <docblock line="149">
+          <description>Get the attachment type</description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="Famephp\core\attachments" line="157" package="Attachments">
         <name>GetJsonSerializable</name>
         <full_name>\Famephp\core\attachments\Attachment::GetJsonSerializable()</full_name>
-        <docblock line="149">
+        <docblock line="157">
           <description>Return JSON serializable</description>
           <long-description></long-description>
-          <tag name="return" line="149" description="json serializable" type="array">
+          <tag name="return" line="157" description="json serializable" type="array">
             <type>array</type>
           </tag>
         </docblock>
       </method>
     </class>
-    <source>eJytV1tPIzcUfkfiP5xKaDNB0IE+VaSBRYhtWWUpIlv1gaDI45xkXJyZke0hTBf+e+25XzNkuxYSk8y5fN93jo+d3y4CN9jfsw8P9/fgED6RNd79cWee088UHd9/gi8oJXorFOD4Kn/9kfpBJNjKVXCVP1l0CL+cnP4Kx/G/xJCEyvUFTDliRF7AcpUK5Jltr5hyQ+dn6q9tmbwbJg6ceU/QbWWXkBpjip7Ed9jbDvcde02kQmFPbq6ub6fXJoa9v7e/52kbGWjKsQ5amBn1Bc6IUoS6a/SUHBmzTKzL/HvAF4XegjgcwSEaCOVEyjQucaQShKrky7LXN22hVxLPLE3lmQjQ9sxbQZEXVBRgZmMnD4HwFVKFCzgwb2NkrdGIECSCOxJxnyxgQRRpRGLPRCEcBKnNOPGxhqPEoCOwbgyOxINpgJQtGUrYuKhc3SO60p6vUbtYJsEkEOA+JRyWTCvle7GFrlIQ6nJ0oWJyYnxKuo1hSbjcQjkV0ORSTKfxlyUcXXl4Ncskde7NsmZrNBX4rixftPPXpHxblE4zvYIXcg5ftWimVU3CqsRdSQuLW+3Xyqgkr8DjUPdw4OttFWUG7aXvLbjAkEizL7qre49hbNEK68r3NPmQKl80kQREkHUmTokkhIJrsUqt9lqCNWeL/hBGpw6Rwar0MI+G9XCZOgcipQYy3iJRm15xmA3TdXUQcodQVidACXRj/y9Dj8ZtPp/TTC6rxOWoTuyoQJZiTyeRWWwJVgF8PAYdD+HDB8B1oCKrFmo4LDxLQcxSrvA34OEGZjfeM+FscSlWoXG8fqEYGMTWoC45Jd5soIwUcTojmJeKkWMqzeOfBtmMMust6yCzDpTL5PF50V96bOS8Rg27Go5x56YxS26Yoi6UxRjW6VNzDgQCV/M10cbWwI5Pp28nR6dvZzN7ZtuDSmGGRuvTM7Bt+Ot+Uo1VwpnO6IeB7vHBYxXnqN+LyXmmQeLdoki2HIHkadTCippxN18wfcxadQamW2ISbb27BVjF/B3E2sAtcElCruL0n1g+c36QHHlDNY8jQ7rNQ48DJfV7fAm4v0BrMKrVvDtNx2lkMMZRH04e3+2cHTKF8+kW58ZOqO95U2ZzEA3hog/tWcs26qvkW/L41nYc/L3zeQMfBapQePFQro/Q0NFHXDE/b/JZYVW2cxqhMVFG/wdpLBmP9Nmj75iLrsvQbvBrnalZNMZ7nUvNZRul+8S1RCO7YDXQ1i5gPcB/RzVpb6B+Bt23th14ZFe4Dh47w8823M7wa9fBbfBV7y0wZxHfGl+/l4zZtv1EWrd5K/5LzoiEpd4YXbmaN71qW9VmSj+jBpkfQCMtw+fpn7cgUTB9wfm3dfAkv7/+kRpKm1036s/aZVry2FKEh+pYLZ2mAxif11/HJqbf45cpc/P5qMUuPSvLpulXVePH4uNjoZv+uzj/D44OtNI=</source>
+    <source>eJytV21P40YQ/o7Ef5hK6OIgqKGfKtLAIcS1nHIUkav6gaBo7UziLY5t7a4J7sF/76xfkvVbTK63QsKJ5+V5np2Z3fx2EXnR/p59eLi/B4fwiS3x7o87/Zx/dtEJwyf4glJisEABTqjWrz+6YZQIvvAUXK2fLLcPv5yc/grH6b/MkMXKCwWMfcSEvYDlKRXJM9tecOXFzs9uuLRl9q6fOfg8eIJ2K9tAqo1dDCS+w952/NCxl0wqFPbo5ur6dnytY9j7e/t7AdnIiCinOpAwEzcUOGFKMddbYqDkQJsVYl2uvwd8URjMmOMjOIyAuD6TMsNG8Z7YAg1rmSdkjlSCuSqzNsN9IwtaWSK9KM4zE0D2PFjABhCoJMLCxs4eIhEqdBXO4EC/TSE3RmNCsATuWOKHbAYzplgtEn9mCuEgym2GmY/VH2QGLYGpYnxkAYwjdPmco4SVh8qj4qESCEJC7aFJgktg4Icu82HOScIwSC1o+6KY9qkNFZcj7WPoNoQ58+UWyrmAOpfilCacGzja8vjlLKPcuTPLki9R78B3ZflCzl+z7duidJ7pFYLY9+EriaZrWCcsS9yWdGNxS36NjAx5BR7HVNxRSP2WFAbNW9+54QJjJnXDtO/uPcapRSOsqzAg8rGrQlFHEjHBloU4BkmIhU9iGaX2asCa8ll3CK1Ti8hglWrYT/rVcIU6ByKnBjJtkaRJrzTMitO+Oghrh1iWJ4AButb/8zhw0zKfTt1CLsvgclQldrRBlmPPJ5FefA7WBvhwCBQP4cMHwGWkEqsSqt/feBpB9FKeCFcQ4AomN8Ez8/nsUixi7Xj94mKkEVu9quQuCyY9paVI02nBglyMNSZjUP/UK2aUXm9FBel1oDwuj8839UVjY81rULOr4Bi2No1ecsWV64EpRr9K39UHRCRwMV0yMrZ6dnpsfTs5On07m9gT2+6VNqavtT49A9uGv+5H5VgGznxGP/SoxnuPZZyDbi8up4UGmXeDIsVyBLKnQQMrV4+76YzT+WtVGehqSUk01e4WYCXzdxBrAjfDOYt9lab/xNcz5wfJsS6o+nGkSTd50DhQkt7jS+SHM7R6g8qet6dpOY00xjTqw8nju52LQ2bjfLrFudYJ1Z7X26wPoj5cdKE9a2ijrp18yx7fmo6Dv3c+b+CjQBWLIB3K1REaO3TEbebnzXpWWKV2ziPUJsrg/yBNJfMTOnvo8jlruwztBr9SmcSiNt6rXCou2yjdZ64GjeKCVUNbuYB1AP8d1ai5gLoZtN/aduBRXOFaeOwMv2i4neFXroPb4KvOW+CaRXprfP1eMrptu4k0tnkj/kufMwlzaoy2XPWbXrmsKjOlm1GNzA+gQWGrXd30K20bmLxEWsGo91XC5/GftyBRcLpj/ds4+7KfgP9IAtBk1471M7mMDY8tdfBQnuzGgd6D4Xn1dWqi+aUvDb5HDXb5cW2a5l+VjR83Hx83utHfxfl/nE3giw==</source>
   </file>
   <file path="core\buttons\quickReplies\LocationQuickReplyButton.php" generated-path="core.buttons.quickReplies.LocationQuickReplyButton.html" hash="e142832c80b4230f3e40c3dcdd0dba62" package="FamePHP">
     <docblock line="0">
@@ -4704,6 +4754,7 @@ Supports both Attachment Upload API &amp; Send API</description>
     <source>eJyNkU1PwkAQhu9N+h/mYFJoAquejPgVESMJCoI3Mc12HdtNy27dj4RK+O9uaWm4YNzLzGafd+ad2avbIi18j4Sh70EIj3SFs6dZlTd3hrGUGTyj1igSVBBL0z7fMVmUiiepgWGbdVgXzk/PLqC3CzVIrUmlgkWOWNI1dFJjCn1JSMJNauM+kyui67duLci5yOA4RQ6cVjBDofEfPIlzGZMV1QYVmYyHo5fFqKpBfM/3hGN04Ube7cEtZsmkwmVsjZFCL18tZ9kci5yjHviewm/LFUZSOMF8On17GM+hD0GlIY2G3O9i39UKnMTqI6VrbFCZ2H/FMKdaw0QyargUbe+yRuu5ndeMJgiHzppp2J9ywLVB8alhX23jZO7UzasTHtcy59goy4xUe5jUSWFj9xXwZQWrlBBFLdvpwgZOTMp170aj4jTnPzTO8d3tSzgvJjJlgcEHXEOQN52DAWx9b/sLlAbaqg==</source>
   </file>
   <package name="API" full_name="API"/>
+  <package name="Attachments" full_name="Attachments"/>
   <package name="Buttons" full_name="Buttons"/>
   <package name="Contracts" full_name="Contracts"/>
   <package name="Core" full_name="Core"/>

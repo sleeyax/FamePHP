@@ -15,6 +15,7 @@ require_once 'Attachment.php';
 
 /**
  * Text attachment
+ * @package Attachments
  */
 class Text extends Attachment {
     /**

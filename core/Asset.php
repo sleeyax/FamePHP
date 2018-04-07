@@ -50,7 +50,7 @@ class Asset {
     public function Save($assetName, $assetId) 
     {
         if (!$this->db->Select('Id', 'assets', 'Name=:name', [':name' => $assetName])) {
-            exit('Can not save asset: Error in SQL query!');
+            exit('Can not save asset: table assets does not exist or is corrupt!');
         }
 
         $row = $this->db->FetchRow();
@@ -59,13 +59,13 @@ class Asset {
         {
             $this->db->Insert('assets', 
                 ['Name', 'Attachmentid'],
-                [':name' => $assetName, ':attachmentid' => $assetId]
+                [':name' => $assetName, ':attachmentid' => [$assetId, \PDO::PARAM_STR]]
             );
         }
         else
         {
             $this->db->Update('assets', 'Attachmentid=:attachmentid', 'Id=:id', [
-                ':attachmentid' => $assetId,
+                ':attachmentid' => [$assetId, \PDO::PARAM_STR],
                 ':id' => $row['Id']
             ]);
         }

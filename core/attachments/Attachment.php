@@ -14,6 +14,7 @@ namespace Famephp\core\attachments;
 
 /**
  * Attachment extendable base class
+ * @package Attachments
  */
 abstract class Attachment {
     /**
@@ -140,6 +141,13 @@ abstract class Attachment {
      */
     public function GetAttachmentName() {
         return $this->attachmentName;
+    }
+
+    /**
+     * Get the attachment type
+     */
+    public function GetAttachmentType() {
+        return $this->type;
     }
 
     /**
