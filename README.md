@@ -1,5 +1,5 @@
 # FamePHP
-Bot for Facebook Messenger in PHP 7. Uses the official API.
+FamePHP is a PHP7 framework for creating Facebook messenger bots. It uses the official Facebook API and is structured in a way that allows you to add or remove functionality at your wish.
 
 # Documentation
 You can view the full code reference at <a href="https://sleeyax.github.io/FamePHP">github pages</a>!<br>
