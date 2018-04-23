@@ -48,7 +48,7 @@ class User {
     /**
      * Get user message text
      *
-     * @return null | string
+     * @return mixed null | string
      * @throws \InvalidArgsException
      */
     public function GetMessageText()
@@ -59,10 +59,9 @@ class User {
 
     /**
      * Get user message payload
-     * Payloads are always case sensitive
      *
      * @param string $type type of payload to search for
-     * @return null | string payload
+     * @return mixed null | string payload
      */
     public function GetMessagePayload($type = 'quick_reply') 
     {
@@ -72,7 +71,7 @@ class User {
     /**
      * Get senderID of sent message
      *
-     * @return string | null
+     * @return mixed string | null
      */
     private function GetId() 
     {
@@ -81,12 +80,11 @@ class User {
 
     /**
      * Get all user infomation in an array
-     * Array keys: first_name, last_name, profile_pic, id
      *
      * @param bool $refreshInfo whether or not to re-fetch the info from facebook
-     * @return array
-     * @return null if $userId is empty
+     * @return array | null user data or null if user id is empty
      * @throws \InvalidArgsException
+     * @example Accessible array keys of returned variable: first_name, last_name, profile_pic, id
      */
     public function GetInfo($refreshInfo = false)
     {

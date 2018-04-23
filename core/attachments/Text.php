@@ -33,13 +33,13 @@ class Text extends Attachment {
     }
 
     /**
-     * Returns null -> text attachments have no name
+     * Returns null (text attachments have no name)
      * @return null
      */
     public function GetAttachmentName() { return null; }
 
     /**
-     * Returns null -> text attachments are not local
+     * Returns null (text attachments have no name)
      * @return bool
      */
     public function IsLocalAttachment() { return false; }

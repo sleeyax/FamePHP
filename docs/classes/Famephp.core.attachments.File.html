@@ -90,12 +90,12 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="property private "><a href="#property_attachmentName" title="$attachmentName() :: "><span class="description">| null The name of the attachment</span><pre>$attachmentName</pre></a></li>
-<li class="property private "><a href="#property_isLocalAttachment" title="$isLocalAttachment() :: "><span class="description">Specifies whether or not the attachment is a local file on the computer</span><pre>$isLocalAttachment</pre></a></li>
-<li class="property private "><a href="#property_isReusable" title="$isReusable() :: Attachment re-use policy"><span class="description"></span><pre>$isReusable</pre></a></li>
+<li class="property private "><a href="#property_attachmentName" title="$attachmentName() :: "><span class="description">the name of the attachment (null | string)</span><pre>$attachmentName</pre></a></li>
+<li class="property private "><a href="#property_isLocalAttachment" title="$isLocalAttachment() :: "><span class="description">specifies whether or not the attachment is a local file on the computer</span><pre>$isLocalAttachment</pre></a></li>
+<li class="property private "><a href="#property_isReusable" title="$isReusable() :: "><span class="description">attachment re-use policy</span><pre>$isReusable</pre></a></li>
 <li class="property private "><a href="#property_localAttachmentLocation" title="$localAttachmentLocation() :: "><span class="description">location of attachment</span><pre>$localAttachmentLocation</pre></a></li>
 <li class="property private "><a href="#property_localAttachmentMimeType" title="$localAttachmentMimeType() :: "><span class="description">mimetype of attachment</span><pre>$localAttachmentMimeType</pre></a></li>
-<li class="property private "><a href="#property_payload" title="$payload() :: "><span class="description">Payload data</span><pre>$payload</pre></a></li>
+<li class="property private "><a href="#property_payload" title="$payload() :: "><span class="description">payload data</span><pre>$payload</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -140,7 +140,7 @@
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code>$attachmentName</div>
+<code>string</code>attachment name</div>
 </div></div>
 </div>
 <a id="method_GetAttachmentType"></a><div class="element clickable method public method_GetAttachmentType inherited" data-toggle="collapse" data-target=".method_GetAttachmentType .collapse" title="public">
@@ -178,18 +178,19 @@
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
+<div class="subelement response">
+<code>string</code>file mime type</div>
 </div></div>
 </div>
 <a id="method_GetLocalAttachmentName"></a><div class="element clickable method public method_GetLocalAttachmentName inherited" data-toggle="collapse" data-target=".method_GetLocalAttachmentName .collapse" title="public">
 <h2>Return the name of the attachment</h2>
-<pre>GetLocalAttachmentName() : null</pre>
+<pre>GetLocalAttachmentName() : mixed</pre>
 <div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>null</code>| string</div>
+<code>mixed</code>null | string</div>
 </div></div>
 </div>
 <a id="method_IsLocalAttachment"></a><div class="element clickable method public method_IsLocalAttachment inherited" data-toggle="collapse" data-target=".method_IsLocalAttachment .collapse" title="public">
@@ -265,8 +266,8 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_attachmentName"> </a><div class="element clickable property private property_attachmentName" data-toggle="collapse" data-target=".property_attachmentName .collapse" title="private">
-<h2>| null The name of the attachment</h2>
-<pre>$attachmentName : string</pre>
+<h2>the name of the attachment (null | string)</h2>
+<pre>$attachmentName : mixed</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"></div>
@@ -275,7 +276,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_isLocalAttachment"> </a><div class="element clickable property private property_isLocalAttachment" data-toggle="collapse" data-target=".property_isLocalAttachment .collapse" title="private">
-<h2>Specifies whether or not the attachment is a local file on the computer</h2>
+<h2>specifies whether or not the attachment is a local file on the computer</h2>
 <pre>$isLocalAttachment : boolean</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -285,7 +286,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_isReusable"> </a><div class="element clickable property private property_isReusable" data-toggle="collapse" data-target=".property_isReusable .collapse" title="private">
-<h2>Attachment re-use policy</h2>
+<h2>attachment re-use policy</h2>
 <pre>$isReusable : boolean</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -315,7 +316,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_payload"> </a><div class="element clickable property private property_payload" data-toggle="collapse" data-target=".property_payload .collapse" title="private">
-<h2>Payload data</h2>
+<h2>payload data</h2>
 <pre>$payload : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -332,7 +333,7 @@
             Modified template by <a href="https://github.com/sleeyax">Sleeyax</a><br>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            updated on 2018-04-07T20:17:59+02:00.<br></footer></div>
+            updated on 2018-04-23T09:59:39+02:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -138,7 +138,8 @@ Supports both Attachment Upload API &amp; Send API</span><pre>Post()</pre></a></
 <code>string</code>
 </div>
 <h3>Returns</h3>
-<div class="subelement response"><code>boolean</code></div>
+<div class="subelement response">
+<code>boolean</code>true | false on success or failure</div>
 </div></div>
 </div>
 <a id="method_OpenSession"></a><div class="element clickable method public method_OpenSession " data-toggle="collapse" data-target=".method_OpenSession .collapse" title="public">
@@ -150,17 +151,17 @@ Supports both Attachment Upload API &amp; Send API</span><pre>Post()</pre></a></
 <a id="method_Post"></a><div class="element clickable method public method_Post " data-toggle="collapse" data-target=".method_Post .collapse" title="public">
 <h2>Send POST data to facebook's graph API
 Supports both Attachment Upload API &amp; Send API</h2>
-<pre>Post(array $payload) : string</pre>
+<pre>Post(mixed $payload) : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$payload</h4>
-<code>array</code><p>| string $payload post data array or json encoded string</p></div>
+<code>mixed</code><p>array | string $payload post data array or json encoded string</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code>| null response data or null</div>
+<code>mixed</code>string|null response data or null</div>
 </div></div>
 </div>
 <a id="method_SetContentType"></a><div class="element clickable method public method_SetContentType " data-toggle="collapse" data-target=".method_SetContentType .collapse" title="public">
@@ -217,7 +218,7 @@ Supports both Attachment Upload API &amp; Send API</h2>
 <code>array</code><p>PHP array</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>array</code>$newHeaders</div>
+<code>array</code>new headers in correct format</div>
 </div></div>
 </div>
 <h3>
@@ -280,7 +281,7 @@ Supports both Attachment Upload API &amp; Send API</h2>
             Modified template by <a href="https://github.com/sleeyax">Sleeyax</a><br>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            updated on 2018-04-07T20:17:59+02:00.<br></footer></div>
+            updated on 2018-04-23T09:59:39+02:00.<br></footer></div>
 </div>
 </body>
 </html>

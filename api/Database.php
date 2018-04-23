@@ -31,10 +31,10 @@ class Database {
 
     /**
      * Database constructor.
-     * @param $host
-     * @param $dbname
-     * @param $username
-     * @param $password
+     * @param $host hostname
+     * @param $dbname database name
+     * @param $username username
+     * @param $password password
      */
     public function __construct($host, $dbname, $username, $password) 
     {
@@ -46,7 +46,7 @@ class Database {
     }
 
     /**
-     * Execute a SQL query
+     * Execute SQL query
      *
      * @param string $query SQL query
      * @param array $placeholders associative array
@@ -69,7 +69,7 @@ class Database {
     }
 
     /**
-     * Fetches the first row after execution of a query
+     * Fetch the first row of a query result
      *
      * @return array resultset as associative array
      */
@@ -79,10 +79,10 @@ class Database {
     }
 
     /**
-     * Returns the PDO datatype of a given variable
+     * Returns PDO datatype of a variable
      *
      * @param mixed $variable (default = \PDO::PARAM_STR)
-     * @return mixed $datatype
+     * @return mixed PDO::<data type>
      */
     private function GetPdoDataType($variable) 
     {
@@ -105,7 +105,7 @@ class Database {
     }
 
     /**
-     * Insert data into a table
+     * Insert data into table
      *
      * @param string $table
      * @param array $fields
@@ -154,8 +154,8 @@ class Database {
     }
 
     /**
-     * Returns the affected rows (callable after query execution)
-     * @return mixed $rowCount
+     * Return the affected rows after query execution
+     * @return mixed row count
      */
     public function AffectedRows() {
         return $this->stmt->rowCount();

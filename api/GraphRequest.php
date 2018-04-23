@@ -122,7 +122,7 @@ class GraphRequest {
      * Convert array of headers to correct format
      *
      * @param array $headers PHP array
-     * @return array $newHeaders
+     * @return array new headers in correct format
      */
     private function BuildHeaders($headers) 
     {
@@ -137,8 +137,8 @@ class GraphRequest {
      * Send POST data to facebook's graph API
      * Supports both Attachment Upload API & Send API
      * 
-     * @param array | string $payload post data array or json encoded string
-     * @return string | null response data or null
+     * @param mixed array | string $payload post data array or json encoded string
+     * @return mixed string|null response data or null
      */
     public function Post($payload)
     {
@@ -164,7 +164,7 @@ class GraphRequest {
      * Send GET request to URL
      *
      * @param string $url
-     * @return boolean
+     * @return boolean true | false on success or failure
      */
     public function Get($url) 
     {

@@ -67,12 +67,8 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_GetInfo" title="GetInfo() :: Get all user infomation in an array
-Array keys: first_name, last_name, profile_pic, id"><span class="description">Get all user infomation in an array
-Array keys: first_name, last_name, profile_pic, id</span><pre>GetInfo()</pre></a></li>
-<li class="method public "><a href="#method_GetMessagePayload" title="GetMessagePayload() :: Get user message payload
-Payloads are always case sensitive"><span class="description">Get user message payload
-Payloads are always case sensitive</span><pre>GetMessagePayload()</pre></a></li>
+<li class="method public "><a href="#method_GetInfo" title="GetInfo() :: Get all user infomation in an array"><span class="description">Get all user infomation in an array</span><pre>GetInfo()</pre></a></li>
+<li class="method public "><a href="#method_GetMessagePayload" title="GetMessagePayload() :: Get user message payload"><span class="description">Get user message payload</span><pre>GetMessagePayload()</pre></a></li>
 <li class="method public "><a href="#method_GetMessageText" title="GetMessageText() :: Get user message text"><span class="description">Get user message text</span><pre>GetMessageText()</pre></a></li>
 <li class="method public "><a href="#method___construct" title="__construct() :: User constructor."><span class="description">User constructor.</span><pre>__construct()</pre></a></li>
 </ul>
@@ -116,12 +112,16 @@ Payloads are always case sensitive</span><pre>GetMessagePayload()</pre></a></li>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method_GetInfo"></a><div class="element clickable method public method_GetInfo " data-toggle="collapse" data-target=".method_GetInfo .collapse" title="public">
-<h2>Get all user infomation in an array
-Array keys: first_name, last_name, profile_pic, id</h2>
-<pre>GetInfo(boolean $refreshInfo<code> = false</code>) : array: null</pre>
+<h2>Get all user infomation in an array</h2>
+<pre>GetInfo(boolean $refreshInfo<code> = false</code>) : array</pre>
 <div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
+<div class="row collapse">
+<div class="span4">
 <div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>example</th>
+<td>array keys of returned variable: first_name, last_name, profile_pic, id</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$refreshInfo</h4>
@@ -132,15 +132,18 @@ Array keys: first_name, last_name, profile_pic, id</h2>
 <td></td>
 </tr></table>
 <h3>Returns</h3>
-<div class="subelement response"><code>array</code></div>
 <div class="subelement response">
-<code>null</code>if $userId is empty</div>
-</div></div>
+<code>array</code>| null user data or null if user id is empty</div>
+</div>
+<div class="span4">
+<h3>Examples</h3>
+<pre class="prettyprint linenums"></pre>
+</div>
+</div>
 </div>
 <a id="method_GetMessagePayload"></a><div class="element clickable method public method_GetMessagePayload " data-toggle="collapse" data-target=".method_GetMessagePayload .collapse" title="public">
-<h2>Get user message payload
-Payloads are always case sensitive</h2>
-<pre>GetMessagePayload(string $type<code> = 'quick_reply'</code>) : null</pre>
+<h2>Get user message payload</h2>
+<pre>GetMessagePayload(string $type<code> = 'quick_reply'</code>) : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -150,12 +153,12 @@ Payloads are always case sensitive</h2>
 <code>string</code><p>type of payload to search for</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>null</code>| string payload</div>
+<code>mixed</code>null | string payload</div>
 </div></div>
 </div>
 <a id="method_GetMessageText"></a><div class="element clickable method public method_GetMessageText " data-toggle="collapse" data-target=".method_GetMessageText .collapse" title="public">
 <h2>Get user message text</h2>
-<pre>GetMessageText() : null</pre>
+<pre>GetMessageText() : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -166,7 +169,7 @@ Payloads are always case sensitive</h2>
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>null</code>| string</div>
+<code>mixed</code>null | string</div>
 </div></div>
 </div>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
@@ -177,13 +180,13 @@ Payloads are always case sensitive</h2>
 </div>
 <a id="method_GetId"></a><div class="element clickable method private method_GetId " data-toggle="collapse" data-target=".method_GetId .collapse" title="private">
 <h2>Get senderID of sent message</h2>
-<pre>GetId() : string</pre>
+<pre>GetId() : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code>| null</div>
+<code>mixed</code>string | null</div>
 </div></div>
 </div>
 <h3>
@@ -216,7 +219,7 @@ Payloads are always case sensitive</h2>
             Modified template by <a href="https://github.com/sleeyax">Sleeyax</a><br>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            updated on 2018-04-07T20:17:59+02:00.<br></footer></div>
+            updated on 2018-04-23T09:59:40+02:00.<br></footer></div>
 </div>
 </body>
 </html>

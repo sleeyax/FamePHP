@@ -23,12 +23,12 @@ abstract class Attachment {
     protected $type;
 
     /**
-     * @var array Payload data
+     * @var array payload data
      */
     private $payload = array();
     
     /**
-     * @var boolean Specifies whether or not the attachment is a local file on the computer
+     * @var boolean specifies whether or not the attachment is a local file on the computer
      */
     private $isLocalAttachment = false;
 
@@ -43,14 +43,12 @@ abstract class Attachment {
     private $localAttachmentMimeType;
     
     /**
-     * @var string | null The name of the attachment
+     * @var mixed the name of the attachment (null | string)
      */
     private $attachmentName;
 
     /**
-     * Attachment re-use policy
-     *
-     * @var boolean whether or not the attachment is reuasable
+     * @var boolean attachment re-use policy
      */
     private $isReusable;
 
@@ -118,7 +116,7 @@ abstract class Attachment {
 
     /**
      * Return attachment mimetype
-     * @return string
+     * @return string file mime type
      */
     public function GetLocalAttachmentMimeType() 
     {
@@ -127,7 +125,7 @@ abstract class Attachment {
 
     /**
      * Return the name of the attachment
-     * @return null | string
+     * @return mixed null | string
      */
     public function GetLocalAttachmentName() 
     {
@@ -137,7 +135,7 @@ abstract class Attachment {
     /**
      * Alias for GetLocalAttachmentName()
      *
-     * @return string $attachmentName
+     * @return string attachment name
      */
     public function GetAttachmentName() {
         return $this->attachmentName;

@@ -117,12 +117,12 @@
 </div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>string</code>$attachmentId</div>
+<code>string</code>attachment id</div>
 </div></div>
 </div>
 <a id="method_Save"></a><div class="element clickable method public method_Save " data-toggle="collapse" data-target=".method_Save .collapse" title="public">
 <h2>Save asset to db</h2>
-<pre>Save(string $assetName, integer $assetId) : boolean</pre>
+<pre>Save(string $assetName, mixed $assetId) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -133,9 +133,10 @@
 </div>
 <div class="subelement argument">
 <h4>$assetId</h4>
-<code>integer</code><p>| string $assetId</p></div>
+<code>mixed</code><p>string | int $assetId</p></div>
 <h3>Returns</h3>
-<div class="subelement response"><code>boolean</code></div>
+<div class="subelement response">
+<code>boolean</code>true | false on success or failure</div>
 </div></div>
 </div>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
@@ -169,7 +170,7 @@
             Modified template by <a href="https://github.com/sleeyax">Sleeyax</a><br>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            updated on 2018-04-07T20:17:59+02:00.<br></footer></div>
+            updated on 2018-04-23T09:59:39+02:00.<br></footer></div>
 </div>
 </body>
 </html>

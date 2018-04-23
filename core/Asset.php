@@ -44,8 +44,8 @@ class Asset {
      * Save asset to db
      *
      * @param string $assetName
-     * @param int | string $assetId
-     * @return bool
+     * @param mixed string | int $assetId
+     * @return bool true | false on success or failure
      */
     public function Save($assetName, $assetId) 
     {
@@ -78,7 +78,7 @@ class Asset {
      * Retrieve saved asset from database
      *
      * @param string $assetName
-     * @return string $attachmentId
+     * @return string attachment id
      */
     public function Get($assetName) 
     {

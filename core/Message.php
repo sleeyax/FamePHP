@@ -217,7 +217,7 @@ class Message {
     /**
      * Get message asset from database
      * @param $assetName
-     * @return mixed
+     * @return mixed asset
      */
     public function GetAsset($assetName) 
     {

@@ -21,7 +21,7 @@ class ConfigReader {
 
     /**
      * Array with configuration settings
-     * @var
+     * @var array
      */
     private $config;
 
@@ -47,7 +47,7 @@ class ConfigReader {
      * Read and return value from config file
      *
      * @param string $key
-     * @return mixed
+     * @return mixed value of config item
      */
     public function Read($key) {
         if (!array_key_exists($key, $this->config)) {
@@ -59,7 +59,7 @@ class ConfigReader {
 
     /**
      * ConfigReader singleton
-     * @return ConfigReader $instance
+     * @return ConfigReader instance
      */
     public static function GetInstance() {
         static $instance = null;

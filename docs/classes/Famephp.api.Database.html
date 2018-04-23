@@ -67,9 +67,9 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_AffectedRows" title="AffectedRows() :: Returns the affected rows (callable after query execution)"><span class="description">Returns the affected rows (callable after query execution)</span><pre>AffectedRows()</pre></a></li>
-<li class="method public "><a href="#method_FetchRow" title="FetchRow() :: Fetches the first row after execution of a query"><span class="description">Fetches the first row after execution of a query</span><pre>FetchRow()</pre></a></li>
-<li class="method public "><a href="#method_Insert" title="Insert() :: Insert data into a table"><span class="description">Insert data into a table</span><pre>Insert()</pre></a></li>
+<li class="method public "><a href="#method_AffectedRows" title="AffectedRows() :: Return the affected rows after query execution"><span class="description">Return the affected rows after query execution</span><pre>AffectedRows()</pre></a></li>
+<li class="method public "><a href="#method_FetchRow" title="FetchRow() :: Fetch the first row of a query result"><span class="description">Fetch the first row of a query result</span><pre>FetchRow()</pre></a></li>
+<li class="method public "><a href="#method_Insert" title="Insert() :: Insert data into table"><span class="description">Insert data into table</span><pre>Insert()</pre></a></li>
 <li class="method public "><a href="#method_Select" title="Select() :: Select data from table"><span class="description">Select data from table</span><pre>Select()</pre></a></li>
 <li class="method public "><a href="#method_Update" title="Update() :: Update table"><span class="description">Update table</span><pre>Update()</pre></a></li>
 <li class="method public "><a href="#method___construct" title="__construct() :: Database constructor."><span class="description">Database constructor.</span><pre>__construct()</pre></a></li>
@@ -77,8 +77,8 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="method private "><a href="#method_ExecuteQuery" title="ExecuteQuery() :: Execute a SQL query"><span class="description">Execute a SQL query</span><pre>ExecuteQuery()</pre></a></li>
-<li class="method private "><a href="#method_GetPdoDataType" title="GetPdoDataType() :: Returns the PDO datatype of a given variable"><span class="description">Returns the PDO datatype of a given variable</span><pre>GetPdoDataType()</pre></a></li>
+<li class="method private "><a href="#method_ExecuteQuery" title="ExecuteQuery() :: Execute SQL query"><span class="description">Execute SQL query</span><pre>ExecuteQuery()</pre></a></li>
+<li class="method private "><a href="#method_GetPdoDataType" title="GetPdoDataType() :: Returns PDO datatype of a variable"><span class="description">Returns PDO datatype of a variable</span><pre>GetPdoDataType()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -117,18 +117,18 @@
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method_AffectedRows"></a><div class="element clickable method public method_AffectedRows " data-toggle="collapse" data-target=".method_AffectedRows .collapse" title="public">
-<h2>Returns the affected rows (callable after query execution)</h2>
+<h2>Return the affected rows after query execution</h2>
 <pre>AffectedRows() : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>mixed</code>$rowCount</div>
+<code>mixed</code>row count</div>
 </div></div>
 </div>
 <a id="method_FetchRow"></a><div class="element clickable method public method_FetchRow " data-toggle="collapse" data-target=".method_FetchRow .collapse" title="public">
-<h2>Fetches the first row after execution of a query</h2>
+<h2>Fetch the first row of a query result</h2>
 <pre>FetchRow() : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -139,7 +139,7 @@
 </div></div>
 </div>
 <a id="method_Insert"></a><div class="element clickable method public method_Insert " data-toggle="collapse" data-target=".method_Insert .collapse" title="public">
-<h2>Insert data into a table</h2>
+<h2>Insert data into table</h2>
 <pre>Insert(string $table, array $fields, array $values) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -217,14 +217,18 @@
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <h3>Parameters</h3>
-<div class="subelement argument"><h4>$host</h4></div>
-<div class="subelement argument"><h4>$dbname</h4></div>
-<div class="subelement argument"><h4>$username</h4></div>
-<div class="subelement argument"><h4>$password</h4></div>
+<div class="subelement argument">
+<h4>$host</h4><p>hostname</p></div>
+<div class="subelement argument">
+<h4>$dbname</h4><p>database name</p></div>
+<div class="subelement argument">
+<h4>$username</h4><p>username</p></div>
+<div class="subelement argument">
+<h4>$password</h4><p>password</p></div>
 </div></div>
 </div>
 <a id="method_ExecuteQuery"></a><div class="element clickable method private method_ExecuteQuery " data-toggle="collapse" data-target=".method_ExecuteQuery .collapse" title="private">
-<h2>Execute a SQL query</h2>
+<h2>Execute SQL query</h2>
 <pre>ExecuteQuery(string $query, array $placeholders<code> = null</code>) : boolean</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -242,7 +246,7 @@
 </div></div>
 </div>
 <a id="method_GetPdoDataType"></a><div class="element clickable method private method_GetPdoDataType " data-toggle="collapse" data-target=".method_GetPdoDataType .collapse" title="private">
-<h2>Returns the PDO datatype of a given variable</h2>
+<h2>Returns PDO datatype of a variable</h2>
 <pre>GetPdoDataType(mixed $variable) : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
@@ -253,7 +257,7 @@
 <code>mixed</code><p>(default = \PDO::PARAM_STR)</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>mixed</code>$datatype</div>
+<code>mixed</code>PDO::<data type></div>
 </div></div>
 </div>
 <h3>
@@ -286,7 +290,7 @@
             Modified template by <a href="https://github.com/sleeyax">Sleeyax</a><br>
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            updated on 2018-04-07T20:17:59+02:00.<br></footer></div>
+            updated on 2018-04-23T09:59:39+02:00.<br></footer></div>
 </div>
 </body>
 </html>
