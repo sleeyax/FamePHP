@@ -2,7 +2,7 @@
 /**
  * FamePHP
  *
- * Facebook Messenger bot
+ * Facebook Messenger bot framework
  *
  * @copyright Copyright (c) 2018 - 2018
  * @author Sleeyax (https://github.com/sleeyax)
@@ -13,9 +13,18 @@
 define('ROOTDIR', '');
 
 require_once(ROOTDIR . 'core/User.php');
-require_once(ROOTDIR . 'core/Message.php');
+require_once(ROOTDIR . 'core/Response.php');
 require_once(ROOTDIR . 'api/WebHook.php');
+require_once(ROOTDIR . 'core/Listener.php');
+require_once(ROOTDIR . 'core/Sender.php');
 
 use Famephp\api\WebHook;
+use Famephp\api\ConfigReader;
+use Famephp\core\Listener;
 
-(new WebHook(ROOTDIR . 'api/Config.php'))->CreateNewHook();
+$config = ConfigReader::getInstance();
+$config->load(ROOTDIR . 'api/Config.php');
+
+(new WebHook($config->verificationToken))->create();
+
+$listener = new Listener();

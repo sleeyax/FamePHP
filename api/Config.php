@@ -2,7 +2,7 @@
 /**
  * FamePHP
  *
- * Facebook Messenger bot
+ * Facebook Messenger bot framework
  *
  * @copyright Copyright (c) 2018 - 2018
  * @author Sleeyax (https://github.com/sleeyax)
@@ -21,6 +21,5 @@ return [
         'username' => 'root',
         'password' => ''
     ],
-    'DEBUG' => true
+    'debug' => true
 ];
-?>

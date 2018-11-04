@@ -13,6 +13,6 @@ return [
         'username' => 'root',
         'password' => ''
     ],
-    'DEBUG' => true
+    'debug' => true
 ];
 ?>

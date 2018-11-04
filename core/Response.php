@@ -2,7 +2,7 @@
 /**
  * FamePHP
  *
- * Facebook Messenger bot
+ * Facebook Messenger bot framework
  *
  * @copyright Copyright (c) 2018 - 2018
  * @author Sleeyax (https://github.com/sleeyax)
@@ -22,7 +22,7 @@ use Famephp\api\GraphRequest;
  * Send messages to user
  * @package Core
  */
-class Message {
+class Response {
 
     /**
      * @var string messaging type
@@ -36,24 +36,24 @@ class Message {
     private $config;
 
     /**
-     * @var Message asset
+     * @var Response asset
      */
     private $asset;
 
     /**
-     * @var Message recipient
+     * @var Response recipient
      */
     private $recipient;
 
     /**
-     * Message constructor.
+     * Response constructor.
      * @param $recipient
      * @param string $type response type RESPONSE | UPDATE | MESSAGE_TAG
      */
     public function __construct($recipient, $type = "RESPONSE")
     {
-        $this->config = ConfigReader::GetInstance();
-        $this->graph = new GraphRequest($this->config->Read('page_access_token'));
+        $this->config = ConfigReader::getInstance();
+        $this->graph = new GraphRequest($this->config->read('page_access_token'));
         $this->recipient = $recipient;
         $this->type = $type;
     }
@@ -65,7 +65,7 @@ class Message {
      * @return void
      */
     public function NewAssetHandler($databaseSettings = null) {
-        $databaseSettings = $databaseSettings ?? $this->config->Read('database');
+        $databaseSettings = $databaseSettings ?? $this->config->read('database');
         require_once (ROOTDIR . 'Asset.php');
         $this->asset = new Asset($databaseSettings);
     }
@@ -123,8 +123,6 @@ class Message {
             }
         }
 
-
-
         // Send request
         $this->graph->OpenSession();
         $this->graph->SetGraphSection($graphSection);
@@ -132,7 +130,7 @@ class Message {
         $this->graph->CloseSession();
 
         /// DEBUGGING
-        if ($this->config->Read('DEBUG') == true) {
+        if ($this->config->read('debug') == true) {
             if (is_array($toSend)) {
                 print_r($toSend);
             }else{

@@ -2,7 +2,7 @@
 /**
  * FamePHP
  *
- * Facebook Messenger bot
+ * Facebook Messenger bot framework
  *
  * @copyright Copyright (c) 2018 - 2018
  * @author Sleeyax (https://github.com/sleeyax)
@@ -19,7 +19,7 @@ use Famephp\api\ConfigReader;
 use Famephp\api\GraphRequest;
 
 /**
- * Get bot-user info, goes hand in hand with Message class
+ * Get bot-user info, goes hand in hand with Response class
  * @package Core
  */
 class User {
@@ -41,8 +41,8 @@ class User {
      */
     public function __construct()
     {
-        $this->config = ConfigReader::GetInstance();
-        $this->graph = new GraphRequest($this->config->Read('page_access_token'));
+        $this->config = ConfigReader::getInstance();
+        $this->graph = new GraphRequest($this->config->read('page_access_token'));
     }
 
     /**
@@ -53,8 +53,8 @@ class User {
      */
     public function GetMessageText()
     {
-        $msg = WebHook::GetJSONPostData()['entry'][0]['messaging'][0]['message']['text'] ?? null;
-        return $this->config->Read('case_sensitive') == false ? strtolower($msg) : $msg;
+        $msg = WebHook::getIncomingData()['entry'][0]['messaging'][0]['message']['text'] ?? null;
+        return $this->config->read('case_sensitive') == false ? strtolower($msg) : $msg;
     }
 
     /**
@@ -65,7 +65,7 @@ class User {
      */
     public function GetMessagePayload($type = 'quick_reply') 
     {
-        return WebHook::GetJSONPostData()['entry'][0]['messaging'][0]['message'][$type]['payload'] ?? null;
+        return WebHook::getIncomingData()['entry'][0]['messaging'][0]['message'][$type]['payload'] ?? null;
     }
 
     /**
@@ -75,7 +75,7 @@ class User {
      */
     private function GetId() 
     {
-       return WebHook::GetJSONPostData()['entry'][0]['messaging'][0]['sender']['id'] ?? null;
+       return WebHook::getIncomingData()['entry'][0]['messaging'][0]['sender']['id'] ?? null;
     }
 
     /**
@@ -97,14 +97,14 @@ class User {
             $this->graph->OpenSession();
             $response = $this->graph->get(
                 "https://graph.facebook.com/v2.6/" . $userId . 
-                "?fields=first_name,last_name,profile_pic&access_token=" . $this->config->Read('page_access_token')
+                "?fields=first_name,last_name,profile_pic&access_token=" . $this->config->read('page_access_token')
             );
             $this->userInfo = json_decode($response, true);
             $this->graph->CloseSession();
         }
 
         // DEBUGGING
-        /*if ($this->config->Read('DEBUG') == true) {
+        /*if ($this->config->Read('debug') == true) {
             print_r($this->userInfo);
         }*/
 

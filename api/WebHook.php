@@ -2,7 +2,7 @@
 /**
  * FamePHP
  *
- * Facebook Messenger bot
+ * Facebook Messenger bot framework
  *
  * @copyright Copyright (c) 2018 - 2018
  * @author Sleeyax (https://github.com/sleeyax)
@@ -12,7 +12,6 @@
 
 namespace Famephp\api;
 require_once 'ConfigReader.php';
-use Famephp\api\ConfigReader;
 
 /**
  * Class WebHook
@@ -21,35 +20,32 @@ use Famephp\api\ConfigReader;
 class WebHook {
 
     /**
-     * Object for retrieving configuration settings
-     *
-     * @var ConfigReader object
+     * Verification token, see config
+     * @var string
      */
-    private $config;
+    private $verificationToken;
 
     /**
      * WebHook constructor.
-     * @param string $config path
-     * @throws \InvalidArgsException
-     * @throws error
+     *
+     * @param $verificationToken
      */
-    public function __construct($config = "api/Config.php")
+    public function __construct($verificationToken)
     {
-        $this->config = ConfigReader::GetInstance();
-        $this->config->Load($config);
+        $this->verificationToken = $verificationToken;
     }
 
     /**
      * Create a new webhook with facebook
      * @throws \InvalidArgsException
      */
-    public function CreateNewHook() 
+    public function create()
     {
         if (isset($_GET['hub_challenge'])) {
             $challenge = $_GET['hub_challenge'];
 
             // If verification tokens match, return challenge (200 OK)
-            if ($_GET['hub_verify_token'] === $this->config->Read('verification_token')) {
+            if ($_GET['hub_verify_token'] === $this->verificationToken) {
                 echo $challenge;
             }else{
                 exit("Verification tokens do not match!");
@@ -58,13 +54,13 @@ class WebHook {
     }
 
     /**
-     * Read incoming JSON POST data from facebook
+     * Read incoming (JSON) POST data from facebook
      *
+     * @param bool $isJson
      * @return array json
      */
-    public static function GetJSONPostData()
+    public static function getIncomingData($isJson = true)
     {
-       return json_decode(file_get_contents("php://input"), true);
+       return $isJson ? json_decode(file_get_contents("php://input"), true) : file_get_contents("php://input");
     }
 }
-?>

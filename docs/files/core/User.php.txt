@@ -83,7 +83,7 @@ class User {
         }
 
         // DEBUGGING
-        /*if ($this->config->Read('DEBUG') == true) {
+        /*if ($this->config->Read('debug') == true) {
             print_r($this->userInfo);
         }*/
 

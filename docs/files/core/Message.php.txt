@@ -95,7 +95,7 @@ class Message {
         }
 
         // DEBUGGING
-        if ($this->config->Read('DEBUG') == true) {
+        if ($this->config->Read('debug') == true) {
             if (is_array($toSend)) {
                 print_r($toSend);
             }else{

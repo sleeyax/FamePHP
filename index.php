@@ -2,7 +2,7 @@
 /**
  * FamePHP
  *
- * Facebook Messenger bot
+ * Facebook Messenger bot framework
  *
  * @copyright Copyright (c) 2018 - 2018
  * @author Sleeyax (https://github.com/sleeyax)
@@ -12,22 +12,13 @@
 
 // Load required components
 require_once 'core/Bootstrap.php';
-use Famephp\core;
+require_once ROOTDIR . 'core/attachments/Text.php';
 
 // Specify modules you want to use
-require_once ROOTDIR . 'core/attachments/Text.php';
+use Famephp\core\Response;
+use Famephp\core\Sender;
 use Famephp\core\attachments\Text;
 
-// Initialize user
-$user = new Core\User();
-
-// Create message object
-$message = new Core\Message($user->GetInfo()['id']);
-
-// Read message & send reply
-if ($user->GetMessageText() == "hello") {
-    $firstname = $user->GetInfo()['first_name'];
-    $message->Send(
-        new Text("Hi, $firstname")
-    );
-}
+$listener->hears('working?', function(Sender $sender, Response $response) {
+    $response->Send(new Text("Yes it does, $sender->firstname! :D"));
+});

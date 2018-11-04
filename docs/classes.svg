@@ -307,7 +307,7 @@
 <polygon fill="none" stroke="black" points="720,-176 666,-176 666,-140 720,-140 720,-176"/>
 <text text-anchor="middle" x="693" y="-155.2" font-family="Courier,monospace" font-size="11.00">Asset</text>
 </g>
-<!-- \\Famephp\\core\\Message -->
+<!-- \\Famephp\\core\\Response -->
 <g id="node30" class="node"><title>\\Famephp\\core\\Message</title>
 <polygon fill="none" stroke="black" points="725,-122 661,-122 661,-86 725,-86 725,-122"/>
 <text text-anchor="middle" x="693" y="-101.2" font-family="Courier,monospace" font-size="11.00">Message</text>
