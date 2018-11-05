@@ -25,7 +25,22 @@ class Listener
         $this->config = ConfigReader::getInstance();
     }
 
-    public function hears($message, $callback)
+    /**
+     * @param        $hiddenMessage
+     * @param        $callback
+     * @param string $payloadType array key to use for hidden message lookup
+     */
+    public function hearsWhisper($hiddenMessage, $callback, $payloadType = 'quick_reply')
+    {
+        $this->hears($hiddenMessage, $callback, $payloadType);
+    }
+
+    /**
+     * @param      $message
+     * @param      $callback
+     * @param null $payloadType array key to use for hidden message lookup
+     */
+    public function hears($message, $callback, $payloadType = null)
     {
         $data = WebHook::getIncomingData();
 
@@ -33,7 +48,8 @@ class Listener
             return;
         }
 
-        $hearedMessage = $data['entry'][0]['messaging'][0]['message']['text'] ?? null;
+        $hearedMessage = $payloadType != null ? ['entry'][0]['messaging'][0]['message'][$payloadType]['payload'] :
+                        $data['entry'][0]['messaging'][0]['message']['text'] ?? null;
         $hearedMessage = $this->config->isCaseSensitive ? $hearedMessage : strtolower($hearedMessage);
 
         if ($hearedMessage === $message) {

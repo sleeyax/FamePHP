@@ -11,12 +11,7 @@
  */
 
 define('ROOTDIR', '');
-
-require_once(ROOTDIR . 'core/User.php');
-require_once(ROOTDIR . 'core/Response.php');
-require_once(ROOTDIR . 'api/WebHook.php');
-require_once(ROOTDIR . 'core/Listener.php');
-require_once(ROOTDIR . 'core/Sender.php');
+require_once ROOTDIR . 'vendor/autoload.php';
 
 use Famephp\api\WebHook;
 use Famephp\api\ConfigReader;

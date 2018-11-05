@@ -15,8 +15,8 @@ require_once ROOTDIR . 'api/ConfigReader.php';
 require_once ROOTDIR . 'api/WebHook.php';
 require_once ROOTDIR . 'api/GraphRequest.php';
 use Famephp\api\ConfigReader;
-use Famephp\api\WebHook;
 use Famephp\api\GraphRequest;
+use Famephp\api\WebHook;
 
 /**
  * Send messages to user
@@ -28,7 +28,7 @@ class Response {
      * @var string messaging type
      * new since 7 May, 2018, see: https://developers.facebook.com/docs/messenger-platform/send-messages
      */
-    private $type;
+    private $type = "RESPONSE";
 
     /**
      * @var ConfigReader instance
@@ -36,25 +36,34 @@ class Response {
     private $config;
 
     /**
-     * @var Response asset
+     * @var Asset asset
      */
     private $asset;
 
     /**
-     * @var Response recipient
+     * @var string recipient
      */
-    private $recipient;
+    private $recipientUserId;
+
+    private $graph;
 
     /**
      * Response constructor.
      * @param $recipient
-     * @param string $type response type RESPONSE | UPDATE | MESSAGE_TAG
      */
-    public function __construct($recipient, $type = "RESPONSE")
+    public function __construct($recipient)
     {
         $this->config = ConfigReader::getInstance();
-        $this->graph = new GraphRequest($this->config->read('page_access_token'));
-        $this->recipient = $recipient;
+       // $this->graph = new GraphRequest($this->config->read('page_access_token'));
+        $this->graph = new GraphRequest($this->config->pageAccessToken);
+        $this->recipientUserId = $recipient;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setResponseType(string $type)
+    {
         $this->type = $type;
     }
 
@@ -65,7 +74,7 @@ class Response {
      * @return void
      */
     public function NewAssetHandler($databaseSettings = null) {
-        $databaseSettings = $databaseSettings ?? $this->config->read('database');
+        $databaseSettings = $databaseSettings ?? $this->config->db;
         require_once (ROOTDIR . 'Asset.php');
         $this->asset = new Asset($databaseSettings);
     }
@@ -98,13 +107,13 @@ class Response {
         $payload = [
             'messaging_type' => $this->type,
             'recipient' => [
-                'id' => $this->recipient
+                'id' => $this->recipientUserId
             ],
             'message' => $obj->GetJsonSerializable()
         ];
 
         // Encode request (attachments)
-        $toSend = json_encode($payload);
+        $toSend = $payload;
         if (method_exists($obj, 'IsLocalAttachment'))
         {
             if ($obj->IsLocalAttachment()) 
@@ -124,10 +133,7 @@ class Response {
         }
 
         // Send request
-        $this->graph->OpenSession();
-        $this->graph->SetGraphSection($graphSection);
-        $response = $this->graph->Post($toSend);
-        $this->graph->CloseSession();
+        $response = $this->graph->postPayload($toSend, $graphSection);
 
         /// DEBUGGING
         if ($this->config->read('debug') == true) {
@@ -188,14 +194,12 @@ class Response {
     private function SenderAction($action) {
          $payload = [
             'recipient' => [
-                'id' => $this->recipient
+                'id' => $this->recipientUserId
             ],
             'sender_action' => $action
         ];
 
-        $this->graph->OpenSession();
-        $this->graph->Post(json_encode($payload));
-        $this->graph->CloseSession();
+        $this->graph->postPayload($payload, 'messages');
     }
 
     /**
@@ -225,4 +229,3 @@ class Response {
         return $this->asset->Get($assetName);
     }
 }
-?>

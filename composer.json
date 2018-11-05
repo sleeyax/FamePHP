@@ -1,0 +1,22 @@
+{
+  "name": "sleeyax/famephp",
+  "description": "Facebook messenger bot framework",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sleeyax",
+      "email": "yourd3veloper@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Famephp\\api\\": "api/",
+      "Famephp\\core\\": "core/"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6.3",
+    "monolog/monolog": "^1.24"
+  }
+}

@@ -14,35 +14,50 @@ namespace Famephp\core;
 use Famephp\api\ConfigReader;
 use Famephp\api\GraphRequest;
 
+/**
+ * Class Sender
+ * Represents the user that interacts with our bot
+ *
+ * @package Core
+ */
 class Sender
 {
+    /**
+     * Facebook user id
+     * @var string
+     */
     public $id;
 
+    /**
+     * @var string
+     */
     public $firstname;
 
+    /**
+     * @var string
+     */
     public $lastname;
 
+    /**
+     * URL to facebook profile picture
+     * @var string
+     */
     public $profilePicture;
 
-    public function __construct($id)
-    {
-        $this->id = $id;
-        $sender = $this->getProfile($id);
-        $this->firstname = $sender['first_name'];
-        $this->lastname = $sender['last_name'];
-        $this->profilePicture = $sender['profile_pic'];
-    }
-
-    private function getProfile($id)
+    /**
+     * Sender constructor.
+     *
+     * @param string $id facebook user id
+     */
+    public function __construct(string $id)
     {
         $token = (ConfigReader::getInstance())->pageAccessToken;
         $graph = new GraphRequest($token);
-        $graph->OpenSession();
-        $response = $graph->get(
-            "https://graph.facebook.com/v2.6/$id?fields=first_name,last_name,profile_pic&access_token=$token"
-        );
-        $graph->CloseSession();
+        $sender = $graph->getUserProfile($id);
 
-        return json_decode($response, true);
+        $this->id = $id;
+        $this->firstname = $sender['first_name'];
+        $this->lastname = $sender['last_name'];
+        $this->profilePicture = $sender['profile_pic'];
     }
 }
