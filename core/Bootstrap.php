@@ -20,6 +20,6 @@ use Famephp\core\Listener;
 $config = ConfigReader::getInstance();
 $config->load(ROOTDIR . 'api/Config.php');
 
-(new WebHook($config->verificationToken))->create();
+(new WebHook($config->getVerificationToken()))->create();
 
 $listener = new Listener();

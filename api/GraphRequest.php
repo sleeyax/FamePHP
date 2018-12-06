@@ -12,6 +12,7 @@
 namespace Famephp\api;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
+use Famephp\api\loggers\ErrorLogger;
 
 class GraphRequest
 {
@@ -25,10 +26,16 @@ class GraphRequest
      */
     private $gc;
 
+    /**
+     * @var ErrorLogger
+     */
+    private $errorLogger;
+
     public function __construct(string $token)
     {
         $this->pageAccessToken = $token;
         $this->gc = new Client(['base_uri' => 'https://graph.facebook.com/v2.6/']);
+        $this->errorLogger = new ErrorLogger();
     }
 
     /**
@@ -39,21 +46,29 @@ class GraphRequest
      */
     public function getUserProfile(string $userid)
     {
+        $response = null;
+
         try {
             $response = $this->gc->request('GET', $userid, ['query' => [
                 'fields' => implode(',', ['first_name', 'last_name', 'profile_pic']),
                 'access_token' => $this->pageAccessToken
-            ]]);
+            ]])->getBody();
         }catch (GuzzleException $ex) {
-            exit($ex); //TODO: use monolog to log this error
+            $this->errorLogger->log("Error while retrieving user profile. Exception caught: $ex");
         }
 
-        return json_decode($response->getBody(), true);
+        return json_decode($response, true);
     }
 
-    public function postMessage() {}
+    public function postMessage($message)
+    {
+        return $this->postPayload($message, 'messages');
+    }
 
-    public function postAttachment() {}
+    public function postAttachment($attachment)
+    {
+        $this->postPayload($attachment, 'message_attachments');
+    }
 
     // TODO: make this method private, and use the methods above
     public function postPayload(array $payload, string $section)

@@ -55,7 +55,7 @@ class Response {
     {
         $this->config = ConfigReader::getInstance();
        // $this->graph = new GraphRequest($this->config->read('page_access_token'));
-        $this->graph = new GraphRequest($this->config->pageAccessToken);
+        $this->graph = new GraphRequest($this->config->getPageAccessToken());
         $this->recipientUserId = $recipient;
     }
 
@@ -74,7 +74,7 @@ class Response {
      * @return void
      */
     public function NewAssetHandler($databaseSettings = null) {
-        $databaseSettings = $databaseSettings ?? $this->config->db;
+        $databaseSettings = $databaseSettings ?? $this->config->getDatabaseSettings();
         require_once (ROOTDIR . 'Asset.php');
         $this->asset = new Asset($databaseSettings);
     }
@@ -86,7 +86,8 @@ class Response {
      * @return void
      */
     public function UploadAsset($attachment) {
-        $this->Send($attachment, 'message_attachments');
+        $this->graph->postAttachment($attachment);
+       // $this->Send($attachment, 'message_attachments');
     }
 
     /**
@@ -123,7 +124,7 @@ class Response {
                 $toSend = [
                     'recipient' => json_encode($payload['recipient']),
                     'message' => json_encode($payload['message']),
-                    'filedata' => new \CURLFile(
+                    'filedata' => new \CURLFile( //TODO: use guzzle
                         $obj->GetLocalAttachmentLocation(),
                         $obj->GetLocalAttachmentMimeType(),
                         $obj->GetLocalAttachmentName()
@@ -133,7 +134,7 @@ class Response {
         }
 
         // Send request
-        $response = $this->graph->postPayload($toSend, $graphSection);
+        $response = $this->graph->postMessage($toSend);
 
         /// DEBUGGING
         if ($this->config->read('debug') == true) {

@@ -50,7 +50,7 @@ class Listener
 
         $hearedMessage = $payloadType != null ? ['entry'][0]['messaging'][0]['message'][$payloadType]['payload'] :
                         $data['entry'][0]['messaging'][0]['message']['text'] ?? null;
-        $hearedMessage = $this->config->isCaseSensitive ? $hearedMessage : strtolower($hearedMessage);
+        $hearedMessage = $this->config->isCaseSensitive() ? $hearedMessage : strtolower($hearedMessage);
 
         if ($hearedMessage === $message) {
             $userid = $data['entry'][0]['messaging'][0]['sender']['id'];

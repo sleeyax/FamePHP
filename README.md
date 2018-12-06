@@ -1,12 +1,11 @@
 # FamePHP
-Facebook messenger's platform changed a lot after the completion of FamePHP, so here we are with version 2 of this framework!
-It contains the new features added by facebook, upgrades and improvements.
+Facebook messenger's platform changed a lot after the completion of FamePHP, so here we are with version 2 of this framework! 
+V2 is not a complete rewrite, but it has too much changes to be merged with the master branch.
 
 ## What's new
-Before adding anything new, we require a huge cleanup
 * PHP 7.2+
 * Comply with PSR-2 standard
-* Improved code style
+* Improved code style/syntax
 ```
 $listener->hears('who likes callbacks?', function(Sender $sender, Response $response) {
     $response->send(new Text("We do, $sender->firstname! ;)"));
@@ -16,5 +15,9 @@ $listener->hears('who likes callbacks?', function(Sender $sender, Response $resp
 * Replace plain curl with GuzzleHttp
 * Added MonoLog
 * Refactored GraphRequest class
-
-TODO: rewrite asset handler, test quick_reply 'whisper' method
+* Added monolog
+* Dropped support for uploading assets within the 'send' method (see class Response).
+  From now on just upload assets beforehand using the AssetManager class.
+* Unit tests
+* Database drivers (mysql_pdo, sqlite)
+* Improved GraphRequest class

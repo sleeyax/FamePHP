@@ -51,7 +51,7 @@ class Sender
      */
     public function __construct(string $id)
     {
-        $token = (ConfigReader::getInstance())->pageAccessToken;
+        $token = (ConfigReader::getInstance())->getPageAccessToken();
         $graph = new GraphRequest($token);
         $sender = $graph->getUserProfile($id);
 

@@ -28,48 +28,6 @@ class ConfigReader
     private $config;
 
     /**
-     * Page access token
-     *
-     * @var string
-     */
-    public $pageAccessToken;
-
-    /**
-     * Verification token
-     *
-     * @var string
-     */
-    public $verificationToken;
-
-    /**
-     * Command prefix
-     *
-     * @var string
-     */
-    public $prefix;
-
-    /**
-     * Whether or not incoming commands are considered case sensitive
-     *
-     * @var bool
-     */
-    public $isCaseSensitive;
-
-    /**
-     * Whether or not the application should show debugging information
-     *
-     * @var bool
-     */
-    public $isDebuggingEnabled;
-
-    /**
-     * Array containing database connection settings
-     *
-     * @var array
-     */
-    public $db;
-
-    /**
      * ConfigReader constructor
      *
      */
@@ -87,13 +45,6 @@ class ConfigReader
         }
 
         $this->config = require_once($configFile);
-
-        $this->pageAccessToken = $this->config['page_access_token'];
-        $this->verificationToken = $this->config['verification_token'];
-        $this->prefix = $this->config['prefix'];
-        $this->isCaseSensitive = $this->config['case_sensitive'];
-        $this->db = $this->config['database'];
-        $this->isDebuggingEnabled = $this->config['debug'];
     }
 
     /**
@@ -105,10 +56,54 @@ class ConfigReader
     public function read($key)
     {
         if (!array_key_exists($key, $this->config)) {
-            throw new \InvalidArgumentException("Array key '$key' doesn't exist!");
+            throw new \InvalidArgumentException("Config doesn't contain a setting for '$key'!");
         }
 
         return $this->config[$key];
+    }
+
+    public function getPageAccessToken()
+    {
+        return $this->read('page_access_token');
+    }
+
+    public function getDatabaseSettings()
+    {
+        return $this->read('database');
+    }
+
+    /**
+     * @param string $driver database driver name
+     * @return mixed
+     */
+    public function getDatabaseDriver(string $driver)
+    {
+        $drivers = $this->read('database')['drivers'];
+        if (!array_key_exists($driver, $drivers)) {
+            throw new \InvalidArgumentException("Config doesn't contain settings for driver '$driver'!");
+        }
+
+        return $drivers[$driver];
+    }
+
+    public function getVerificationToken()
+    {
+        return $this->read('verification_token');
+    }
+
+    public function getPrefix()
+    {
+        return $this->read('prefix');
+    }
+
+    public function isCaseSensitive()
+    {
+        return $this->read('case_sensitive');
+    }
+
+    public function isDebuggingEnabled()
+    {
+        return $this->read('debug');
     }
 
     /**

@@ -16,10 +16,19 @@ return [
     'prefix' => '', // e.g: use '!' if you want to use commands like '!help', otherwise set it to blank
     'case_sensitive' => false, // By default, all messages will be converted to lowercase before checking for commands
     'database' => [
-        'host' => 'localhost',
-        'dbname' => 'famephp',
-        'username' => 'root',
-        'password' => ''
+        'driver' => 'myql_pdo', // Available drivers: mysql_pdo, sqlite
+        'drivers' => [ // Specific driver settings
+            'pdo_mysql' => [
+                'host' => 'localhost',
+                'dbname' => 'famephp',
+                'username' => 'root',
+                'password' => ''
+            ],
+            'sqlite' => [
+                'db_location' => 'famephp.db' // Path to the database file
+            ]
+        ]
+
     ],
     'debug' => true
 ];
