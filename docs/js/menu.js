@@ -1,3 +1,14 @@
+/*
+ * FamePHP
+ *
+ * Facebook Messenger bot framework
+ *
+ * @copyright Copyright (c) 2018 - 2019
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
+
 var timeout    = 500;
 var closetimer = 0;
 var ddmenuitem = 0;

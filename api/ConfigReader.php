@@ -1,9 +1,10 @@
 <?php
 /**
  * FamePHP
+ *
  * Facebook Messenger bot framework
  *
- * @copyright Copyright (c) 2018 - 2018
+ * @copyright Copyright (c) 2018 - 2019
  * @author Sleeyax (https://github.com/sleeyax)
  * @link https://github.com/sleeyax/FamePHP
  * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
@@ -67,6 +68,10 @@ class ConfigReader
         return $this->read('page_access_token');
     }
 
+    public function getDatabaseDriver() {
+        return $this->read('database')['driver'];
+    }
+
     public function getDatabaseSettings()
     {
         return $this->read('database');
@@ -76,7 +81,7 @@ class ConfigReader
      * @param string $driver database driver name
      * @return mixed
      */
-    public function getDatabaseDriver(string $driver)
+    public function getDatabaseDriverSettings(string $driver)
     {
         $drivers = $this->read('database')['drivers'];
         if (!array_key_exists($driver, $drivers)) {

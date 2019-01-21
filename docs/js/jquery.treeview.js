@@ -1,17 +1,12 @@
 /*
- * Treeview 1.5pre - jQuery plugin to hide and show branches of a tree
- * 
- * http://bassistance.de/jquery-plugins/jquery-plugin-treeview/
- * http://docs.jquery.com/Plugins/Treeview
+ * FamePHP
  *
- * Copyright (c) 2007 Jörn Zaefferer
+ * Facebook Messenger bot framework
  *
- * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
- *
- * Revision: $Id: jquery.treeview.js 5759 2008-07-01 07:50:28Z joern.zaefferer $
- *
+ * @copyright Copyright (c) 2018 - 2019
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 
 ;(function($) {

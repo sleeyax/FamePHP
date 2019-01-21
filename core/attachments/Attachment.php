@@ -4,7 +4,7 @@
  *
  * Facebook Messenger bot framework
  *
- * @copyright Copyright (c) 2018 - 2018
+ * @copyright Copyright (c) 2018 - 2019
  * @author Sleeyax (https://github.com/sleeyax)
  * @link https://github.com/sleeyax/FamePHP
  * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
@@ -12,8 +12,11 @@
 
 namespace Famephp\core\attachments;
 
+use http\Exception\InvalidArgumentException;
+
 /**
  * Attachment extendable base class
+ *
  * @package Attachments
  */
 abstract class Attachment {
@@ -30,22 +33,22 @@ abstract class Attachment {
     /**
      * @var boolean specifies whether or not the attachment is a local file on the computer
      */
-    private $isLocalAttachment = false;
+    private $isLocal = false;
 
     /**
      * @var string location of attachment
      */
-    private $localAttachmentLocation;
+    private $location;
 
     /**
      * @var string mimetype of attachment
      */
-    private $localAttachmentMimeType;
+    private $mimeType;
     
     /**
      * @var mixed the name of the attachment (null | string)
      */
-    private $attachmentName;
+    private $name;
 
     /**
      * @var boolean attachment re-use policy
@@ -67,23 +70,26 @@ abstract class Attachment {
         }
 
         $this->isReusable = $reusable;
-        $this->attachmentName = $attachmentName;
+        $this->name = $attachmentName;
 
         switch ($attachment) {
             case preg_match('/https{0,1}:\/\//', $attachment) == 1: // URL
                 $this->payload['url'] = $attachment;
                 $this->payload['is_reusable'] = $reusable;
                 break;
-            case ctype_digit($attachment) == true: // attachment_id
+            case ctype_digit($attachment): // attachment_id
                 $this->payload['attachment_id'] = $attachment;
                 break;
             default: // File
                 $this->payload['is_reusable'] = $reusable;
-                $this->isLocalAttachment = true;
+                $this->isLocal = true;
                 $parts = explode(';', $attachment);
-                $this->localAttachmentLocation = $parts[0];
-                $this->localAttachmentMimeType = $parts[1];
-                $this->attachmentName = ($attachmentName == null) ? $this->localAttachmentLocation : $attachmentName;
+                if (count($parts) < 2) {
+                    throw new \InvalidArgumentException('File MimeType not specified!');
+                }
+                $this->location = $parts[0];
+                $this->mimeType = $parts[1];
+                $this->name = ($attachmentName == null) ? $this->location : $attachmentName;
                 break;
         }
     }
@@ -92,7 +98,7 @@ abstract class Attachment {
      * Whether or not the attachment is reuasable
      * @return bool
      */
-    public function IsReusable() {
+    public function isReusable() {
         return $this->isReusable;
     }
 
@@ -100,51 +106,42 @@ abstract class Attachment {
      * Whether or not the attachment is locally stored on the computer
      * @return bool
      */
-    public function IsLocalAttachment() 
+    public function isLocalAttachment()
     {
-        return $this->isLocalAttachment;
+        return $this->isLocal;
     }
 
     /**
      * Return attachment location
      * @return string location
      */
-    public function GetLocalAttachmentLocation() 
+    public function getLocation()
     {
-        return $this->localAttachmentLocation;
+        return $this->location;
     }
 
     /**
      * Return attachment mimetype
      * @return string file mime type
      */
-    public function GetLocalAttachmentMimeType() 
+    public function getMimeType()
     {
-        return $this->localAttachmentMimeType;
+        return $this->mimeType;
     }
 
     /**
      * Return the name of the attachment
      * @return mixed null | string
      */
-    public function GetLocalAttachmentName() 
+    public function getName()
     {
-        return $this->attachmentName;
-    }
-
-    /**
-     * Alias for GetLocalAttachmentName()
-     *
-     * @return string attachment name
-     */
-    public function GetAttachmentName() {
-        return $this->attachmentName;
+        return $this->name;
     }
 
     /**
      * Get the attachment type
      */
-    public function GetAttachmentType() {
+    public function getType() {
         return $this->type;
     }
 
@@ -152,7 +149,7 @@ abstract class Attachment {
      * Return JSON serializable
      * @return array json serializable
      */
-    public function GetJsonSerializable() 
+    public function getJsonSerializable()
     {
         return [
             'attachment' => [
@@ -162,4 +159,3 @@ abstract class Attachment {
         ];
     }
 }
-?>

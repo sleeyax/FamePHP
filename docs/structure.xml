@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ FamePHP
+  ~
+  ~ Facebook Messenger bot framework
+  ~
+  ~ @copyright Copyright (c) 2018 - 2019
+  ~ @author Sleeyax (https://github.com/sleeyax)
+  ~ @link https://github.com/sleeyax/FamePHP
+  ~ @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+  -->
+
 <project title="FamePHP" version="2.8.5">
   <partials/>
   <file path="api\ConfigReader.php" generated-path="api.ConfigReader.html" hash="634f4154cbc8388f9d3e3cdc306df037" package="FamePHP">

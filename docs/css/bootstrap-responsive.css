@@ -1,11 +1,12 @@
-/*!
- * Bootstrap Responsive v2.0.0
+/*
+ * FamePHP
  *
- * Copyright 2012 Twitter, Inc
- * Licensed under the Apache License v2.0
- * http://www.apache.org/licenses/LICENSE-2.0
+ * Facebook Messenger bot framework
  *
- * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ * @copyright Copyright (c) 2018 - 2019
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 .hidden {
   display: none;

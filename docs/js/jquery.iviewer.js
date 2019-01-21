@@ -1,14 +1,12 @@
 /*
- * iviewer Widget for jQuery UI
- * https://github.com/can3p/iviewer
+ * FamePHP
  *
- * Copyright (c) 2009 - 2012 Dmitry Petrov
- * Dual licensed under the MIT and GPL licenses.
- *  - http://www.opensource.org/licenses/mit-license.php
- *  - http://www.gnu.org/copyleft/gpl.html
+ * Facebook Messenger bot framework
  *
- * Author: Dmitry Petrov
- * Version: 0.7
+ * @copyright Copyright (c) 2018 - 2019
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 
 ( function( $, undefined ) {

@@ -1,17 +1,13 @@
 /*
- * jQuery PanZoom Plugin
- * Pan and zoom an image within a parent div.
+ * FamePHP
  *
- * version: 0.9.0
- * @requires jQuery v1.4.2 or later (earlier probably work, but untested so far)
+ * Facebook Messenger bot framework
  *
- * Copyright (c) 2011 Ben Lumley
- * Examples and documentation at: https://github.com/benlumley/jQuery-PanZoom
- *
- * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
-*/
+ * @copyright Copyright (c) 2018 - 2019
+ * @author Sleeyax (https://github.com/sleeyax)
+ * @link https://github.com/sleeyax/FamePHP
+ * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
+ */
 
 (function( $ ){
 

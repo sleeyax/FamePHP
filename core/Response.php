@@ -4,19 +4,18 @@
  *
  * Facebook Messenger bot framework
  *
- * @copyright Copyright (c) 2018 - 2018
+ * @copyright Copyright (c) 2018 - 2019
  * @author Sleeyax (https://github.com/sleeyax)
  * @link https://github.com/sleeyax/FamePHP
  * @license https://github.com/sleeyax/FamePHP/blob/master/LICENSE
  */
 
 namespace Famephp\core;
-require_once ROOTDIR . 'api/ConfigReader.php';
-require_once ROOTDIR . 'api/WebHook.php';
-require_once ROOTDIR . 'api/GraphRequest.php';
 use Famephp\api\ConfigReader;
+use Famephp\api\db\drivers\MysqlPdoDriver;
+use Famephp\api\db\drivers\SqliteDriver;
 use Famephp\api\GraphRequest;
-use Famephp\api\WebHook;
+use Famephp\core\attachments\Attachment;
 
 /**
  * Send messages to user
@@ -36,16 +35,16 @@ class Response {
     private $config;
 
     /**
-     * @var Asset asset
-     */
-    private $asset;
-
-    /**
      * @var string recipient
      */
     private $recipientUserId;
 
     private $graph;
+
+    /**
+     * @var AssetManager asset
+     */
+    public $asset;
 
     /**
      * Response constructor.
@@ -54,115 +53,63 @@ class Response {
     public function __construct($recipient)
     {
         $this->config = ConfigReader::getInstance();
-       // $this->graph = new GraphRequest($this->config->read('page_access_token'));
         $this->graph = new GraphRequest($this->config->getPageAccessToken());
         $this->recipientUserId = $recipient;
-    }
 
-    /**
-     * @param string $type
-     */
-    public function setResponseType(string $type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * Create asset property for later use
-     *
-     * @param array $databaseSettings from config or manually specified (optional)
-     * @return void
-     */
-    public function NewAssetHandler($databaseSettings = null) {
-        $databaseSettings = $databaseSettings ?? $this->config->getDatabaseSettings();
-        require_once (ROOTDIR . 'Asset.php');
-        $this->asset = new Asset($databaseSettings);
-    }
-
-    /**
-     * Upload an asset using attachment API
-     *
-     * @param object $attachment
-     * @return void
-     */
-    public function UploadAsset($attachment) {
-        $this->graph->postAttachment($attachment);
-       // $this->Send($attachment, 'message_attachments');
+        switch($this->config->getDatabaseDriver()) {
+            case "mysql_pdo":
+                $this->asset = new AssetManager(new MysqlPdoDriver(), $this->recipientUserId);
+                break;
+            case "sqlite":
+                $this->asset = new AssetManager(new SqliteDriver(), $this->recipientUserId); //TODO: implement sqlite
+                break;
+            default:
+                break;
+        }
     }
 
     /**
      * Send a message to the user
      *
-     * @param object $obj object to send
-     * @param string $graphSection API messages | message_attachments
+     * @param Attachment $obj object to send
      * @return void
      */
-    public function Send($obj, $graphSection = 'messages')
+    public function send(Attachment $obj)
     {
-        // Iput check
+        // Input check
         if (!is_object($obj)) {
             throw new \InvalidArgumentException('Send() failed: $obj must be an object!');
         }
 
-        // Build payload
-        $payload = [
-            'messaging_type' => $this->type,
-            'recipient' => [
-                'id' => $this->recipientUserId
-            ],
-            'message' => $obj->GetJsonSerializable()
-        ];
+        if ($obj->isLocalAttachment()) {
+            $payload = [
+                [
+                    'name' => 'recipient',
+                    'contents' => json_encode(['id' => $this->recipientUserId])
+                ],
+                [
+                    'name' => 'message',
+                    'contents' => json_encode($obj->getJsonSerializable())
+                ],
+                [
+                    'name' => 'filedata',
+                    'contents' => fopen($obj->getLocation(), 'r'),
+                    'filename' => $obj->getName()
+                ]
+            ];
 
-        // Encode request (attachments)
-        $toSend = $payload;
-        if (method_exists($obj, 'IsLocalAttachment'))
-        {
-            if ($obj->IsLocalAttachment()) 
-            {
-                $this->graph->SetContentType('multipart/form-data');
+             $this->graph->postAttachment($payload);
+        }else{
+            $payload = [
+                'messaging_type' => $this->type,
+                'recipient' => [
+                    'id' => $this->recipientUserId
+                ],
+                'message' => $obj->getJsonSerializable()
+            ];
 
-                $toSend = [
-                    'recipient' => json_encode($payload['recipient']),
-                    'message' => json_encode($payload['message']),
-                    'filedata' => new \CURLFile( //TODO: use guzzle
-                        $obj->GetLocalAttachmentLocation(),
-                        $obj->GetLocalAttachmentMimeType(),
-                        $obj->GetLocalAttachmentName()
-                    )
-                ];
-            }
+            $this->graph->postMessage($payload);
         }
-
-        // Send request
-        $response = $this->graph->postMessage($toSend);
-
-        /// DEBUGGING
-        if ($this->config->read('debug') == true) {
-            if (is_array($toSend)) {
-                print_r($toSend);
-            }else{
-                echo $toSend;
-            }
-            echo $response;
-        }
-        
-        // Save asset (attachments)
-        $attachmentName = null;
-        if (method_exists($obj, 'GetAttachmentName')) {
-            $attachmentName = $obj->GetAttachmentName();
-        }
-        
-        if ($attachmentName != null)
-        {
-            $assetId = json_decode($response, true)['attachment_id'] ?? null;
-
-            if ($assetId == null) 
-            {
-                exit('$response data doesn\'t contain an attachment_id!');
-            }
-
-            $this->SaveAsset($attachmentName, $assetId);
-        }   
     }
 
     /**
@@ -171,12 +118,20 @@ class Response {
      * @param string $toggle on | off
      * @return void
      */
-    public function IsTyping($toggle = 'on') {
+    private function isTyping($toggle = 'on') {
         if ($toggle != 'on' && $toggle != 'off') {
             exit('IsTyping() toggle failed: expected values are on or off');
         }
 
         $this->SenderAction("typing_$toggle");
+    }
+
+    public function startTyping() {
+        $this->isTyping('on');
+    }
+
+    public function stopTyping() {
+        $this->isTyping('off');
     }
 
     /**
@@ -200,33 +155,6 @@ class Response {
             'sender_action' => $action
         ];
 
-        $this->graph->postPayload($payload, 'messages');
-    }
-
-    /**
-     * Save message asset to database
-     * @param $assetName
-     * @param $assetId
-     * @return mixed
-     */
-    private function SaveAsset($assetName, $assetId) 
-    {
-        if ($this->asset == null) {
-            $this->NewAssetHandler();
-        }
-        return $this->asset->Save($assetName, $assetId);
-    }
-
-    /**
-     * Get message asset from database
-     * @param $assetName
-     * @return mixed asset
-     */
-    public function GetAsset($assetName) 
-    {
-        if ($this->asset == null) {
-            $this->NewAssetHandler();
-        }
-        return $this->asset->Get($assetName);
+        $this->graph->postMessage($payload);
     }
 }
