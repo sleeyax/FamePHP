@@ -11,13 +11,10 @@ $listener->hears('who likes callbacks?', function(Sender $sender, Response $resp
     $response->send(new Text("We do, $sender->firstname! ;)"));
 });
 ```
-* Autoload using composer (finally)
+* Autoload using composer
 * Replace plain curl with GuzzleHttp
 * Added MonoLog
 * Refactored GraphRequest class
-* Added monolog
-* Dropped support for uploading assets within the 'send' method (see class Response).
-  From now on just upload assets beforehand using the AssetManager class.
 * Unit tests
 * Database drivers (mysql_pdo, sqlite)
 * Improved GraphRequest class
