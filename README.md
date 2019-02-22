@@ -1,4 +1,5 @@
 # FamePHP
+NOTE: this project is getting a partial rewrite, see [the v2 branch](https://github.com/sleeyax/FamePHP/tree/v2) <br><br>
 FamePHP is a framework for creating Facebook messenger bots. It uses the official Facebook API and is structured in a way that allows you to add or remove functionality at your wish. Requires PHP7, but converting it to older versions shouldn't be too much of a pain.
 
 # Documentation
