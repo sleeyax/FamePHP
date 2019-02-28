@@ -44,7 +44,7 @@ class Response {
     /**
      * @var AssetManager asset
      */
-    public $asset;
+    public $assetManager;
 
     /**
      * Response constructor.
@@ -58,10 +58,10 @@ class Response {
 
         switch($this->config->getDatabaseDriver()) {
             case "mysql_pdo":
-                $this->asset = new AssetManager(new MysqlPdoDriver(), $this->recipientUserId);
+                $this->assetManager = new AssetManager(new MysqlPdoDriver(), $this->recipientUserId);
                 break;
             case "sqlite":
-                $this->asset = new AssetManager(new SqliteDriver(), $this->recipientUserId); //TODO: implement sqlite
+                $this->assetManager = new AssetManager(new SqliteDriver(), $this->recipientUserId); //TODO: implement sqlite
                 break;
             default:
                 break;
@@ -94,7 +94,7 @@ class Response {
                 [
                     'name' => 'filedata',
                     'contents' => fopen($obj->getLocation(), 'r'),
-                    'filename' => $obj->getName()
+                    //'filename' => $obj->getName()
                 ]
             ];
 
@@ -123,7 +123,7 @@ class Response {
             exit('IsTyping() toggle failed: expected values are on or off');
         }
 
-        $this->SenderAction("typing_$toggle");
+        $this->showAction("typing_$toggle");
     }
 
     public function startTyping() {
@@ -140,14 +140,14 @@ class Response {
      * @return void
      */
     public function MarkSeen() {
-        $this->SenderAction('mark_seen');
+        $this->showAction('mark_seen');
     }
 
     /**
      * Set and send sender_action
      * @param $action
      */
-    private function SenderAction($action) {
+    private function showAction($action) {
          $payload = [
             'recipient' => [
                 'id' => $this->recipientUserId

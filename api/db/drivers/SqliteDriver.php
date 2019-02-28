@@ -15,6 +15,8 @@ namespace Famephp\api\db\drivers;
 class SqliteDriver implements DriverInterface
 {
 
+    public function __construct() { }
+
     /**
      * Execute SQL query
      *
@@ -54,12 +56,12 @@ class SqliteDriver implements DriverInterface
      * Update table data
      *
      * @param string $table
-     * @param array  $values
+     * @param string $values
      * @param string $whereClause
      * @param        $placeholders
      * @return mixed
      */
-    public function update(string $table, array $values, string $whereClause, $placeholders)
+    public function update(string $table, string $values, string $whereClause, $placeholders)
     {
         // TODO: Implement update() method.
     }
@@ -97,4 +99,5 @@ class SqliteDriver implements DriverInterface
     public function delete(string $table, string $whereClause)
     {
         // TODO: Implement delete() method.
-}}
+    }
+}

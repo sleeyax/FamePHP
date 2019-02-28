@@ -34,7 +34,7 @@ abstract class Template implements JsonSerializable
      * Get JSON serializable
      * @return array
      */
-    public function GetJsonSerializable() 
+    public function getJsonSerializable()
     {
         return [
            'attachment' => [
@@ -44,4 +44,3 @@ abstract class Template implements JsonSerializable
         ];
     }
 }
-?>

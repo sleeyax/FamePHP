@@ -45,7 +45,6 @@ class AssetManager
         $this->database = $database;
         $config = ConfigReader::getInstance();
         $this->graph = new GraphRequest($config->getPageAccessToken());
-
         $this->recipientUserId = $recipientUserId;
     }
 
@@ -63,6 +62,7 @@ class AssetManager
      * Store attachment on facebook's server for later use
      *
      * @param Attachment $obj
+     * @return bool
      */
     public function upload(Attachment $obj)
     {
@@ -82,14 +82,28 @@ class AssetManager
             [
                 'name' => 'filedata',
                 'contents' => fopen($obj->getLocation(), 'r'),
-                'filename' => $obj->getName()
+                // 'filename' => $obj->getName()
             ]
         ];
 
-        $response = json_decode($this->graph->uploadAttachment($payload));
+        $response = json_decode($this->graph->uploadAttachment($payload), true);
         $attachmentId = $response['attachment_id'];
 
-        //TODO: insert into database
-    }
+        $this->database->select('assets', ['Attachmentid, Name'], 'Name=:Name', [':Name' => $obj->getName()]);
+        $row = $this->database->fetchRow();
 
+        if(empty($row)) {
+           $this->database->insert('assets', ['Attachmentid', 'Name'], [
+                ':aid' => [$attachmentId, \PDO::PARAM_STR],
+                ':name' => [$obj->getName(), \PDO::PARAM_STR]
+            ]);
+        }else{
+            $this->database->update('assets', 'Attachmentid=:aid', 'Name=:name', [
+                ':name' => [$row['Name'], \PDO::PARAM_STR],
+                ':aid' => [$attachmentId, \PDO::PARAM_STR]
+            ]);
+        }
+
+        return ($this->database->countAffectedRows() > 0) ? true : false;
+    }
 }

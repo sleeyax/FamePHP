@@ -59,7 +59,7 @@ class ButtonList implements JsonSerializable {
      * Get JSON serializable
      * @return array
      */
-    public function GetJsonSerializable() 
+    public function getJsonSerializable()
     {
         return $this->buttonListSerializable;
     }

@@ -64,11 +64,6 @@ abstract class Attachment {
      */
     protected function __construct($attachment, $attachmentName, $reusable)
     {
-        if ($reusable == true && empty($attachmentName))
-        {
-            throw new \InvalidArgumentException('$attachmentName can\'t be empty when using reusable attachments!');
-        }
-
         $this->isReusable = $reusable;
         $this->name = $attachmentName;
 
@@ -89,7 +84,7 @@ abstract class Attachment {
                 }
                 $this->location = $parts[0];
                 $this->mimeType = $parts[1];
-                $this->name = ($attachmentName == null) ? $this->location : $attachmentName;
+                $this->name = ($attachmentName == null) ? pathinfo($this->location, PATHINFO_FILENAME) : $attachmentName;
                 break;
         }
     }
@@ -131,7 +126,7 @@ abstract class Attachment {
 
     /**
      * Return the name of the attachment
-     * @return mixed null | string
+     * @return string
      */
     public function getName()
     {

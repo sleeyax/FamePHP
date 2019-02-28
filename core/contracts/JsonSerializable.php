@@ -21,6 +21,5 @@ interface JsonSerializable
      * JSON serializable
      * @return array
      */
-    public function GetJsonSerializable();
+    public function getJsonSerializable();
 }
-?>

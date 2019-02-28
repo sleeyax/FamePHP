@@ -41,13 +41,14 @@ interface DriverInterface
 
     /**
      * Update table data
+     *
      * @param string $table
-     * @param array  $values
+     * @param string $values
      * @param string $whereClause
-     * @param        $placeholders
+     * @param array  $placeholders
      * @return mixed
      */
-    public function update(string $table, array $values, string $whereClause, $placeholders);
+    public function update(string $table, string $values, string $whereClause, array $placeholders);
 
     /** Return the number of affected rows after query execution
      * @return int

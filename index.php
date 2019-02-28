@@ -25,7 +25,7 @@ $listener->hears('working?', function(Sender $sender, Response $response) {
 });
 
 $listener->hears('img', function($sender, Response $response) {
-    $response->send(new Image('D:\Downloads\2019-01-06_19-10-47.png;image/png'));
+    $response->send(new Image('D:\Downloads\dolphin2.png;image/png'));
 });
 
 $listener->hears('on', function($sender, Response $response) {
@@ -37,5 +37,5 @@ $listener->hears('off', function($sender, Response $response) {
 });
 
 $listener->hears('asset', function($sender, Response $response) {
-    $response->asset->upload(new Image('D:\Downloads\2019-01-06_19-10-47.png;image/png'));
+   $response->assetManager->upload(new Image('D:\Downloads\dolphin.png;image/png', null, true));
 });

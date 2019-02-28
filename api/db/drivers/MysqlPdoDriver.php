@@ -28,7 +28,7 @@ class MysqlPdoDriver implements DriverInterface
      */
     private $stmt;
 
-    public function MysqlPdoDriver(array $settings = null)
+    public function __construct(array $settings = null)
     {
         if ($settings == null) {
             $config = ConfigReader::getInstance();
@@ -36,7 +36,8 @@ class MysqlPdoDriver implements DriverInterface
         }
 
         try {
-            $this->connection = new \PDO(sprintf("mysql:host=%s;dbname=%S", $settings['host'], $settings['dbname']), $settings['username'], $settings['password']);
+            $this->connection = new \PDO(sprintf("mysql:host=%s;dbname=%s", $settings['host'], $settings['dbname']), $settings['username'], $settings['password']);
+            $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
         }catch (\PDOException $e) {
             exit("Error!: " . $e->getMessage());
         }
@@ -86,25 +87,25 @@ class MysqlPdoDriver implements DriverInterface
     public function insert(string $table, array $fields, array $values)
     {
         $query = "INSERT INTO $table (" . implode(', ', $fields) . ") VALUES (" . implode(', ', array_keys($values)) . ")";
-        return $this->ExecuteQuery($query, $values);
+        return $this->executeQuery($query, $values);
     }
 
     /**
      * Update table data
      *
      * @param string $table
-     * @param array  $values
+     * @param string $values
      * @param string $whereClause
      * @param        $placeholders
      * @return mixed
      */
-    public function update(string $table, array $values, string $whereClause, $placeholders)
+    public function update(string $table, string $values, string $whereClause, $placeholders)
     {
         $query = "UPDATE $table SET $values";
         if ($whereClause != null) {
             $query .= " WHERE $whereClause";
         }
-        return $this->ExecuteQuery($query, $placeholders);
+        return $this->executeQuery($query, $placeholders);
     }
 
     /** Return the number of affected rows after query execution
@@ -131,8 +132,7 @@ class MysqlPdoDriver implements DriverInterface
         if ($whereClause != null) {
             $query .= " WHERE $whereClause";
         }
-        $this->executeQuery($query, $placeholders);
-        return $this->stmt->fetchAll(\PDO::FETCH_ASSOC);
+        return $this->executeQuery($query, $placeholders);
     }
 
     /**

@@ -54,7 +54,7 @@ class CallButton extends Button {
      * Get JSON serializable
      * @return array
      */
-    public function GetJsonSerializable()  
+    public function getJsonSerializable()
     {
         return [
             'type' => $this->type,

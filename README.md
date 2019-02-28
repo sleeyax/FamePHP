@@ -13,8 +13,9 @@ $listener->hears('who likes callbacks?', function(Sender $sender, Response $resp
 ```
 * Autoload using composer
 * Replace plain curl with GuzzleHttp
-* Added MonoLog
+* Added MonoLog (+-)
 * Refactored GraphRequest class
-* Unit tests
+* Unit tests (+-)
 * Database drivers (mysql_pdo, sqlite)
 * Improved GraphRequest class
+* Improved AssetManager class

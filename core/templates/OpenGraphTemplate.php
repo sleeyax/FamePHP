@@ -59,14 +59,14 @@ class OpenGraphTemplate extends Template {
 
         $this->type = 'open_graph';
         $this->url = $url;
-        $this->buttons = $buttons->GetJsonSerializable();
+        $this->buttons = $buttons->getJsonSerializable();
     }
 
     /**
      * Get JSON serializable
      * @return array
      */
-    public function GetJsonSerializable() 
+    public function getJsonSerializable()
     {
        return [
            'attachment' => [
@@ -84,4 +84,3 @@ class OpenGraphTemplate extends Template {
         ];
     }
 }
-?>

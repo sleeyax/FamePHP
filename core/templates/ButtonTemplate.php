@@ -51,14 +51,14 @@ class ButtonTemplate extends Template {
 
         $this->type = 'button';
         $this->text = $text;
-        $this->buttons = $buttonsList->GetJsonSerializable();
+        $this->buttons = $buttonsList->getJsonSerializable();
     }
 
     /**
      * Get JSON serializable
      * @return array
      */
-    public function GetJsonSerializable() 
+    public function getJsonSerializable()
     {
         return [
            'attachment' => [

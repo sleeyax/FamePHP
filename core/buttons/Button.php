@@ -34,6 +34,6 @@ abstract class Button implements JsonSerializable {
      * Get JSON serializable
      * @return array
      */
-    public function GetJsonSerializable() { return $this->serializable; }
+    public function getJsonSerializable() { return $this->serializable; }
 }
 ?>
