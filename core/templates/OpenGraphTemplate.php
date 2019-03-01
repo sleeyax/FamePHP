@@ -52,7 +52,7 @@ class OpenGraphTemplate extends Template {
         if (!is_object($buttons)) {
              throw new \InvalidArgumentException('$buttons must be a ButtonList object when using OpenGraphTemplate!');
         }else{
-            if ($buttons->GetButtonCount() > 3) {
+            if ($buttons->getButtonCount() > 3) {
                 throw new \InvalidArgumentException('max 3 $buttons allowed when using OpenGraphTemplate!');
             }
         }

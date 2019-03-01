@@ -12,7 +12,6 @@
 
 namespace Famephp\core\templates;
 require_once 'Template.php';
-use Famephp\core\templates\Template;
 
 /**
  * Class MediaTemplate
@@ -75,13 +74,13 @@ class MediaTemplate extends Template {
         }
         $this->buttons = ($buttons != null) ? $buttons->GetJsonSerializable() : null;
         
-        $this->PreparePayload();
+        $this->preparePayload();
     }
 
     /**
      * Prepare payload for sending
      */
-    private function PreparePayload() 
+    private function preparePayload()
     {
         $this->payload['template_type'] = $this->type;
         $this->payload['elements'][0]['media_type'] = $this->mediaType;
@@ -97,4 +96,4 @@ class MediaTemplate extends Template {
         }
     }
 }
-?>
+

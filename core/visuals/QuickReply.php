@@ -53,4 +53,4 @@ class QuickReply implements JsonSerializable {
         return $this->jsonSerializable;
     }
 }
-?>
+

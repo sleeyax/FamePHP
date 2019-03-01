@@ -45,7 +45,7 @@ class ButtonTemplate extends Template {
             throw new \InvalidArgumentException('$text can\'t be more than 640 chars long!');
         }
 
-        if ($buttonsList->GetButtonCount() < 1 || $buttonsList->GetButtonCount() > 3) {
+        if ($buttonsList->getButtonCount() < 1 || $buttonsList->getButtonCount() > 3) {
             throw new \InvalidArgumentException('amount of buttons in $buttonsList must be between 1 and 3 when using Buttontemplates!');
         }
 

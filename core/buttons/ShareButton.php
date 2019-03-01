@@ -38,13 +38,13 @@ class ShareButton extends Button {
             $this->shareContents = $shareContents->GetJsonSerializable();
         }
 
-        $this->BuildSerializable();
+        $this->buildSerializable();
     }
 
     /**
      * Build the JSON serializable (content is stored in parent's $this->serializable)
      */
-    private function BuildSerializable() 
+    private function buildSerializable()
     {
         $this->serializable['type'] = $this->type;
         if (isset($this->shareContents)) {
@@ -53,4 +53,4 @@ class ShareButton extends Button {
     }
 
 }
-?>
+

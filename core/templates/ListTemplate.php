@@ -60,7 +60,7 @@ class ListTemplate extends GenericTemplate {
     /**
      * Prepare payload for sending
      */
-    protected function PreparePayload() {
+    protected function preparePayload() {
         $this->payload['template_type'] = $this->type;
         $this->payload['top_element_style'] = $this->topElementStyle;
         $this->payload['elements'] = $this->elements;
@@ -76,7 +76,7 @@ class ListTemplate extends GenericTemplate {
      * @param array $config key=>value pair array
      * @return void
      */
-    protected function UpdatePayload($config) 
+    protected function updatePayload($config)
     {
         if (!is_array($config)) {
             throw new \InvalidArgumentException('$config must be a key=>value pair array!');

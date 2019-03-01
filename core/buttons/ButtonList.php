@@ -53,7 +53,7 @@ class ButtonList implements JsonSerializable {
      * Returns amount of buttons in list
      * @return int
      */
-    public function GetButtonCount() { return $this->buttonCount; }
+    public function getButtonCount() { return $this->buttonCount; }
 
     /**
      * Get JSON serializable

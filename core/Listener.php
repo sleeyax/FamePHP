@@ -29,11 +29,10 @@ class Listener
     /**
      * @param        $hiddenMessage
      * @param        $callback
-     * @param string $payloadType array key to use for hidden message lookup
      */
-    public function hearsWhisper($hiddenMessage, $callback, $payloadType = 'quick_reply')
+    public function hearsWhisper($hiddenMessage, $callback)
     {
-        $this->hears($hiddenMessage, $callback, $payloadType);
+        $this->hears($hiddenMessage, $callback, 'quick_reply');
     }
 
     /**
@@ -48,8 +47,7 @@ class Listener
         if (empty($data)) {
             return;
         }
-
-        $hearedMessage = $payloadType != null ? ['entry'][0]['messaging'][0]['message'][$payloadType]['payload'] :
+        $hearedMessage = $payloadType != null ? $data['entry'][0]['messaging'][0]['message'][$payloadType]['payload'] ?? null :
                         $data['entry'][0]['messaging'][0]['message']['text'] ?? null;
         $hearedMessage = $this->config->isCaseSensitive() ? $hearedMessage : strtolower($hearedMessage);
 

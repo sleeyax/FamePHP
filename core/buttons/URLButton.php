@@ -12,7 +12,6 @@
 
 namespace Famephp\core\buttons;
 require_once 'Button.php';
-use Famephp\core\buttons\Button;
 
 /**
  * URLButton
@@ -82,10 +81,10 @@ class URLButton extends Button {
         $this->url = $url;
         $this->fallbackURL = $url;
 
-        $this->BuildSerializable();
+        $this->buildSerializable();
 
         if ($config != null) {
-            $this->UpdateSerializable($config);
+            $this->updateSerializable($config);
         }
     }
 
@@ -94,7 +93,7 @@ class URLButton extends Button {
      *
      * @return void
      */
-    private function BuildSerializable() 
+    private function buildSerializable()
     {
         $this->serializable['type'] = $this->type;
         $this->serializable['url'] = $this->url;
@@ -118,7 +117,7 @@ class URLButton extends Button {
      * @param array $config key=>value pair array
      * @return void
      */
-    private function UpdateSerializable($config) 
+    private function updateSerializable($config)
     {
         $validKeys = ['webview_height_ratio', 'messenger_extensions', 'fallback_url', 'webview_share_button'];
 
@@ -132,4 +131,4 @@ class URLButton extends Button {
     }
 
 }
-?>
+

@@ -71,17 +71,17 @@ class Response {
     /**
      * Send a message to the user
      *
-     * @param Attachment $obj object to send
+     * @param object $obj object to send
      * @return void
      */
-    public function send(Attachment $obj)
+    public function send(object $obj)
     {
         // Input check
         if (!is_object($obj)) {
             throw new \InvalidArgumentException('Send() failed: $obj must be an object!');
         }
 
-        if ($obj->isLocalAttachment()) {
+        if (method_exists($obj, 'isLocalAttachment') && $obj->isLocalAttachment()) {
             $payload = [
                 [
                     'name' => 'recipient',

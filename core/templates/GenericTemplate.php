@@ -12,7 +12,6 @@
 
 namespace Famephp\core\templates;
 require_once 'Template.php';
-use Famephp\core\templates\Template;
 
 /**
  * Class GenericTemplate
@@ -68,7 +67,7 @@ class GenericTemplate extends Template {
     {
         if (count($elements) == count($elements, COUNT_RECURSIVE))
         {
-            $this->ConstructElements($elements);
+            $this->constructElements($elements);
         }
         else
         {
@@ -77,14 +76,14 @@ class GenericTemplate extends Template {
             }
             
             foreach ($elements as $elementObj) {
-                $this->ConstructElements($elementObj);
+                $this->constructElements($elementObj);
             }
         }
 
-        $this->PreparePayload();
+        $this->preparePayload();
 
         if ($config != null) {
-            $this->UpdatePayload($config);
+            $this->updatePayload($config);
         }
     }
 
@@ -94,7 +93,7 @@ class GenericTemplate extends Template {
      * @param array $element key:value pair array
      * @return void
      */
-    protected function ConstructElements($element) 
+    protected function constructElements($element)
     {
         if (!isset($element['title']))
         {
@@ -125,7 +124,7 @@ class GenericTemplate extends Template {
      *
      * @return void
      */
-    protected function PreparePayload() 
+    protected function preparePayload()
     {
         $this->payload['template_type'] = $this->type;
         $this->payload['sharable'] = $this->isSharable;
@@ -139,7 +138,7 @@ class GenericTemplate extends Template {
      * @param array $config key=>value pair array
      * @return void
      */
-    protected function UpdatePayload($config) 
+    protected function updatePayload($config)
     {
         if (!is_array($config)) {
             throw new \InvalidArgumentException('$config must be a key=>value pair array!');
@@ -157,4 +156,4 @@ class GenericTemplate extends Template {
         }
     }
 }
-?>
+

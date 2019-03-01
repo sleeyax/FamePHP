@@ -60,13 +60,13 @@ class TextQuickReplyButton extends Button {
             $this->imageURL = $url;
         }
 
-        $this->BuildSerializable();
+        $this->buildSerializable();
     }
 
     /**
      * Builds the JSON serializable
      */
-    protected function BuildSerializable()
+    protected function buildSerializable()
     {
         $this->serializable = [
             'content_type' => 'text',
