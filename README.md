@@ -1,21 +1,20 @@
 # FamePHP
-Facebook messenger's platform changed a lot after the completion of FamePHP, so here we are with version 2 of this framework! 
-V2 is not a complete rewrite, but it has too many changes to be merged with the master branch at this point in time.
+FamePHP is a framework for creating Facebook messenger bots. It uses the official Facebook API and requires PHP 7.2 or higher.
 
-## What's new
-* PHP 7.2+
-* Comply with PSR-2 standard
-* Improved code style/syntax
-```
-$listener->hears('who likes callbacks?', function(Sender $sender, Response $response) {
-    $response->send(new Text("We do, $sender->firstname! ;)"));
+# Documentation
+For a quick setup guide and some examples, head over to <a href="https://github.com/sleeyax/FamePHP/wiki">the wiki</a>.
+
+# Quickstart
+Can't wait to try it out? Edit `api/Config.php` to your requirements and use this code snippet in `index.php`
+```php
+<?php
+require_once 'core/Bootstrap.php';
+use Famephp\core\Response;
+use Famephp\core\Sender;
+use Famephp\core\attachments\Text;
+
+$listener->hears('hi', function(Sender $sender, Response $response) {
+    $response->send(new Text("Hello, $sender->firstname! :D"));
 });
 ```
-* Autoload using composer
-* Replace plain curl with GuzzleHttp
-* Added MonoLog (+-)
-* Refactored GraphRequest class
-* Unit tests (+-)
-* Database drivers (mysql_pdo, sqlite)
-* Improved GraphRequest class
-* Improved AssetManager class
+![quickstart result image](https://i.imgur.com/F8eKY3J.png)

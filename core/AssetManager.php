@@ -58,6 +58,14 @@ class AssetManager
         $this->database = $database;
     }
 
+    public function retrieve(string $name)
+    {
+        $this->database->select('assets', ['Attachmentid'], 'Name=:Name', [':Name' => $name]);
+        $row = $this->database->fetchRow();
+
+        return $row['Attachmentid'] ?? null;
+    }
+
     /**
      * Store attachment on facebook's server for later use
      *

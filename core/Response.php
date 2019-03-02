@@ -139,7 +139,7 @@ class Response {
      *
      * @return void
      */
-    public function MarkSeen() {
+    public function markSeen() {
         $this->showAction('mark_seen');
     }
 
